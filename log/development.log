@@ -6767,3 +6767,732 @@ Processing by ClientController#edit as HTML
   [1m[36mClient Load (0.1ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
   Rendered client/edit.html.erb within layouts/application (2.6ms)
 Completed 200 OK in 65ms (Views: 47.1ms | ActiveRecord: 15.4ms)
+
+
+Started PATCH "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 16:58:35 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pQL5kE2WFot/3AOwK3j9y+TBx2UHoMMAcbiZVlAufF0daeofgTR2ThzCjRoTthB2xun7KoXlb6ndGYJFJXjj2Q==", "client"=>{"first_name"=>"Antho", "last_name"=>"MINETTE"}, "commit"=>"Sauvegarder", "unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[35mClient Load (0.2ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 55ms (Views: 50.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg" for 172.17.0.1 at 2015-12-29 16:58:37 +0000
+Processing by ClientController#view as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[35mClient Load (0.1ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/view.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 37ms (Views: 36.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg" for 172.17.0.1 at 2015-12-29 16:58:44 +0000
+Processing by ClientController#view as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/view.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 38ms (Views: 36.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 16:58:45 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[35mClient Load (0.1ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 33ms (Views: 32.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg" for 172.17.0.1 at 2015-12-29 16:58:47 +0000
+Processing by ClientController#view as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/view.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 36ms (Views: 35.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 16:58:59 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[35mClient Load (0.1ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 35ms (Views: 34.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:00:17 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.1ms)
+** [Raven] Event not sent due to excluded environment: development
+
+ActionView::Template::Error (no implicit conversion of Symbol into Integer):
+    3:   <%= link_to "Voir la fiche SAV", client_path(@client[:unique_id]) %>
+    4: </div>
+    5: <%= simple_form_for @client, url: client_edit_path(@client.try(:unique_id)) do |c| %>
+    6:   <%= c.input :last_name, "Nom" %>
+    7:   <%= c.input :first_name, "Prenom" %>
+    8:   <%= c.button :submit, "Sauvegarder" %>
+    9: <% end %>
+  app/views/client/edit.html.erb:6:in `block in _app_views_client_edit_html_erb__1946386193907759486_47254349449940'
+  app/views/client/edit.html.erb:5:in `_app_views_client_edit_html_erb__1946386193907759486_47254349449940'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.7ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (20.7ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:00:55 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[35mClient Load (0.1ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (2.8ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.1ms)
+** [Raven] Event not sent due to excluded environment: development
+
+ActionView::Template::Error (no implicit conversion of Symbol into Integer):
+    4: </div>
+    5: <%= simple_form_for @client, url: client_edit_path(@client.try(:unique_id)) do |c| %>
+    6:   <%= c.input :last_name, prompt: 'Nom' %>
+    7:   <%= c.input :first_name, "Prenom" %>
+    8:   <%= c.button :submit, "Sauvegarder" %>
+    9: <% end %>
+  app/views/client/edit.html.erb:7:in `block in _app_views_client_edit_html_erb__1946386193907759486_70211599134780'
+  app/views/client/edit.html.erb:5:in `_app_views_client_edit_html_erb__1946386193907759486_70211599134780'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.7ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (19.2ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:01:18 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 36ms (Views: 35.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:02:06 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[35mClient Load (0.1ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 37ms (Views: 36.5ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:02:13 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zMZxC/fdiE3AX3GaJNvDyMbnPoUa+vf1m5Q4SupBWDt0rWKEO3/oiKNB/zAcFS515M8Cypi/W1w3NSNZnxfHvw==", "client"=>{"last_name"=>"MINETTE", "first_name"=>"Antho"}, "commit"=>"Sauvegarder", "unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 36ms (Views: 34.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg" for 172.17.0.1 at 2015-12-29 17:02:15 +0000
+Processing by ClientController#view as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/view.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 33ms (Views: 32.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:02:18 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[35mClient Load (0.2ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 34ms (Views: 33.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:04:00 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 48ms (Views: 40.6ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:04:03 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fnjV91Ms3RjIDdtzZdqMD4ljbAAwk002W8gCd8yYHE3GE8Z4n4693asTVdldFGGyq0tQT7LW4Z/3aRlkuc6DyQ==", "client"=>{"last_name"=>"MINETTE", "first_name"=>"Antho", "address"=>"28 Le Chipal", "postal_code"=>"88520", "phone"=>"032951777"}, "commit"=>"Sauvegarder", "unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[35mClient Load (0.1ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  UPDATE "clients" SET "phone" = ?, "updated_at" = ? WHERE "clients"."id" = ?  [["phone", "032951777"], ["updated_at", "2015-12-29 17:04:03.378756"], ["id", 15]]
+  [1m[36m (13.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mClient Load (0.1ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 54ms (Views: 35.9ms | ActiveRecord: 14.2ms)
+
+
+Started PATCH "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:04:04 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EYzfJuEUF9w+k2F4T7RikbeMl+GYf89xMQKZG1FaI7Wp58ypLbZ3GV2N79J3eo8slaSrrho6Y9ido4IIJAy8MQ==", "client"=>{"last_name"=>"MINETTE", "first_name"=>"Antho", "address"=>"28 Le Chipal", "postal_code"=>"88520", "phone"=>"0329517771"}, "commit"=>"Sauvegarder", "unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "clients" SET "phone" = ?, "updated_at" = ? WHERE "clients"."id" = ?[0m  [["phone", "0329517771"], ["updated_at", "2015-12-29 17:04:04.829739"], ["id", 15]]
+  [1m[35m (15.3ms)[0m  commit transaction
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 62ms (Views: 43.9ms | ActiveRecord: 15.7ms)
+
+
+Started PATCH "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:04:07 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DXb37JFWtwC4dBlXYD6kWx6Dxc+2G7OBvO4CURFjaFm1HeRjXfTXxdtql/1Y8EnmPKv5gDReHygQTxlCZDX33Q==", "client"=>{"last_name"=>"MINETTE", "first_name"=>"Anthony", "address"=>"28 Le Chipal", "postal_code"=>"88520", "phone"=>"0329517771"}, "commit"=>"Sauvegarder", "unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[35mClient Load (0.1ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "clients" SET "first_name" = ?, "updated_at" = ? WHERE "clients"."id" = ?  [["first_name", "Anthony"], ["updated_at", "2015-12-29 17:04:07.555150"], ["id", 15]]
+  [1m[36m (10.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mClient Load (0.1ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 51ms (Views: 35.7ms | ActiveRecord: 11.4ms)
+
+
+Started GET "/client/index" for 172.17.0.1 at 2015-12-29 17:04:11 +0000
+Processing by ClientController#index as HTML
+  Rendered client/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 31ms (Views: 30.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg" for 172.17.0.1 at 2015-12-29 17:04:13 +0000
+Processing by ClientController#view as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/view.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 33ms (Views: 32.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg" for 172.17.0.1 at 2015-12-29 17:04:45 +0000
+Processing by ClientController#view as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[35mClient Load (0.1ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/view.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 33ms (Views: 32.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:04:48 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 33ms (Views: 32.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg" for 172.17.0.1 at 2015-12-29 17:04:50 +0000
+Processing by ClientController#view as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[35mClient Load (0.1ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/view.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 35ms (Views: 33.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:04:55 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 42ms (Views: 40.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg" for 172.17.0.1 at 2015-12-29 17:04:58 +0000
+Processing by ClientController#view as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[35mClient Load (0.1ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/view.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 32ms (Views: 31.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg" for 172.17.0.1 at 2015-12-29 17:06:40 +0000
+Processing by ClientController#view as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/view.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 33ms (Views: 31.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:06:41 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[35mClient Load (0.1ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 34ms (Views: 33.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:07:48 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 35ms (Views: 33.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:08:30 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[35mClient Load (0.2ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (1.3ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms)
+** [Raven] Event not sent due to excluded environment: development
+
+SyntaxError (/app/app/views/client/edit.html.erb:14: syntax error, unexpected [, expecting ']'
+  		['Smartphone', 'smartphone']
+  		 ^
+/app/app/views/client/edit.html.erb:17: syntax error, unexpected ']', expecting ')'
+		] );@output_buffer.safe_append='
+		 ^
+/app/app/views/client/edit.html.erb:18: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;   end 
+               ^
+/app/app/views/client/edit.html.erb:20: syntax error, unexpected keyword_end, expecting ')'
+'.freeze; end ;@output_buffer.to_s
+             ^
+/app/app/views/client/edit.html.erb:21: syntax error, unexpected keyword_ensure, expecting ')'
+/app/app/views/client/edit.html.erb:23: syntax error, unexpected keyword_end, expecting ')'):
+  app/views/client/edit.html.erb:14: syntax error, unexpected [, expecting ']'
+  app/views/client/edit.html.erb:17: syntax error, unexpected ']', expecting ')'
+  app/views/client/edit.html.erb:18: syntax error, unexpected keyword_end, expecting ')'
+  app/views/client/edit.html.erb:20: syntax error, unexpected keyword_end, expecting ')'
+  app/views/client/edit.html.erb:21: syntax error, unexpected keyword_ensure, expecting ')'
+  app/views/client/edit.html.erb:23: syntax error, unexpected keyword_end, expecting ')'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (18.7ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:08:37 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 41ms (Views: 39.9ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:08:40 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2dinTPx5owmgkUeL2NdGLZqG2XcKUOeb3/JbHRHxiJths7TDMNvDzMOPySHgGauQuK7lOIgVSzJzU0AOZKcXHw==", "client"=>{"last_name"=>"MINETTE", "first_name"=>"Anthony", "address"=>"28 Le Chipal", "postal_code"=>"88520", "phone"=>"0329517771", "product"=>"smartphone"}, "commit"=>"Sauvegarder", "unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+Unpermitted parameter: product
+  [1m[35mClient Load (0.1ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 42ms (Views: 40.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/client/index" for 172.17.0.1 at 2015-12-29 17:08:42 +0000
+Processing by ClientController#index as HTML
+  Rendered client/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 29ms (Views: 28.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg" for 172.17.0.1 at 2015-12-29 17:08:45 +0000
+Processing by ClientController#view as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[35mClient Load (0.1ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/view.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 33ms (Views: 32.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:08:52 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 42ms (Views: 40.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:09:46 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[35mClient Load (0.1ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 39ms (Views: 38.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:10:37 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 43ms (Views: 41.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:12:43 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[35mClient Load (0.1ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 41ms (Views: 40.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:13:36 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 47ms (Views: 45.9ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:13:40 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eX0aiTibj3VqRTGcpa6EWfZplFEN1mejAI4bOjUzVv/BFgkG9DnvsAlbvzadYGnk1EGoHo+TywqsLwApQGXJew==", "client"=>{"last_name"=>"MINETTE", "first_name"=>"Anthony", "address"=>"28 Le Chipal", "postal_code"=>"88520", "phone"=>"0329517771", "product"=>"autre"}, "commit"=>"Sauvegarder", "unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+Unpermitted parameter: product
+  [1m[35mClient Load (0.1ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 39ms (Views: 36.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg" for 172.17.0.1 at 2015-12-29 17:13:41 +0000
+Processing by ClientController#view as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[35mClient Load (0.1ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/view.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 46ms (Views: 44.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:13:45 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 35ms (Views: 34.1ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:13:48 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"b20TjB7chrPSjEBB3foK7qb2Rt85Q8T/wkuVjRuThk3XBgAD0n7mdrGSzuvlNOdThN56kLsGaFZu6o6ebsUZyQ==", "client"=>{"last_name"=>"MINETTE", "first_name"=>"Anthony", "address"=>"28 Le Chipal", "postal_code"=>"88520", "phone"=>"0329517771", "product"=>"autre"}, "commit"=>"Sauvegarder", "unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+Unpermitted parameter: product
+  [1m[35mClient Load (0.1ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 39ms (Views: 36.2ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:14:04 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"b20TjB7chrPSjEBB3foK7qb2Rt85Q8T/wkuVjRuThk3XBgAD0n7mdrGSzuvlNOdThN56kLsGaFZu6o6ebsUZyQ==", "client"=>{"last_name"=>"MINETTE", "first_name"=>"Anthony", "address"=>"28 Le Chipal", "postal_code"=>"88520", "phone"=>"0329517771", "product"=>"autre"}, "commit"=>"Sauvegarder", "unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[35mClient Load (0.2ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  UPDATE "clients" SET "product" = ?, "updated_at" = ? WHERE "clients"."id" = ?  [["product", "autre"], ["updated_at", "2015-12-29 17:14:04.111576"], ["id", 15]]
+  [1m[36m (18.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mClient Load (0.1ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 80ms (Views: 46.4ms | ActiveRecord: 20.2ms)
+
+
+Started PATCH "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:14:08 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sKzrp7qTa7e7cG5YfGDEbi91Jzn4t6FcSYPcgHckXgMIx/godjELcthu4PJErinTDV0bdnryDfXlIseTAnLBhw==", "client"=>{"last_name"=>"MINETTE", "first_name"=>"Anthony", "address"=>"28 Le Chipal", "postal_code"=>"88520", "phone"=>"0329517771", "product"=>"autre"}, "commit"=>"Sauvegarder", "unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 40ms (Views: 37.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg" for 172.17.0.1 at 2015-12-29 17:14:10 +0000
+Processing by ClientController#view as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/view.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 41ms (Views: 40.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:14:13 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[35mClient Load (0.1ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 34ms (Views: 33.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:14:45 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 37ms (Views: 36.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:16:13 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[35mClient Load (0.1ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 69ms (Views: 67.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg" for 172.17.0.1 at 2015-12-29 17:16:16 +0000
+Processing by ClientController#view as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/view.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 31ms (Views: 30.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg" for 172.17.0.1 at 2015-12-29 17:16:38 +0000
+Processing by ClientController#view as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[35mClient Load (0.1ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/view.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 38ms (Views: 37.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:16:44 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 35ms (Views: 34.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:16:45 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[35mClient Load (0.1ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 36ms (Views: 35.3ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:16:49 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"a0twfaBWIi1768qjq0whGm94I+xckAPCEFfsl9yBMKTTIGPybPRC6Bj1RAmTgsynTVAfo97Vr2u89veEqdevIA==", "client"=>{"last_name"=>"MINETTE", "first_name"=>"Anthony", "address"=>"28 Le Chipal", "postal_code"=>"88520", "phone"=>"0329517771", "product"=>"pc_portable"}, "commit"=>"Sauvegarder", "unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "clients" SET "product" = ?, "updated_at" = ? WHERE "clients"."id" = ?[0m  [["product", "pc_portable"], ["updated_at", "2015-12-29 17:16:49.536300"], ["id", 15]]
+  [1m[35m (8.4ms)[0m  commit transaction
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 52ms (Views: 39.8ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg" for 172.17.0.1 at 2015-12-29 17:16:51 +0000
+Processing by ClientController#view as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[35mClient Load (0.1ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/view.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 30ms (Views: 29.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg" for 172.17.0.1 at 2015-12-29 17:17:45 +0000
+Processing by ClientController#view as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/view.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 31ms (Views: 30.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg" for 172.17.0.1 at 2015-12-29 17:18:20 +0000
+Processing by ClientController#view as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[35mClient Load (0.1ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/view.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 30ms (Views: 28.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:18:22 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 33ms (Views: 32.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:18:58 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[35mClient Load (0.1ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 40ms (Views: 38.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:19:09 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 44ms (Views: 42.5ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:19:15 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5GT56lZf45+sePkNXSMrakGhT+lE8cjbp1Qy9xWK7+ZcD+plmv2DWs9md6dl7cbXY4lzpsa0ZHIL9SnkYNxwYg==", "client"=>{"last_name"=>"MINETTE", "first_name"=>"Anthony", "address"=>"28 Le Chipal", "postal_code"=>"88520", "phone"=>"0329517771", "product"=>"pc_portable", "product_state"=>"moyen"}, "commit"=>"Sauvegarder", "unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+Unpermitted parameter: product_state
+  [1m[35mClient Load (0.2ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 55ms (Views: 52.1ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:19:30 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5GT56lZf45+sePkNXSMrakGhT+lE8cjbp1Qy9xWK7+ZcD+plmv2DWs9md6dl7cbXY4lzpsa0ZHIL9SnkYNxwYg==", "client"=>{"last_name"=>"MINETTE", "first_name"=>"Anthony", "address"=>"28 Le Chipal", "postal_code"=>"88520", "phone"=>"0329517771", "product"=>"pc_portable", "product_state"=>"moyen"}, "commit"=>"Sauvegarder", "unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[35mClient Load (0.5ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "clients" SET "product_state" = ?, "updated_at" = ? WHERE "clients"."id" = ?  [["product_state", "moyen"], ["updated_at", "2015-12-29 17:19:30.115214"], ["id", 15]]
+  [1m[36m (18.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mClient Load (0.1ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 74ms (Views: 43.1ms | ActiveRecord: 20.1ms)
+
+
+Started PATCH "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:19:33 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PaGr6XKky01rfdgxHW1+3ayF5cxl5ibr5bKwS5MXqPeFyrhmvgariAhjVpslo5Ngjq3Zg+ejikJJE6tY5kE3cw==", "client"=>{"last_name"=>"MINETTE", "first_name"=>"Anthony", "address"=>"28 Le Chipal", "postal_code"=>"88520", "phone"=>"0329517771", "product"=>"pc_portable", "product_state"=>"moyen"}, "commit"=>"Sauvegarder", "unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 40ms (Views: 37.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg" for 172.17.0.1 at 2015-12-29 17:19:34 +0000
+Processing by ClientController#view as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/view.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 32ms (Views: 30.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg" for 172.17.0.1 at 2015-12-29 17:20:54 +0000
+Processing by ClientController#view as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[35mClient Load (0.1ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/view.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 37ms (Views: 29.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:20:58 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 39ms (Views: 38.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg" for 172.17.0.1 at 2015-12-29 17:21:05 +0000
+Processing by ClientController#view as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[35mClient Load (0.1ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/view.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 29ms (Views: 27.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg" for 172.17.0.1 at 2015-12-29 17:21:58 +0000
+Processing by ClientController#view as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/view.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 31ms (Views: 30.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:22:00 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[35mClient Load (0.1ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (13.1ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.1ms)
+** [Raven] Event not sent due to excluded environment: development
+
+ActionView::Template::Error (undefined method `text' for #<SimpleForm::FormBuilder:0x007fb6d141d068>):
+    23:   <% end %>
+    24:   <%= c.input :brand, label: 'Marque' %>
+    25:   <%= c.input :product_name, label: 'Modèle' %>
+    26:   <%= c.text :panne, label: 'Panne' %>
+    27:   <%= c.button :submit, "Sauvegarder" %>
+    28: <% end %>
+  app/views/client/edit.html.erb:26:in `block in _app_views_client_edit_html_erb__1946386193907759486_70211603040060'
+  app/views/client/edit.html.erb:5:in `_app_views_client_edit_html_erb__1946386193907759486_70211603040060'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.0ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (17.9ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:22:01 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (13.7ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.1ms)
+** [Raven] Event not sent due to excluded environment: development
+
+ActionView::Template::Error (undefined method `text' for #<SimpleForm::FormBuilder:0x007fb6d3872670>):
+    23:   <% end %>
+    24:   <%= c.input :brand, label: 'Marque' %>
+    25:   <%= c.input :product_name, label: 'Modèle' %>
+    26:   <%= c.text :panne, label: 'Panne' %>
+    27:   <%= c.button :submit, "Sauvegarder" %>
+    28: <% end %>
+  app/views/client/edit.html.erb:26:in `block in _app_views_client_edit_html_erb__1946386193907759486_70211588194940'
+  app/views/client/edit.html.erb:5:in `_app_views_client_edit_html_erb__1946386193907759486_70211588194940'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.2ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (18.4ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:22:50 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[35mClient Load (0.2ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 50ms (Views: 48.8ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:22:57 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AweSNWLL+24ITMZ4HbX7V6dp2NinR4vgFRLgEp1ObzS7bIG6rmmbq2tSSNIlexbqhUHklyUCJ0m5s/sB6BjwsA==", "client"=>{"last_name"=>"MINETTE", "first_name"=>"Anthony", "address"=>"28 Le Chipal", "postal_code"=>"88520", "phone"=>"0329517771", "product"=>"pc_portable", "product_state"=>"moyen", "brand"=>"apple", "product_name"=>"iPhone 5", "panne"=>"L'iphone marche plus vu qu'il est tombé par terre. :)"}, "commit"=>"Sauvegarder", "unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+Unpermitted parameter: panne
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 43ms (Views: 39.8ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/client/EFrve9rwGOvHsbnDVn3pxg/edit" for 172.17.0.1 at 2015-12-29 17:23:10 +0000
+Processing by ClientController#edit as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AweSNWLL+24ITMZ4HbX7V6dp2NinR4vgFRLgEp1ObzS7bIG6rmmbq2tSSNIlexbqhUHklyUCJ0m5s/sB6BjwsA==", "client"=>{"last_name"=>"MINETTE", "first_name"=>"Anthony", "address"=>"28 Le Chipal", "postal_code"=>"88520", "phone"=>"0329517771", "product"=>"pc_portable", "product_state"=>"moyen", "brand"=>"apple", "product_name"=>"iPhone 5", "panne"=>"L'iphone marche plus vu qu'il est tombé par terre. :)"}, "commit"=>"Sauvegarder", "unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "clients" SET "panne" = ?, "updated_at" = ? WHERE "clients"."id" = ?[0m  [["panne", "L'iphone marche plus vu qu'il est tombé par terre. :)"], ["updated_at", "2015-12-29 17:23:10.267870"], ["id", 15]]
+  [1m[35m (11.5ms)[0m  commit transaction
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1[0m  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/edit.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 69ms (Views: 45.0ms | ActiveRecord: 13.1ms)
+
+
+Started GET "/client/EFrve9rwGOvHsbnDVn3pxg" for 172.17.0.1 at 2015-12-29 17:23:13 +0000
+Processing by ClientController#view as HTML
+  Parameters: {"unique_id"=>"EFrve9rwGOvHsbnDVn3pxg"}
+  [1m[35mClient Load (0.1ms)[0m  SELECT  "clients".* FROM "clients" WHERE "clients"."unique_id" = ? LIMIT 1  [["unique_id", "EFrve9rwGOvHsbnDVn3pxg"]]
+  Rendered client/view.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 40ms (Views: 38.9ms | ActiveRecord: 0.1ms)

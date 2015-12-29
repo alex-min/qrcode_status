@@ -7,7 +7,18 @@ class ClientController < ApplicationController
 
   def edit
     if request.request_method === 'PATCH'
-      attrs = params.require(:client).permit(:first_name, :last_name)
+      attrs = params.require(:client).permit(
+        :first_name,
+        :last_name,
+        :address,
+        :postal_code,
+        :phone,
+        :product,
+        :product_state,
+        :brand,
+        :product_name,
+        :panne
+      )
       client = Client.find_by!(unique_id: params[:unique_id])
       client.assign_attributes(attrs)
       client.save!
