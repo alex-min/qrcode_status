@@ -1,0 +1,284 @@
+/* line 5, /app/app/assets/stylesheets/client.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+/* line 26, /app/app/assets/stylesheets/client.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 30, /app/app/assets/stylesheets/client.scss */
+body {
+  line-height: 1;
+}
+
+/* line 33, /app/app/assets/stylesheets/client.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 36, /app/app/assets/stylesheets/client.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 39, /app/app/assets/stylesheets/client.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* line 44, /app/app/assets/stylesheets/client.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 48, /app/app/assets/stylesheets/client.scss */
+b {
+  font-weight: bold;
+}
+
+/* line 51, /app/app/assets/stylesheets/client.scss */
+html {
+  height: 100%;
+  min-height: 500px;
+}
+
+/* line 52, /app/app/assets/stylesheets/client.scss */
+h1, h2, h3, h4, h5, h6 {
+  text-decoration: underline;
+}
+
+/* line 56, /app/app/assets/stylesheets/client.scss */
+h1 {
+  font-size: 35px;
+}
+
+/* line 57, /app/app/assets/stylesheets/client.scss */
+h2 {
+  font-size: 30px;
+}
+
+/* line 59, /app/app/assets/stylesheets/client.scss */
+h1 {
+  display: inline-block;
+  margin-bottom: 10px;
+  float: right;
+  border: 1px solid black;
+  margin-right: 50px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+/* line 69, /app/app/assets/stylesheets/client.scss */
+.sav-address {
+  font-family: Arial;
+  padding: 1px;
+  margin: 1px;
+  float: left;
+  font-size: 35px;
+}
+
+/* line 77, /app/app/assets/stylesheets/client.scss */
+.client-infos {
+  float: right;
+  font-size: 35px;
+  border: 1px solid black;
+  margin-right: 50px;
+  border-radius: 10px;
+  padding: 10px;
+  width: 50%;
+}
+
+/* line 87, /app/app/assets/stylesheets/client.scss */
+.client-infos pre {
+  float: right;
+  margin: 0;
+}
+
+/* line 92, /app/app/assets/stylesheets/client.scss */
+.signature-block {
+  height: 100px;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-top: 30px;
+}
+
+/* line 98, /app/app/assets/stylesheets/client.scss */
+.signature-contrat {
+  color: red;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+/* line 104, /app/app/assets/stylesheets/client.scss */
+.panne {
+  float: right;
+  width: 50%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+/* line 111, /app/app/assets/stylesheets/client.scss */
+.produit-panne {
+  float: left;
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid black;
+  margin-top: 10px;
+  width: 30%;
+}
+
+/* line 120, /app/app/assets/stylesheets/client.scss */
+.produit-panne label {
+  font-size: 30px;
+}
+
+/* line 124, /app/app/assets/stylesheets/client.scss */
+.produit {
+  border: 1px solid black;
+  width: 20px;
+  height: 20px;
+}
+
+/* line 130, /app/app/assets/stylesheets/client.scss */
+input[type="checkbox"] {
+  display: none;
+}
+
+/* line 133, /app/app/assets/stylesheets/client.scss */
+label {
+  cursor: pointer;
+}
+
+/* line 137, /app/app/assets/stylesheets/client.scss */
+.checkbox {
+  border: 3px solid black;
+  height: 20px;
+  width: 20px;
+  float: left;
+  margin-right: 10px;
+  position: relative;
+  top: -5px;
+}
+
+/* line 147, /app/app/assets/stylesheets/client.scss */
+.bottom-notice {
+  position: absolute;
+  bottom: 20px;
+  font-size: 20px;
+}
+
+/* line 153, /app/app/assets/stylesheets/client.scss */
+body {
+  padding: 20px;
+}
+
+/* line 157, /app/app/assets/stylesheets/client.scss */
+.action-bar {
+  background-color: #474747;
+  box-shadow: 1px 0px 0px rgba(255, 255, 255, 0.08) inset, 0px 1px 1px rgba(0, 0, 0, 0.15) inset, 0px -1px 0px rgba(255, 255, 255, 0.05) inset, 0px 1px 0px rgba(0, 0, 0, 0.15), 0px 1px 1px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* line 163, /app/app/assets/stylesheets/client.scss */
+.action-bar a {
+  background: white;
+  padding: 5px;
+}
+
+@page {
+  size: auto;
+  margin: 0mm;
+}
+@media print {
+  /* line 175, /app/app/assets/stylesheets/client.scss */
+  .action-bar {
+    display: none;
+  }
+}
+@media screen {
+  /* line 181, /app/app/assets/stylesheets/client.scss */
+  body {
+    position: relative;
+  }
+}
+/* line 184, /app/app/assets/stylesheets/client.scss */
+.tableau-panne {
+  border: 1px solid black;
+  min-height: 300px;
+  position: relative;
+}
+
+/* line 189, /app/app/assets/stylesheets/client.scss */
+.tableau-panne h3 {
+  margin-left: 20px;
+  position: absolute;
+  bottom: 40px;
+  font-size: 20px;
+}
+
+/* line 195, /app/app/assets/stylesheets/client.scss */
+.panne-bottom {
+  font-size: 30px;
+}
+
+/* line 199, /app/app/assets/stylesheets/client.scss */
+.checkbox-row {
+  margin-top: 50px;
+}
+
+/* line 204, /app/app/assets/stylesheets/client.scss */
+.checkbox-col {
+  float: left;
+  margin-right: 15px;
+}
+
+/* line 208, /app/app/assets/stylesheets/client.scss */
+.checkbox-col label {
+  font-size: 30px;
+}
+
+/* line 211, /app/app/assets/stylesheets/client.scss */
+.checkbox-col .checkbox {
+  top: 5px;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+

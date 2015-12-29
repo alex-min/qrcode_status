@@ -1,0 +1,5 @@
+<%= simple_form_for @client, url: client_edit_path(@client.try(:unique_id)) do |c| %>
+  <%= c.input :first_name %>
+  <%= c.input :last_name %>
+  <%= c.button :submit, "Sauvegarder" %>
+<% end %>

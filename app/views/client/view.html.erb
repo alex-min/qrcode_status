@@ -1,0 +1,146 @@
+<div class="action-bar">
+  <%= link_to "Retourner a la liste des clients", clients_path %>
+  <%= link_to "Editer le client", client_edit_path(@client[:unique_id]) %>
+  <a href="javascript:window.print()">Imprimer la fiche</a>
+</div>
+<div style="min-height:1000px">
+  <%= image_tag "/images/microdeo-logo.png" %>
+  <h1>FICHE DE PRISE EN CHARGE SAV</h1>
+  <br>
+  <div style="overflow:hidden">
+    <div class="sav-address"><br>
+      27 rue Stanislas<br>
+      88100 Saint Dié des Vosges<br>
+      <b>Tel:</b>09 67 50 06 42<br>
+      <b>Siret:</b> 80065322200011<br>
+      <b>Site Web:</b>microdeo.com
+    </div>
+    <div class="client-infos container">
+      <h2>Informations Client</h2>
+      <div class="col-xs-6">
+        <b>Nom:</b> <%= @client.last_name %>
+      </div>
+      <div class="col-xs-6">
+        <b>Prénom:</b> <%= @client.first_name %>
+      </div>
+      <div class="col-xs-12">
+        <b>Addresse:</b> <%= @client.address %>
+      </div>
+      <div class="col-xs-12">
+        <b>CP et ville:</b> <%= @client.postal_code %>
+      </div>
+      <div class="col-xs-12">
+        <b>Date:</b> <%= @client.created_at.to_date %>
+      </div>
+      <div class="col-xs-12">
+        <b>Téléphone:</b> <%= @client.phone %>
+      </div>
+    </div>
+  </div>
+  <div class="produit-panne">
+    <h2>Produit en Panne</h2>
+    <br>
+    <div class="checkbox-row">
+      <div class="checkbox" <%= @client.product == 'tour_pc' ? 'checked' : '' %>></div>
+      <label>Tour de PC</label>
+    </div>
+    <br>
+    <div class="checkbox-row">
+      <div class="checkbox" <%= @client.product == 'smartphone' ? 'checked' : '' %>></div>
+      <label>Smartphone</label>
+    </div>
+    <br>
+    <div class="checkbox-row">
+      <div class="checkbox" <%= @client.product == 'pc_portable' ? 'checked' : '' %>></div>
+      <label>PC Portable</label>
+    </div>
+    <br>
+    <div class="checkbox-row">
+      <div class="checkbox" <%= @client.product == 'autre' ? 'checked' : '' %>></div>
+      <label>Autre</label>
+    </div>
+    <br>
+    <br>
+    <div class="panne-bottom">
+      <b>Marque:</b> <%= @client.brand.try(:humanize) %><br>
+      <br>
+      <b>Modèle:</b> <%= @client.product_name %><br>
+    </div>
+  </div>
+  <div class="panne">
+    <h2>Panne constatée :</h2>
+    <div class="tableau-panne">
+      <br>
+      <%= @client.panne %>
+      <h3>Piéce à changer:</h3>
+    </div>
+  </div>
+  <div class="panne">
+    <h2>État du matériel:</h2>
+    <br>
+    <div class="checkbox-col">
+      <div class="checkbox" <%= @client.product_state == 'excellent' ? 'checked' : '' %>></div>
+      <label>Excellent</label>
+    </div>
+    <div class="checkbox-col">
+      <div class="checkbox" <%= @client.product_state == 'bon' ? 'checked' : '' %>></div>
+      <label>Bon</label>
+    </div>
+    <div class="checkbox-col">
+      <div class="checkbox" <%= @client.product_state == 'moyen' ? 'checked' : '' %>></div>
+      <label>Moyen</label>
+    </div>
+    <div class="checkbox-col">
+      <div class="checkbox" <%= @client.product_state == 'mauvais' ? 'checked' : '' %>></div>
+      <label>Mauvais</label>
+    </div>
+  </div>
+  <div class="panne">
+    <h2>Signature du client:</h2>
+    <div class="signature-block"></div>
+    <div class="signature-contrat">
+      Vous déclarez avoir pris connaissance des conditions générales.<br>
+      Nous déclinons toutes responsabilités en cas de perte de données.
+        </div>
+  </div>
+  <!--<li>{{ form(delete_form) }}</li>-->
+  <div style="clear:both"></div>
+  <p class="preambule">Montant des devis (Déductible du montant total de la réparation en cas d’acceptation) : 
+Informatique : 39 €&nbsp;&nbsp;Téléphonie: 19€<br>
+    <br>
+    MicroDeo: Dépannage informatique et téléphonie,  vente et réparation de Pc,  Pc portable, Smartphones, 
+Assemblage de PC selon vos besoins, Formatage, Nettoyage et Déblocage de smartphone toute marque.
+  </p>
+  <div style="clear:both"></div>
+  <div class="qr-code-block pull-right">
+    <div class="pull-left text">
+      <p>Scannez le QR Code<br>
+        pour voir le status de la reparation</p>
+    </div>
+    <div class="pull-right col-xs-offset-1">
+      <p>Status reparation</p>
+      <img style="margin-left:30px" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://status.microdeo.com/reparation/<%= @client.unique_id %>">
+    </div>
+  </div>
+  <pre class="bottom-notice">
+Art 1.2 - Avis de mise à disposition
+Ø Lorsque votre appareil est disponible, vous êtes prévenu par un SMS.
+1.3 - Conditions de dépôt des produits
+Ø Vous devez impérativement déposer le ou les produits accompagnés de tous ses accessoires d’origine.
+Ø Vous déclarez disposer des originaux des logiciels installés sur votre matériel et les avoir acquis licitement.
+Ø Il vous appartient préalablement au dépôt de votre matériel à notre SAV de sauvegarder l'ensemble des données. MicoDeo ne saurait en aucune façon
+être tenu pour responsable de toute perte ou altération de données qui pourraient survenir.
+Ø Le dépôt nécessite impérativement la signature du bon de dépôt. Aucune prestation ne pourra débuter sans la signature de ce bon.
+Ø L'acceptation par MicroDeo du matériel et/ou l'absence de
+ mention de la part de MicroDeo sur l'état de l'appareil ne saurait lier MicroDeo tant que 
+cette dernière n'a pas procédé au diagnostic de l'état de l'appareil.
+1.4 - Conditions de retrait des matériels
+Ø L'appareil réparé est restitué uniquement sur présentation du bon de dépôt initial accompagné de la facture originale d'achat.
+Ø La restitution se fait après complet paiement du prix de la réparation, et restitution de l'appareil de prêt le cas échéant.
+Ø Tout appareil non repris dans un délai de trois mois après que le client y ait été invité par appel téléphonique par le SAV sera considéré comme 
+abandonné et le SAV pourra en disposer de plein droit comme bon lui semble, y compris en procédant à sa destruction.
+1.5 - Garantie des réparations et matériels
+Ø La garantie de MicroDeo couvre exclusivement les pièces et la Main-d’œuvre à l'exclusion de tout autre préjudice
+</pre>
+  <div style="clear:both"></div>
+</div>

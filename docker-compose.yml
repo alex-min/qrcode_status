@@ -1,0 +1,18 @@
+web:
+  build: .
+  volumes:
+    - .:/app
+  ports:
+    - "3000:3000"
+  links:
+    - db
+  environment:
+    DOCKER_COMPOSE: 1
+    MYSQL_USER: root
+    MYSQL_PASSWORD: root
+db:
+  image: mysql:5.5
+  ports:
+    - "13306:3306"
+  environment:
+    MYSQL_ROOT_PASSWORD: root
