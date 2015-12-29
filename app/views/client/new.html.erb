@@ -1,14 +1,12 @@
 <div class="action-bar">
   <%= link_to "Retourner a la liste des clients", clients_path %>
-  <%= link_to "Voir la fiche SAV pour #{@client[:last_name]} #{@client[:first_name]}", client_path(@client[:unique_id]) %>
-  <%= link_to "Ajouter nouveau client", client_new_path %>
 </div>
 <br>
-<h1 class="pull-left">Editer le client <%= @client[:last_name] %> <%= @client[:first_name] %></h1>
+<h1 class="pull-left">Ajouter un nouveau client</h1>
 <div class="clearfix"></div>
 <br>
 <br>
-<%= simple_form_for @client, url: client_edit_path(@client.try(:unique_id)) do |c| %>
+<%= simple_form_for Client.new, url: client_new_path do |c| %>
   <%= c.input :last_name, label: 'Nom' %>
   <%= c.input :first_name, label: 'Prenom' %>
   <%= c.input :address, label: 'Addresse' %>
