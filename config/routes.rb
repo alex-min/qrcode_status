@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
-  get 'client/index' => 'client#index', as: :clients
+
+  get '/' => 'client#index', as: :clients
   get 'client/:unique_id/view' => 'client#view', as: :client
   match 'client/:unique_id/edit' => 'client#edit', as: :client_edit, via: [:get, :post, :patch]
   match 'client/new' => 'client#new', as: :client_new, via: [:get, :post]
 
+  get 'status/:unique_id' => 'status#view', as: :status
+
+  match 'status-admin/:unique_id' => 'status_admin#index', as: :status_admin, via: [:get, :post]
+
+  devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

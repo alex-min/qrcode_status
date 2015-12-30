@@ -1,0 +1,87 @@
+<nav class="navbar navbar-inverse navbar-fixed-top affix">
+  <div class="navbar-inner">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <%= image_tag "/images/microdeo-logo.png", class: 'logo pull-left' %>
+          <a class="navbar-brand" href="/">
+            <span>&nbsp;Microdeo</span>
+          </a>
+          <h1 class="col-xs-12 col-md-6">Envoyer un message au client</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="container" style="margin-top:200px">
+  <%= simple_form_for ClientEvent.new, url: status_admin_path do |c| %>
+    <table class="table status-message-selection">
+      <tr>
+        <th>
+          <h1>Message à envoyer</h1>
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <%= c.collection_radio_buttons :event_name, [['repair_done', 'Réparation terminée']], :first, :last %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= c.collection_radio_buttons :event_name, [['repair_in_progress', 'Réparation en cours']], :first, :last %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= c.collection_radio_buttons :event_name, [['problem_delay', 'Problème de réception des pièces']], :first, :last %>
+        </td>
+      </tr>
+    </table>
+    <%= c.button :submit, "Ajouter le message", class: 'btn btn-primary btn-lg' %>
+  <% end %>
+</div>
+<br>
+<br>
+<div class="action-bar container">
+  <%= link_to "Retourner a la liste des clients", clients_path %>
+  <%= link_to "Voir la fiche SAV pour #{@client[:last_name]} #{@client[:first_name]}", client_path(@client[:unique_id]) %>
+  <%= link_to "Ajouter nouveau client", client_new_path %>
+</div>
+<div class="container">
+  <table class="table table-striped">
+    <tr>
+      <th>Modele</th>
+      <td><%= @client.brand %>-<%= @client.product_name %></td>
+    </tr>
+  </table>
+  <h2>
+    Actuellement: <%= @client.client_events.last.try(:event_name) %>
+  </h2>
+  <div class="history-progress">
+    <div class="history-progress-bar">
+      <div class="history-bar">
+      </div>
+      <div class="history-progress-bar-progress"></div>
+    </div>
+  </div>
+  <h3>Historique</h3>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @client.client_events.reverse.each do |client_event| %>
+        <tr>
+          <td class="event-name"><%= client_event.event_name %></td>
+          <td class="event-name"><%= client_event.comment %></td>
+          <td>
+            <div class="date-ago">Il y a <%= time_ago_in_words(client_event.created_at) %></div>
+            <i><%= I18n.l client_event.created_at.to_date, format: :calendar %></i>
+          </td>
+        <% end %>
+      </tbody>
+    </div>

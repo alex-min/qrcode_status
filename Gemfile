@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.2.2'
 
+gem 'twilio-ruby'
+gem 'devise'
 gem 'nokogiri'
 gem 'jquery-turbolinks', '2.1.0'
 gem 'turbolinks'

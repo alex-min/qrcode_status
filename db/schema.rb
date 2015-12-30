@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151229161236) do
+ActiveRecord::Schema.define(version: 20151230160845) do
+
+  create_table "client_events", force: :cascade do |t|
+    t.string   "event_name"
+    t.text     "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "client_id"
+    t.string   "event_code"
+    t.boolean  "sms_sent"
+  end
+
+  add_index "client_events", ["client_id"], name: "index_client_events_on_client_id"
 
   create_table "clients", force: :cascade do |t|
     t.string   "first_name"
@@ -29,6 +41,30 @@ ActiveRecord::Schema.define(version: 20151229161236) do
     t.string   "etat"
     t.string   "product_state"
     t.string   "unique_id"
+    t.integer  "user_id"
   end
+
+  add_index "clients", ["user_id"], name: "index_clients_on_user_id"
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "twillo_account_sid"
+    t.string   "twillo_auth_token"
+    t.string   "twillo_root_phone"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

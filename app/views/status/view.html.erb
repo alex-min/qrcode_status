@@ -1,0 +1,66 @@
+<div class="client-status">
+  <nav class="navbar navbar-inverse navbar-fixed-top affix">
+    <div class="navbar-inner">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <%= image_tag "/images/microdeo-logo.png", class: 'logo pull-left' %>
+            <a class="navbar-brand" href="/">
+              <span>&nbsp;Microdeo</span>
+            </a>
+            <h1 class="col-xs-12 col-md-6">Statut de la réparation</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container page">
+    <table class="table table-striped">
+      <tr>
+        <th>Modele</th>
+        <td><%= @client.brand %>-<%= @client.product_name %></td>
+      </tr>
+    </table>
+    <h2>
+      Actuellement: <%= @client.client_events.last.try(:event_name) %>
+    </h2>
+    <div class="history-progress">
+      <div class="history-progress-bar">
+        <div class="history-bar">
+        </div>
+        <div class="history-progress-bar-progress"></div>
+      </div>
+    </div>
+    <h3>Historique</h3>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th></th>
+          <th></th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @client.client_events.reverse.each do |client_event| %>
+          <tr>
+            <td class="event-name"><%= client_event.event_name %></td>
+            <td class="event-name"><%= client_event.comment %></td>
+            <td>
+              <div class="date-ago">Il y a <%= time_ago_in_words(client_event.created_at) %></div>
+              <i><%= I18n.l client_event.created_at.to_date, format: :calendar %></i>
+            </td>
+          <% end %>
+        </tbody>
+      </div>
+    </div>
+    <!-- <div class="client-status">
+  <div class="top-bar">
+    <div class="container">
+      <%= image_tag "/images/microdeo-logo.png", class: 'logo' %>
+    </div>
+  </div>
+  <div class="container">
+    <h1>Status#view</h1>
+    <p>Find me in app/views/status/view.html.erb</p>
+  </div>
+</div> -->

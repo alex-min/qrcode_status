@@ -1,5 +1,7 @@
 class Client < ActiveRecord::Base
   before_save :set_unique_id
+  has_many :client_events
+  belongs_to :user
 
   def set_unique_id
     if self.unique_id.blank?

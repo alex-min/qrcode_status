@@ -1,8 +1,42 @@
 // Place all the styles related to the client controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.action-bar {
+  background-color: #474747;
+  box-shadow: 1px 0px 0px rgba(255, 255, 255, 0.08) inset, 0px 1px 1px rgba(0, 0, 0, 0.15) inset, 0px -1px 0px rgba(255, 255, 255, 0.05) inset, 0px 1px 0px rgba(0, 0, 0, 0.15), 0px 1px 1px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin-bottom: 10px;
+  display: block;
+}
+.action-bar a {
+  background: white;
+  padding: 5px;
+}
 
-html, body, div, span, applet, object, iframe,
+@media print {
+  .action-bar {
+    display: none;
+  }
+}
+
+.fiche-sav {
+  position: relative;
+  min-height: 2000px;
+  padding: 30px;
+  @media print {
+    padding: 0;
+    .tableau-panne {
+      border-bottom: 3px solid #000 !important;
+    }
+    .checkbox[checked] {
+      border-top-width: 22px;
+      height:0px;
+      border-bottom-width: 0px;
+      border-color: black;
+    }
+    
+  }
+div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -47,8 +81,6 @@ table {
 }
 b { font-weight: bold;}
 
-
-html { height: 100%;   min-height: 500px;}
 h1, h2, h3, h4, h5, h6 {
   text-decoration: underline;
 }
@@ -158,45 +190,6 @@ body {
   padding: 20px;
 }
 
-.action-bar {
-  background-color: #474747;
-  box-shadow: 1px 0px 0px rgba(255, 255, 255, 0.08) inset, 0px 1px 1px rgba(0, 0, 0, 0.15) inset, 0px -1px 0px rgba(255, 255, 255, 0.05) inset, 0px 1px 0px rgba(0, 0, 0, 0.15), 0px 1px 1px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  margin-bottom: 10px;
-}
-.action-bar a {
-  background: white;
-  padding: 5px;
-}
-
-
-@page {
-  size: auto;  
-  margin: 0mm; 
-}
-
-@media print {
-  .action-bar {
-    display: none;
-  }
-  .tableau-panne {
-    border-bottom: 3px solid #000 !important;
-  }
-  .checkbox[checked] {
-    border-top-width: 22px;
-    height:0px;
-    border-bottom-width: 0px;
-  }
-
-}
-
-@media screen {
-  body {
-  	position: relative;
-  	padding-bottom: 400px;
-  }
-}
-
 .tableau-panne {
   border: 1px solid black;
   min-height: 300px;
@@ -246,3 +239,5 @@ body {
   top: 50px;
   font-size: 20px;
 }
+
+}// .fiche-sav
