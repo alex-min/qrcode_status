@@ -11,6 +11,7 @@ class ClientController < ApplicationController
       :last_name,
       :address,
       :postal_code,
+      :city,
       :phone,
       :product,
       :product_state,
@@ -23,12 +24,9 @@ class ClientController < ApplicationController
   def new
     if request.request_method === 'POST'
       c = Client.new(authorize(params))
-      c.client_events.push(
-        ClientEvent.new({
-                          event_name: 'Prise en charge du produit',
-                          event_code: 'prise_en_charge'
-                        }
-                        ))
+      prise_en_charge = SmsMessage::get_message(message_id: :prise_en_charge, client: c)
+      c.client_events.push(ClientEvent.new(prise_en_charge))
+      c.user = current_user
       c.save!
       redirect_to client_path(c.unique_id)
     end

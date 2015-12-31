@@ -21,21 +21,13 @@
           <h1>Message à envoyer</h1>
         </th>
       </tr>
-      <tr>
-        <td>
-          <%= c.collection_radio_buttons :event_name, [['repair_done', 'Réparation terminée']], :first, :last %>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <%= c.collection_radio_buttons :event_name, [['repair_in_progress', 'Réparation en cours']], :first, :last %>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <%= c.collection_radio_buttons :event_name, [['problem_delay', 'Problème de réception des pièces']], :first, :last %>
-        </td>
-      </tr>
+      <% @messages.each do |event_code, event| %>
+        <tr>
+          <td>
+            <%= c.collection_radio_buttons :event_name, [[event_code, event[:event_name]]], :first, :last %>
+          </td>
+        </tr>
+      <% end %>
     </table>
     <%= c.button :submit, "Ajouter le message", class: 'btn btn-primary btn-lg' %>
   <% end %>

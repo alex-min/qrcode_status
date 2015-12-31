@@ -13,7 +13,20 @@
   padding: 5px;
 }
 
+
+.fiche-sav img {
+  height: 150px;
+}
+
 @media print {
+@page{
+margin: 25px
+}
+body {
+  zoom: 0.7;
+}
+
+
   .action-bar {
     display: none;
   }
