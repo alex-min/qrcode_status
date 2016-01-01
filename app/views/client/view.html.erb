@@ -28,7 +28,7 @@
           <b>Addresse:</b> <%= @client.address %>
         </div>
         <div class="col-xs-12">
-          <b>CP et ville:</b> <%= @client.postal_code %>
+          <b>CP et ville:</b> <%= @client.postal_code %> <%= @client.city %>
         </div>
         <div class="col-xs-12">
           <b>Date:</b> <%= @client.created_at.to_date %>
