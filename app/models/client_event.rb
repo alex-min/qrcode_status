@@ -11,6 +11,7 @@ class ClientEvent < ActiveRecord::Base
       if phone[0] === '0'
         phone = phone[1..10]
       end
+      #raise self.message
       @client.account.messages.create({
                                         :from => user.twillo_root_phone,
                                         :to => "+33#{phone}",

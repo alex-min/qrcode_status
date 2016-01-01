@@ -24,7 +24,7 @@ class ClientController < ApplicationController
   def new
     if request.request_method === 'POST'
       c = Client.new(authorize(params))
-      prise_en_charge = SmsMessage::get_message(message_id: :prise_en_charge, client: c)
+      prise_en_charge = SmsMessages::get_message(message_id: :prise_en_charge, client: c)
       c.client_events.push(ClientEvent.new(prise_en_charge))
       c.user = current_user
       c.save!
