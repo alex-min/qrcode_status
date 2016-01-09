@@ -21,3 +21,7 @@
 #                 }
 #               ]
 #               );
+User.create([
+              email: 'contact@microdeo.com',
+              password: 'dev'
+])

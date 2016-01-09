@@ -14,22 +14,28 @@
   </div>
 </nav>
 <div class="container" style="margin-top:200px">
-  <%= simple_form_for ClientEvent.new, url: status_admin_path do |c| %>
-    <table class="table status-message-selection">
-      <tr>
-        <th>
-          <h1>Message à envoyer pour <%= @client.full_name %></h1>
-        </th>
-      </tr>
-      <% @messages.each do |event_code, event| %>
+  <% if @client.processed %>
+    <h1>Aucune action disponible pour <%= @client.full_name %></h1>
+  <% else %>
+    <%= simple_form_for ClientEvent.new, url: status_admin_path do |c| %>
+      <table class="table status-message-selection">
         <tr>
-          <td>
-            <%= c.collection_radio_buttons :event_name, [[event_code, event[:event_name]]], :first, :last %>
-          </td>
+          <th>
+            <h1>Message à envoyer pour <%= @client.full_name %></h1>
+          </th>
         </tr>
-      <% end %>
-    </table>
-    <%= c.button :submit, "Ajouter le message", class: 'btn btn-primary btn-lg' %>
+        <% @messages.each do |(event_code, event)| %>
+          <tr>
+            <% unless event[:show_on_list] === false %>
+              <td>
+                <%= c.collection_radio_buttons :event_name, [[event_code, event[:event_name]]], :first, :last %>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+      </table>
+      <%= c.button :submit, "Ajouter le message", class: 'btn btn-primary btn-lg' %>
+    <% end %>
   <% end %>
 </div>
 <br>

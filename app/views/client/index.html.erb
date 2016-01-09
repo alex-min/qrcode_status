@@ -9,13 +9,25 @@
     <thead>
       <tr>
         <th>Nom</th>
+        <th>Produit</th>
+        <th>Statut actuel</th>
         <th>Actions</th>
       </tr>
     </thead>
     <tbody>
       <% @clients.reverse.each do |client| %>
         <tr>
-          <td><%= client.last_name %> <%= client.first_name %></td>
+          <td><%= client.full_name %></td>
+          <td><%= client.product_full_name %></td>
+          <td>
+            <% client_event = client.client_events.last %>
+            <% if client_event %>
+              <%= client_event.try(:event_name) %><br>
+              Il y a <%= time_ago_in_words(client_event.try(:created_at)) %>
+            <% else %>
+              <i>Inconnu</i>
+            <% end %>
+          </td>
           <td>
             <% if client[:unique_id] %>
               <%= link_to "Voir la fiche SAV", client_path(client[:unique_id]), class: 'btn btn-primary' %>

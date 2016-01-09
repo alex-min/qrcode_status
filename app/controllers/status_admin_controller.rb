@@ -10,6 +10,10 @@ class StatusAdminController < ApplicationController
       e = ClientEvent.new(event)
       e.client = @client
       e.save!
+      if e.last_message === true
+        @client.processed = true
+        @client.save!
+      end
     end
   end
 
