@@ -4,6 +4,7 @@ RUN mkdir -p /app
 WORKDIR /app
 COPY Gemfile Gemfile.lock ./
 RUN ls /app
-RUN bundle install --jobs 20 --retry 5
+ENV NOKOGIRI_USE_SYSTEM_LIBRARIES 'true'
+RUN bundle install --jobs 20 --retry 5 --verbose
 EXPOSE 5000
 CMD ["./start_production.sh"]
