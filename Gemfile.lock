@@ -298,7 +298,6 @@ DEPENDENCIES
   ffaker (= 1.32.1)
   jquery-rails
   jquery-turbolinks (= 2.1.0)
-  nokogiri
   php_serialize
   pry-byebug
   pry-rails
