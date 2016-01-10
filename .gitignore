@@ -42,3 +42,4 @@ public/assets
 public/assets/*.json
 log/*
 scalpel-output/
+*.log

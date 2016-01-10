@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 
 gem 'twilio-ruby'
 gem 'devise'
-gem 'nokogiri'
 gem 'jquery-turbolinks', '2.1.0'
 gem 'turbolinks'
 gem 'php_serialize'
