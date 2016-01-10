@@ -13,7 +13,8 @@ class SmsMessages
                     last_message: true
                     },
       repair_in_progress: {event_code: 'repair_in_progress', event_name: 'Réparation en cours',
-                           message: "Microdeo - Votre #{client.product_full_name} est en cours de réparation, nous vous tiendrons informés de l'avancement de la réparation.\n#{end_message}"},
+                           message: "#{hello}"\
+                           "Votre #{client.product_full_name} est en cours de réparation, nous vous tiendrons informés de l'avancement de la réparation.\n#{end_message}"},
       problem_delay: { event_name: 'problem_delay', event_name: 'Problème de réception des pièces',
                        message: "#{hello}"\
                        "Nous avons des problèmes de réception des pièces pour votre #{client.product_full_name} et la réparation est actuellement retardée.\n"\
