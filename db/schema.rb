@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160109195059) do
+ActiveRecord::Schema.define(version: 20160110114735) do
 
   create_table "client_events", force: :cascade do |t|
     t.string   "event_name"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20160109195059) do
     t.boolean  "sms_sent"
     t.text     "message"
     t.boolean  "last_message"
+    t.boolean  "show_on_list"
   end
 
   add_index "client_events", ["client_id"], name: "index_client_events_on_client_id"
