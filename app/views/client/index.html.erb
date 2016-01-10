@@ -15,7 +15,8 @@
       </tr>
     </thead>
     <tbody>
-      <% @clients.reverse.each do |client| %>
+      <td colspan="4"><span class="fa fa-tasks fa-2x"></span>&nbsp;Clients en cours :</td>
+      <% @clients.reverse.select{|c| c.processed != true}.each do |client| %>
         <tr>
           <td><%= client.full_name %></td>
           <td><%= client.product_full_name %></td>
@@ -37,6 +38,31 @@
           </td>
         </tr>
       <% end %>
+      <tr>
+        <td colspan="4"><span class="fa fa-check fa-2x" style="color: green"></span>Clients termines :</td>
+        <% @clients.reverse.select{|c| c.processed}.each do |client| %>
+          <tr>
+            <td><%= client.full_name %></td>
+            <td><%= client.product_full_name %></td>
+            <td>
+              <% client_event = client.client_events.last %>
+              <% if client_event %>
+                <%= client_event.try(:event_name) %><br>
+                Il y a <%= time_ago_in_words(client_event.try(:created_at)) %>
+              <% else %>
+                <i>Inconnu</i>
+              <% end %>
+            </td>
+            <td>
+              <% if client[:unique_id] %>
+                <%= link_to "Voir la fiche SAV", client_path(client[:unique_id]), class: 'btn btn-primary' %>
+                <%= link_to "Envoyer un message au client", status_admin_path(client[:unique_id]), class: 'btn btn-default' %>
+                <%= link_to "Editer Client", client_edit_path(client[:unique_id]), class: 'btn btn-default' %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tr>
     </tbody>
   </table>
 </div>
