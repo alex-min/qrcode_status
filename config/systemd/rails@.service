@@ -1,0 +1,14 @@
+[Unit]
+Description=Passenger Standalone Application Server
+After=network.target
+
+[Service]
+Type=simple
+PrivateTmp=yes
+User=root
+Group=root
+WorkingDirectory=/var/www/%i/current
+ExecStart=/usr/local/bin/docker-compose -f docker-compose_production.yml up
+
+[Install]
+WantedBy=multi-user.target
