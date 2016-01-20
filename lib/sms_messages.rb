@@ -1,3 +1,4 @@
+# coding: utf-8
 class SmsMessages
   def self.get_message_list(client)
     hello = "Microdeo - Bonjour #{client.full_name}.\n"
@@ -33,19 +34,22 @@ class SmsMessages
   end
 
   def self.send_sms(client, message)
-    user = client.user
-    twillo_client = Twilio::REST::Client.new user.twillo_account_sid, user.twillo_auth_token
+    begin
+      user = client.user
+      twillo_client = Twilio::REST::Client.new user.twillo_account_sid, user.twillo_auth_token
 
-    phone = client.phone.gsub(/[ \.]/, '')
-    if phone[0] === '0'
-      phone = phone[1..10]
+      phone = client.phone.gsub(/[ \.]/, '')
+      if phone[0] === '0'
+        phone = phone[1..10]
+      end
+      #raise self.message
+      twillo_client.account.messages.create({
+                                              :from => user.twillo_root_phone,
+                                              :to => "+33#{phone}",
+                                              :body => message,
+                                            })
+    rescue
     end
-    #raise self.message
-    twillo_client.account.messages.create({
-                                            :from => user.twillo_root_phone,
-                                            :to => "+33#{phone}",
-                                            :body => message,
-    })
   end
 
   def self.get_message(params = {})
