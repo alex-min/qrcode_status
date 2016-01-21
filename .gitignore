@@ -38,8 +38,10 @@ db/*.sqlite3
 prodenv.sh
 log/development.log
 docker-compose_production.yml
+docker-compose.yml
 public/assets
 public/assets/*.json
 log/*
 scalpel-output/
 *.log
+\#.*\#

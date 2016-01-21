@@ -16,6 +16,7 @@ gem 'sentry-raven'
 gem 'twitter-bootstrap-rails'
 gem 'jquery-rails'
 gem 'simple_form'
+gem 'database_cleaner'
 
 group :test do
   gem 'brakeman'                  # Always latest

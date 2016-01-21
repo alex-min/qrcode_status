@@ -45,17 +45,18 @@
         <div class="checkbox" <%= @client.product == 'tour_pc' ? 'checked' : '' %>></div>
         <label>Tour de PC</label>
       </div>
-      <br>
       <div class="checkbox-row">
         <div class="checkbox" <%= @client.product == 'smartphone' ? 'checked' : '' %>></div>
         <label>Smartphone</label>
       </div>
-      <br>
       <div class="checkbox-row">
         <div class="checkbox" <%= @client.product == 'pc_portable' ? 'checked' : '' %>></div>
         <label>PC Portable</label>
       </div>
-      <br>
+      <div class="checkbox-row">
+        <div class="checkbox" <%= @client.product == 'Tablette' ? 'checked' : '' %>></div>
+        <label>Tablette</label>
+      </div>
       <div class="checkbox-row">
         <div class="checkbox" <%= @client.product == 'autre' ? 'checked' : '' %>></div>
         <label>Autre</label>
@@ -64,7 +65,6 @@
       <br>
       <div class="panne-bottom">
         <b>Marque:</b> <%= @client.brand.try(:humanize) %><br>
-        <br>
         <b>Modèle:</b> <%= @client.product_name %><br>
       </div>
     </div>
@@ -118,7 +118,7 @@ Assemblage de PC selon vos besoins, Formatage, Nettoyage et Déblocage de smartp
         <p>Scannez le QR Code<br>
           pour voir le statut de la reparation</p>
       </div>
-      <div class="pull-right col-xs-offset-1">
+      <div class="pull-right col-xs-offset-1" style="position:relative; top:-15px; background: white;z-index:999">
         <p>Statut reparation</p>
         <img style="margin-left:30px" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://status.microdeo.com<%= status_path(@client.unique_id) %>">
       </div>
