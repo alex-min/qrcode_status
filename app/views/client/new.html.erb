@@ -33,6 +33,6 @@
     <%= c.input :panne, label: 'Panne', as: :text %>
     <br>
     <br>
-    <%= c.button :submit, "Ajouter le client", class: 'btn btn-primary btn-lg' %>
+    <%= submit_tag 'Ajouter le client', data: { disable_with: 'Ajout en cours...' }, class: 'btn btn-primary btn-lg' %>
   <% end %>
 </div>
