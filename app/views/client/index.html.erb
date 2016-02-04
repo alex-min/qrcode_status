@@ -28,6 +28,9 @@
             <% else %>
               <i>Inconnu</i>
             <% end %>
+            <% if client_event.sms_sent %>
+              <span class="label label-success"><span class="fa fa-bell"></span>&nbsp;SMS Envoyé</span>
+            <% end %>
           </td>
           <td>
             <% if client[:unique_id] %>
@@ -51,6 +54,9 @@
                 Il y a <%= time_ago_in_words(client_event.try(:created_at)) %>
               <% else %>
                 <i>Inconnu</i>
+              <% end %>
+              <% if client_event.sms_sent %>
+                <span class="label label-success"><span class="fa fa-bell"></span>&nbsp;SMS Envoyé</span>
               <% end %>
             </td>
             <td>
