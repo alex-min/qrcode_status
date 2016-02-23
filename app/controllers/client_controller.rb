@@ -1,5 +1,5 @@
 class ClientController < ApplicationController
-  before_action :authenticate_user!
+  include Authenticated
 
   def index
     @clients = Client.all

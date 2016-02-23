@@ -1,5 +1,5 @@
 class StatusAdminController < ApplicationController
-  before_action :authenticate_user!
+  include Authenticated
 
   def index
     @client = Client.find_by!(unique_id: params[:unique_id])
