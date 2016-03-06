@@ -45,3 +45,4 @@ log/*
 scalpel-output/
 *.log
 \#.*\#
+.sync
