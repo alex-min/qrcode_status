@@ -2,6 +2,8 @@ require 'rails_helper'
 Dir[File.join(File.dirname(__FILE__), '../support/**/*.rb')].each { |f| require f }
 
 RSpec.configure do |config|
+  config.include FactoryGirl::Syntax::Methods
+  FactoryGirl.find_definitions
   config.expect_with :rspec do |expectations|
 
     # This option will default to `true` in RSpec 4. It makes the `description`
