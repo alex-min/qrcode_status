@@ -9,7 +9,11 @@ class Client < ActiveRecord::Base
   end
 
   def product_full_name
-    "#{self.product.humanize.downcase} #{self.brand} #{self.product_name}"
+    if self.product
+      "#{self.product.humanize.downcase} #{self.brand} #{self.product_name}"
+    else
+      nil
+    end
   end
 
   def set_unique_id
