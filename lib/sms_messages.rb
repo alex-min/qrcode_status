@@ -16,13 +16,13 @@ class SmsMessages
       repair_in_progress: {event_code: 'repair_in_progress', event_name: 'Réparation en cours',
                            message: "#{hello}"\
                            "Votre #{client.product_full_name} est en cours de réparation, nous vous tiendrons informés de l'avancement de la réparation.\n#{end_message}"},
-      problem_delay: { event_name: 'problem_delay', event_name: 'Problème de réception des pièces',
+      problem_delay: { event_code: 'problem_delay', event_name: 'Problème de réception des pièces',
                        message: "#{hello}"\
                        "Nous avons des problèmes de réception des pièces pour votre #{client.product_full_name} et la réparation est actuellement retardée.\n"\
                        "Vous serez tenu informé de l'évolution de la réparation.\n"\
                        "#{end_message}"},
 
-      prise_en_charge: { event_name: 'prise_en_charge', event_name: 'Prise en charge du produit',
+      prise_en_charge: { event_code: 'prise_en_charge', event_name: 'Prise en charge du produit',
                          message: "#{hello}"\
                          "Votre #{client.product_full_name} est pris en charge.\n"\
                          "Vous serez tenu informé de l'évolution de la réparation.\n"\
