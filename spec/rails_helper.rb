@@ -27,9 +27,6 @@ Dir[File.join(File.dirname(__FILE__), '../support/**/*.rb')].each { |f| require 
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
-  config.global_fixtures = :all
-
   config.use_transactional_fixtures = true
 
   config.infer_spec_type_from_file_location!
