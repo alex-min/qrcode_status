@@ -4,7 +4,7 @@ class ClientEvent < ActiveRecord::Base
 
   def send_sms
     if self.sms_sent != true
-      SmsMessages::send_sms(self.client, self.message)
+      SmsMessage::send_sms(self.client, self.message)
       self.sms_sent = true
     end
   end

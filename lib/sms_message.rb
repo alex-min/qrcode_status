@@ -1,5 +1,4 @@
-# coding: utf-8
-class SmsMessages
+class SmsMessage
   def self.get_message_list(client)
     hello = "Microdeo - Bonjour #{client.full_name}.\n"
     horaires = "\nOuvert du Mardi au Samedi, de 9h à 12h et de 14h à 19h, sauf 18h le Samedi."
