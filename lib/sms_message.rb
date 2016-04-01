@@ -33,7 +33,6 @@ class SmsMessage
   end
 
   def self.send_sms(client, message)
-    begin
       user = client.user
       twillo_client = Twilio::REST::Client.new user.twillo_account_sid, user.twillo_auth_token
 
@@ -41,14 +40,15 @@ class SmsMessage
       if phone[0] === '0'
         phone = phone[1..10]
       end
-      #raise self.message
       twillo_client.account.messages.create({
                                               :from => user.twillo_root_phone,
                                               :to => "+33#{phone}",
                                               :body => message,
                                             })
-    rescue
-    end
+  rescue Twilio::REST::RequestError => e
+    message =  "Failed to send SMS for client #{client.id}: #{e.message}"
+    Rails.logger.error message
+    raise Exceptions::SMSMessageFailure, message
   end
 
   def self.get_message(params = {})
