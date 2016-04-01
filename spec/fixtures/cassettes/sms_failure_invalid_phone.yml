@@ -1,0 +1,59 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: 'https://LOGIN:PASSWORD@api.twilio.com/2010-04-01/Accounts/LOGIN/Messages.json'
+    body:
+      encoding: US-ASCII
+      string: 'From=%2B15005550006&To=%2B33&Body=Microdeo+-+Bonjour+Mael+perez+MAEVA+LECLERC.%0AVotre+tour+pc+++est+pris+en+charge.%0AVous+serez+tenu+inform%C3%A9+de+l%27%C3%A9volution+de+la+r%C3%A9paration.%0A%0AMESSAGE+AUTOMATIQUE.+MERCI+DE+NE+PAS+REPONDRE.'
+    headers:
+      Accept:
+      - application/json
+      Accept-Charset:
+      - utf-8
+      User-Agent:
+      - twilio-ruby/4.9.0 (ruby/x86_64-linux 2.2.2-p95)
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 400
+      message: BAD REQUEST
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match,
+        If-Unmodified-Since
+      Access-Control-Allow-Methods:
+      - GET, POST, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - ETag
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 01 Apr 2016 14:23:34 GMT
+      Twilio-Request-Duration:
+      - '0.031'
+      Twilio-Request-Id:
+      - REQUEST_ID
+      X-Powered-By:
+      - AT-5000
+      X-Shenanigans:
+      - none
+      Content-Length:
+      - '150'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"code": 21211, "message": "The ''To'' number +33 is not a valid phone
+        number.", "more_info": "https://www.twilio.com/docs/errors/21211", "status":
+        400}'
+    http_version:
+  recorded_at: Fri, 01 Apr 2016 14:23:35 GMT
+recorded_with: VCR 2.9.2
