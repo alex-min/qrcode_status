@@ -124,6 +124,7 @@ fr:
       not_an_integer: doit être un nombre entier
       odd: doit être impair
       taken: n'est pas disponible
+      sms: Impossible d'envoyer un SMS pour le numéro de téléphone %{phone}
       too_long:
         one: est trop long (pas plus d'un caractère)
         other: est trop long (pas plus de %{count} caractères)
