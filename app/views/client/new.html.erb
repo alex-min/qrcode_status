@@ -7,7 +7,7 @@
   <div class="clearfix"></div>
   <br>
   <br>
-  <%= simple_form_for Client.new, url: client_new_path do |c| %>
+  <%= simple_form_for @client, url: client_new_path do |c| %>
     <%= c.input :last_name, label: 'Nom' %>
     <%= c.input :first_name, label: 'Prenom' %>
     <%= c.input :address, label: 'Addresse' %>
@@ -19,7 +19,7 @@
       ['Tour de PC', 'tour_pc'],
       ['Smartphone', 'smartphone'],
       ['PC Portable', 'pc_portable'],
-      ['Tablette', 'Tablette'],      
+      ['Tablette', 'Tablette'],
       ['Autre', 'autre']
     ] %>
     <% end %>
