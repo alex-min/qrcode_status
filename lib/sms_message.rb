@@ -48,7 +48,8 @@ class SmsMessage
   rescue Twilio::REST::RequestError => e
     message =  "Failed to send SMS for client #{client.id}: #{e.message}"
     Rails.logger.error message
-    raise Exceptions::SMSMessageFailure, message
+    raise Exceptions::SMSMessageFailure,
+      I18n.t('errors.messages.sms', phone: client.phone)
   end
 
   def self.get_message(params = {})
