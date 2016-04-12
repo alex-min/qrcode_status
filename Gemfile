@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 #ruby '> 2.2'
 
+gem 'phonelib'
 gem 'twilio-ruby'
 gem 'devise'
 gem 'jquery-turbolinks', '2.1.0'
