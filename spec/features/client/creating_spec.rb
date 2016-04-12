@@ -9,6 +9,11 @@ feature 'Creating Client' do
     then_i_should_have_an_error_message
   end
 
+  scenario 'Creating a new client with failed sms' do
+    when_i_create_a_new_client_from_the_form_with_failed_sms
+    then_i_should_have_an_error_message_for_failed_sms
+  end
+
   def when_i_create_a_new_client_from_the_form
     visit client_new_path
     fill_client_form(client)
@@ -25,7 +30,7 @@ feature 'Creating Client' do
   def when_i_create_a_new_client_from_the_form_with_invalid_phone
     visit client_new_path
     fill_client_form(client_with_invalid_phone)
-    VCR.use_cassette(:sms_failure_invalid_phone,
+    VCR.use_cassette(:sms_success,
       :match_requests_on => [:host, :method]) do
         click_button 'Ajouter le client'
     end
@@ -33,6 +38,21 @@ feature 'Creating Client' do
 
   def then_i_should_have_an_error_message
     expect(page).to have_selector('.notification-error', count: 1)
+    expect(page.first('.notification-error').text).to include(I18n.t('activerecord.attributes.client.phone'))
+  end
+
+  def when_i_create_a_new_client_from_the_form_with_failed_sms
+    visit client_new_path
+    fill_client_form(client)
+    VCR.use_cassette(:sms_failure_invalid_phone,
+      :match_requests_on => [:host, :method]) do
+        click_button 'Ajouter le client'
+    end
+  end
+
+  def then_i_should_have_an_error_message_for_failed_sms
+    expect(page).to have_selector('.notification-error', count: 1)
+    expect(page.first('.notification-error').text).to eq(I18n.t('errors.messages.sms', phone: client.phone))
   end
 
   private
