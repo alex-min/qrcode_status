@@ -1,6 +1,9 @@
 ---
 fr:
   activerecord:
+    attributes:
+      client:
+        phone: 'Le numéro de téléphone'
     errors:
       messages:
         record_invalid: 'La validation a échoué : %{errors}'

@@ -4,8 +4,11 @@ class Client < ActiveRecord::Base
   belongs_to :user
   before_save :style_name
 
+  validates :phone, phone: { allow_blank: true }
+
+
   def full_name
-    "#{self.first_name.capitalize} #{self.last_name.upcase}"
+    "#{self.first_name.try(:capitalize)} #{self.last_name.try(:upcase)}"
   end
 
   def product_full_name

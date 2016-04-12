@@ -35,7 +35,8 @@ class ClientController < ApplicationController
     else
       @client = Client.new
     end
-  rescue Exceptions::SMSMessageFailure => e
+  rescue ActiveRecord::RecordInvalid, \
+         Exceptions::SMSMessageFailure => e
     @client = Client.new(authorize(params))
     @errors = [e.message]
     render :action=>'new'
