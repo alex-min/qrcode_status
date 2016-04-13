@@ -33,12 +33,13 @@ class SmsMessage
   end
 
   def self.send_sms(client, message)
+      return false if client.has_landline_phone?
       user = client.user
       twillo_client = Twilio::REST::Client.new user.twillo_account_sid, \
                                                user.twillo_auth_token
       twillo_client.account.messages.create({
                                               :from => user.twillo_root_phone,
-                                              :to => Phonelib.parse(client.phone).e164,
+                                              :to => client.phone_data.e164,
                                               :body => message,
                                             })
   rescue Twilio::REST::RequestError => e
