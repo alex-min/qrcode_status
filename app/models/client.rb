@@ -7,6 +7,14 @@ class Client < ActiveRecord::Base
   validates :phone, phone: { allow_blank: true }
 
 
+  def phone_data
+    Phonelib.parse(phone)
+  end
+
+  def has_landline_phone?
+    phone_data.type === :fixed_line
+  end
+
   def full_name
     "#{self.first_name.try(:capitalize)} #{self.last_name.try(:upcase)}"
   end
