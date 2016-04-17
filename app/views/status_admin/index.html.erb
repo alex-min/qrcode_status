@@ -21,7 +21,7 @@
       <table class="table status-message-selection">
         <tr>
           <th>
-            <h1>Message à envoyer pour <%= @client.full_name %></h1>
+            <h2><%= I18n.t('app.messages.to_sent_to', name: @client.full_name) %></h2>
           </th>
         </tr>
         <% @messages.each do |(event_code, event)| %>
@@ -83,3 +83,4 @@
         <% end %>
       </tbody>
     </div>
+</div>
