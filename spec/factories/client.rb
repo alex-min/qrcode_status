@@ -7,8 +7,10 @@ FactoryGirl.define do
     city Faker::Address.city
     phone '0611111111'
 
-    product 'Iphone'
+    product :smartphone
+    product_state :excellent
     brand 'Apple'
+    product_name 'Iphone'
 
     trait :with_invalid_phone do
       phone '0000'
