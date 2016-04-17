@@ -25,6 +25,11 @@ feature 'Creating Client' do
   def then_a_new_client_is_created
     visit clients_path
     expect(page).to have_selector('.client', count: 1)
+    and_message_sent_is_the_one_expected
+  end
+
+  def and_message_sent_is_the_one_expected
+    expect(ClientEvent.last.message).to eq(prise_en_charge_message)
   end
 
   def when_i_create_a_new_client_from_the_form_with_invalid_phone
@@ -64,8 +69,19 @@ feature 'Creating Client' do
     fill_in :client_postal_code, with: client.postal_code
     fill_in :client_city, with: client.city
     fill_in :client_phone, with: client.phone
+    first(:css, "#client_product option[value='#{client.product}']").select_option
+    first(:css, '#client_product_state'\
+                " option[value='#{client.product_state}']").select_option
+    fill_in :client_brand, with: client.brand
+    fill_in :client_product_name, with: client.product_name
   end
 
   let(:client) { build(:client) }
+  let(:create_client) { client }
   let(:client_with_invalid_phone) { build(:client, :with_invalid_phone) }
+
+  let(:prise_en_charge_message) do
+    client = create_client
+    ERB.new(UserMessage.where(code: :prise_en_charge).first.message).result(binding)
+  end
 end
