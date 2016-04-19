@@ -28,5 +28,6 @@ RSpec.configure do |config|
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
     load "#{Rails.root}/db/seeds.rb"
+    load "#{Rails.root}/db/seeds.rb" # seeds should be able to be loaded twice
   end
 end
