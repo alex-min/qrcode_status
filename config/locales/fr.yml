@@ -1,5 +1,8 @@
 ---
 fr:
+  app:
+    messages:
+      to_sent_to: 'Message à envoyer pour %{name}'
   activerecord:
     attributes:
       client:
