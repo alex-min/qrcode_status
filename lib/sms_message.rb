@@ -51,7 +51,13 @@ class SmsMessage
 
   def self.get_message(params = {})
     client = params[:client]
-    message_id = params[:message_id].to_sym
-    self.get_message_list(client)[message_id]
+    user_message = UserMessage.where(code: params[:message_id],
+                                     user_id: params[:client].user_id).first
+    result = ERB.new(user_message.message).result(binding)
+    {
+      event_code: user_message.code,
+      message: result,
+      last_message: user_message.action == 'close_ticket'
+    }
   end
 end
