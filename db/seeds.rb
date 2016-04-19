@@ -1,3 +1,2 @@
-require_relative './seed/admin.rb'
-require_relative './seed/user_messages.rb'
-
+load "#{Rails.root}/db/seed/admin.rb"
+load "#{Rails.root}/db/seed/user_messages.rb"
