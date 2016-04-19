@@ -3,8 +3,8 @@ class StatusAdminController < ApplicationController
 
   def index
     @client = Client.find_by!(unique_id: params[:unique_id])
-    @messages = SmsMessage::get_message_list(@client)
-    create_client(request) if request.request_method === 'POST'
+    @messages = UserMessage.where(user: current_user)
+    create_client(request) if request.request_method == 'POST'
   end
 
   private
