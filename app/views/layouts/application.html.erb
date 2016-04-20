@@ -8,6 +8,14 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <%= yield %>
+    <div class="action-bar">
+      <%= yield :topbar %>
+      <% if current_user.present? %>
+        <div style="float:right; color:white">
+          <%= current_user.email %>
+        </div>
+      <% end %>
+    </div>
+  <%= yield %>
   </body>
 </html>

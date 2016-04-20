@@ -1,8 +1,8 @@
-<div class="action-bar">
+<% content_for :topbar do %>
   <%= link_to "Retourner a la liste des clients", clients_path %>
   <%= link_to "Voir la fiche SAV pour #{@client[:last_name]} #{@client[:first_name]}", client_path(@client[:unique_id]) %>
   <%= link_to "Ajouter nouveau client", client_new_path %>
-</div>
+<% end %>
 <div class="fiche-sav">
   <br>
   <h1 class="pull-left">Editer le client <%= @client[:last_name] %> <%= @client[:first_name] %></h1>
