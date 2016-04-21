@@ -14,6 +14,12 @@ feature 'Creating Client' do
     then_i_should_have_an_error_message_for_failed_sms
   end
 
+  scenario 'Creating a new client with landline phone' do
+    when_i_create_a_new_client_with_landline_phone
+    then_i_should_not_try_to_send_a_sms
+  end
+
+
   def when_i_create_a_new_client_from_the_form
     visit client_new_path
     fill_client_form(client)
@@ -26,6 +32,7 @@ feature 'Creating Client' do
     visit clients_path
     expect(page).to have_selector('.client', count: 1)
     and_message_sent_is_the_one_expected
+    expect(ClientEvent.last.sms_sent).to eq(true)
   end
 
   def and_message_sent_is_the_one_expected
@@ -60,6 +67,14 @@ feature 'Creating Client' do
     expect(page.first('.notification-error').text).to eq(I18n.t('errors.messages.sms', phone: client.phone))
   end
 
+  def when_i_create_a_new_client_with_landline_phone
+    visit client_new_path
+    fill_client_form(client_with_landline)
+  end
+
+  def then_i_should_not_try_to_send_a_sms
+  end
+
   private
 
   def fill_client_form(client)
@@ -77,6 +92,7 @@ feature 'Creating Client' do
   end
 
   let(:client) { build(:client) }
+  let(:client_with_landline) { create(:client, :with_landline) }
   let(:create_client) { client }
   let(:client_with_invalid_phone) { build(:client, :with_invalid_phone) }
 
