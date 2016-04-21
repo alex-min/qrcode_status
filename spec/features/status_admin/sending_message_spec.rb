@@ -25,6 +25,8 @@ feature 'Sending message to client' do
       click_button 'Ajouter le message'
     end
     expect(ClientEvent.last.message).to eq(prise_en_charge_message)
+    expect(ClientEvent.last.sms_sent).to eq(true)
+    expect(first('.event-name').text).to eq(prise_en_charge_title)
   end
 
   def then_i_can_send_a_message_to_close_the_ticket
@@ -41,12 +43,14 @@ feature 'Sending message to client' do
     expect(page).to have_selector('.sms-message-type', count: 0)
   end
 
-
   let(:messages) { UserMessage.all }
   let(:close_ticket_message) { UserMessage.where(action: :close_ticket).first }
   let(:test_message) { 'repair_in_progress' }
   let(:client) { create(:client) }
   let(:create_client) { client }
+  let(:prise_en_charge_title) do
+    UserMessage.where(code: test_message).first.title
+  end
   let(:prise_en_charge_message) do
     client = create_client
     ERB.new(UserMessage.where(code: test_message).first.message).result(binding)
