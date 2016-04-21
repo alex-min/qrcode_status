@@ -46,7 +46,7 @@
         <% @client.client_events.reverse.each do |client_event| %>
           <tr>
             <td class="event-name"><%= client_event.event_name %></td>
-            <td class="event-name"><%= client_event.comment %></td>
+            <td class="event-comment"><%= client_event.comment %></td>
             <td>
               <div class="date-ago">Il y a <%= time_ago_in_words(client_event.created_at) %></div>
               <i><%= I18n.l client_event.created_at.to_date, format: :calendar %></i>
