@@ -12,8 +12,6 @@ FactoryGirl.define do
     brand 'Apple'
     product_name 'Iphone'
 
-    user_id User.first.id
-
     trait :with_invalid_phone do
       phone '0000'
     end
@@ -23,5 +21,9 @@ FactoryGirl.define do
     end
 
     client_events { build_list(:client_event, 1) }
+
+    after(:build) do |client|
+      client.user_id = User.first.id
+    end
   end
 end
