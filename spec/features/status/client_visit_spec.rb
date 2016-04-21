@@ -10,6 +10,7 @@ feature 'Visiting status as a client' do
   end
 
   def then_i_should_see_its_status
+    expect(page).to have_selector('.event-name', count: client.client_events.count)
   end
 
   let(:client) { create(:client) }
