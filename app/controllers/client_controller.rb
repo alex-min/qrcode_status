@@ -29,7 +29,9 @@ class ClientController < ApplicationController
         message_id: :prise_en_charge,
         client: c
       })
-      c.client_events.push(ClientEvent.new(prise_en_charge))
+      event = ClientEvent.new(prise_en_charge)
+      c.client_events.push(event)
+      event.send_sms
       c.save!
       redirect_to client_path(c.unique_id)
     else

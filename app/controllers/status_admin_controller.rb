@@ -13,6 +13,7 @@ class StatusAdminController < ApplicationController
     event = SmsMessage::get_message(message_id: message_id, client: @client)
     e = ClientEvent.new(event)
     e.client = @client
+    e.send_sms
     e.save!
     if e.last_message === true
       @client.processed = true
