@@ -17,5 +17,11 @@ FactoryGirl.define do
     trait :with_invalid_phone do
       phone '0000'
     end
+
+    trait :with_landline do
+      phone '0329617478' # random one
+    end
+
+    client_events { build_list(:client_event, 1) }
   end
 end
