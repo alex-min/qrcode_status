@@ -24,7 +24,8 @@ class SmsMessage
     {
       event_code: user_message.code,
       message: result,
-      last_message: user_message.action == 'close_ticket'
+      last_message: user_message.action == 'close_ticket',
+      event_name: user_message.title
     }
   end
 end
