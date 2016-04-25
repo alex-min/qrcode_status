@@ -6,6 +6,9 @@ class Client < ActiveRecord::Base
 
   validates :phone, phone: { allow_blank: true }
 
+  def sanitize_phone!
+    self.phone = Phonelib.parse(self.phone).national
+  end
 
   def phone_data
     Phonelib.parse(phone)
