@@ -1,3 +1,12 @@
+<% content_for :topbar do %>
+  <%= link_to clients_path do %>
+    <i class="fa fa-tasks"></i>&nbsp;Retourner a la liste des clients
+  <% end %>
+  &nbsp;
+  <%= link_to "javascript:window.print()" do %>
+    <i class="fa fa-print"></i>&nbsp;Imprimer la fiche
+  <% end %>
+<% end %>
 <div class="fiche-sav">
   <div style="min-height:1000px">
     <%= image_tag "/images/microdeo-logo.png" %>
