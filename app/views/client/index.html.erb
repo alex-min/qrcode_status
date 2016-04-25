@@ -39,10 +39,15 @@
           </td>
           <td>
             <% if client[:unique_id] %>
-              <%= link_to status_admin_path(client[:unique_id]), class: 'btn btn-default' do %>
-              <i class="fa fa-commenting-o"></i>&nbsp;Envoyer un message au client
-              <% end %>
-              <%= link_to "Editer Client", client_edit_path(client[:unique_id]), class: 'btn btn-default' %>
+              <span data-toggle="tooltip" data-placement="bottom" title="Envoyer un message au client">
+                <%= link_to status_admin_path(client[:unique_id]), class: 'btn btn-default' do %>
+                    <i class="fa fa-commenting-o" alt="Envoyer un message au client"></i>
+                <% end %>
+              </span>
+              <span data-toggle="tooltip" data-placement="bottom" title="Editer Client">
+                <%= link_to client_edit_path(client[:unique_id]), class: 'btn btn-default' do %>
+                  <i class="fa fa-pencil" alt="Editer Client"></i>
+                <% end %>
               <br>
             <% end %>
           </td>
