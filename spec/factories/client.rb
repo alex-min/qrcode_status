@@ -11,6 +11,7 @@ FactoryGirl.define do
     product_state :excellent
     brand 'Apple'
     product_name 'Iphone'
+    panne 'Je l\'ai fait tomber par terre et après, j\'ai sauté dessus à pieds joints.'
 
     trait :with_invalid_phone do
       phone '0000'
