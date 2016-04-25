@@ -18,25 +18,32 @@
       <td colspan="4"><span class="fa fa-tasks fa-2x"></span>&nbsp;Clients en cours :</td>
       <% @clients.reverse.select{|c| c.processed != true}.each do |client| %>
         <tr class="client">
-          <td><%= client.full_name %></td>
+          <td>
+            <%= link_to client_path(client[:unique_id]) do %>
+              <div data-toggle="tooltip" data-placement="bottom" title="Voir la fiche SAV">
+                <i class="fa fa-folder"></i>&nbsp;<%= client.full_name %>
+              </div>
+            <% end %>
+          </td>
           <td><%= client.product_full_name %></td>
           <td>
-            <% client_event = client.client_events.last %>
-            <% if client_event %>
-              <%= client_event.try(:event_name) %><br>
-              Il y a <%= time_ago_in_words(client_event.try(:created_at)) %>
+            <% if client.last_event %>
+              <%= client.last_event.try(:event_name) %><br>
+              Il y a <%= time_ago_in_words(client.last_event.try(:created_at)) %>
+              <% if client.last_event.sms_sent %>
+                <span class="label label-success"><span class="fa fa-bell"></span>&nbsp;SMS Envoyé</span>
+              <% end %>
             <% else %>
               <i>Inconnu</i>
-            <% end %>
-            <% if client_event.present? and client_event.sms_sent %>
-              <span class="label label-success"><span class="fa fa-bell"></span>&nbsp;SMS Envoyé</span>
             <% end %>
           </td>
           <td>
             <% if client[:unique_id] %>
-              <%= link_to "Voir la fiche SAV", client_path(client[:unique_id]), class: 'btn btn-primary' %>
-              <%= link_to "Envoyer un message au client", status_admin_path(client[:unique_id]), class: 'btn btn-default' %>
+              <%= link_to status_admin_path(client[:unique_id]), class: 'btn btn-default' do %>
+              <i class="fa fa-commenting-o"></i>&nbsp;Envoyer un message au client
+              <% end %>
               <%= link_to "Editer Client", client_edit_path(client[:unique_id]), class: 'btn btn-default' %>
+              <br>
             <% end %>
           </td>
         </tr>
