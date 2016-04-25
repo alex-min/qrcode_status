@@ -4,6 +4,11 @@ feature 'Creating Client' do
     then_a_new_client_is_created
   end
 
+  scenario 'Creating a new client with unformated phone number' do
+    when_i_create_a_new_client_with_unformated_phone_from_the_form
+    then_a_new_client_is_created_with_formated_phone
+  end
+
   scenario 'Creating a new client with invalid phone' do
     when_i_create_a_new_client_from_the_form_with_invalid_phone
     then_i_should_have_an_error_message
@@ -50,7 +55,7 @@ feature 'Creating Client' do
 
   def then_i_should_have_an_error_message
     expect(page).to have_selector('.notification-error', count: 1)
-    expect(page.first('.notification-error').text).to include(I18n.t('activerecord.attributes.client.phone'))
+    phone_validation_error_is_present
   end
 
   def when_i_create_a_new_client_from_the_form_with_failed_sms
@@ -75,7 +80,26 @@ feature 'Creating Client' do
   def then_i_should_not_try_to_send_a_sms
   end
 
+  def when_i_create_a_new_client_with_unformated_phone_from_the_form
+    visit client_new_path
+    fill_client_form(client_with_unformated_phone)
+    VCR.use_cassette(:sms_success, :match_requests_on => [:host, :method]) do
+      click_button 'Ajouter le client'
+    end
+  end
+
+  def then_a_new_client_is_created_with_formated_phone
+    visit client_edit_path(Client.last.unique_id)
+    formated_phone = '06 11 11 11 11'
+    expect(first('#client_phone').value).to eq(formated_phone)
+  end
+
   private
+
+  def phone_validation_error_is_present
+    phone_error_message = I18n.t('activerecord.attributes.client.phone')
+    expect(page.first('.notification-error').text).to include(phone_error_message)
+  end
 
   def fill_client_form(client)
     fill_in :client_first_name, with: client.first_name
@@ -92,6 +116,7 @@ feature 'Creating Client' do
   end
 
   let(:client) { build(:client) }
+  let(:client_with_unformated_phone) { build(:client, :with_unformated_phone) }
   let(:client_with_landline) { create(:client, :with_landline) }
   let(:create_client) { client }
   let(:client_with_invalid_phone) { build(:client, :with_invalid_phone) }

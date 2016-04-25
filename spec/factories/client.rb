@@ -5,7 +5,7 @@ FactoryGirl.define do
     address "#{Faker::Address.street_name} #{Faker::Address.street_address}"
     postal_code Faker::Address.postcode
     city Faker::Address.city
-    phone '0611111111'
+    phone '06 11 11 11 11'
 
     product :smartphone
     product_state :excellent
@@ -18,6 +18,10 @@ FactoryGirl.define do
 
     trait :with_landline do
       phone '0329617478' # random one
+    end
+
+    trait :with_unformated_phone do
+      phone '  061 1 1 1   11 11 '
     end
 
     client_events { build_list(:client_event, 1) }
