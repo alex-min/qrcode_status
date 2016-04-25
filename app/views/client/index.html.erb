@@ -11,6 +11,7 @@
         <th>Nom</th>
         <th>Produit</th>
         <th>Statut actuel</th>
+        <th>Panne</th>
         <th>Actions</th>
       </tr>
     </thead>
@@ -37,6 +38,7 @@
               <i>Inconnu</i>
             <% end %>
           </td>
+          <td><%= client.panne %></td>
           <td>
             <% if client[:unique_id] %>
               <span data-toggle="tooltip" data-placement="bottom" title="Envoyer un message au client">
