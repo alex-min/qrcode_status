@@ -37,10 +37,8 @@ class ClientController < ApplicationController
 
   def edit
     if request.request_method === 'PATCH'
-      attrs = authorize(params)
-      client = Client.find_by!(unique_id: params[:unique_id])
-      client.assign_attributes(attrs)
-      client.save!
+      update_params = authorize(params).merge(unique_id: params[:unique_id])
+      Client::Updator.update_by_uniqueid(update_params)
     end
     @client = Client.find_by!(unique_id: params[:unique_id])
   end
