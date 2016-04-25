@@ -40,4 +40,8 @@ class Client < ActiveRecord::Base
     self.first_name.try(:capitalize!)
     self.last_name.try(:upcase!)
   end
+
+  def last_event
+    client_events.last
+  end
 end
