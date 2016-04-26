@@ -43,3 +43,6 @@ scalpel-output/
 
 # wget used sometimes
 index.html
+
+# rspec validation reports
+.validation
