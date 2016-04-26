@@ -37,6 +37,7 @@ group :test do
   gem 'timecop',                  '0.8.0'
   gem 'vcr',                      '2.9.2'
   gem 'webmock',                  '1.19.0'
+  gem 'html_validation'
 end
 
 group :development do
