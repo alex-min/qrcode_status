@@ -1,5 +1,5 @@
 require 'rails_helper'
-Dir[File.join(File.dirname(__FILE__), '../support/**/*.rb')].each { |f| require f }
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
