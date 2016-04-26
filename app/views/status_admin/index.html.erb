@@ -1,5 +1,10 @@
 <% content_for :topbar do %>
   <%= link_to "Retourner a la liste des clients", clients_path %>
+  <%= link_to client_path(@client[:unique_id]) do %>
+    <i class="fa fa-user"></i>
+    &nbsp;Voir la fiche SAV pour <%= @client[:last_name] %> <%= @client[:first_name] %>
+  <% end %>
+  &nbsp;
   <%= link_to "Ajouter nouveau client", client_new_path %>
 <% end %>
 <div class="container">
@@ -26,14 +31,9 @@
     <% end %>
   <% end %>
 </div>
-<br>
-<br>
-<div class="action-bar container">
-  <%= link_to "Retourner a la liste des clients", clients_path %>
-  <%= link_to "Voir la fiche SAV pour #{@client[:last_name]} #{@client[:first_name]}", client_path(@client[:unique_id]) %>
-  <%= link_to "Ajouter nouveau client", client_new_path %>
-</div>
+<hr />
 <div class="container">
+  <h2><i class="fa fa-user"></i>&nbsp;Informations Client</h2>
   <table class="table table-striped">
     <tr>
       <th>Modele</th>

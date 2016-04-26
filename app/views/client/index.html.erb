@@ -16,7 +16,7 @@
       </tr>
     </thead>
     <tbody>
-      <td colspan="4"><span class="fa fa-tasks fa-2x"></span>&nbsp;Clients en cours :</td>
+      <tr><td colspan="5"><span class="fa fa-tasks fa-2x"></span>&nbsp;Clients en cours :</td></tr>
       <% @clients.reverse.select{|c| c.processed != true}.each do |client| %>
         <tr class="client">
           <td>
