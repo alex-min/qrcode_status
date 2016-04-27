@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
   get '/' => 'client#index', as: :clients
+
   get 'client/:unique_id/view' => 'client#view', as: :client
   match 'client/:unique_id/edit' => 'client#edit', as: :client_edit, via: [:get, :post, :patch]
+  match 'client/:id/mark_as_done' => 'client#mark_as_done', as: :client_mark_as_done, via: [:get, :post]
   match 'client/new' => 'client#new', as: :client_new, via: [:get, :post]
 
   get 'status/:unique_id' => 'status#view', as: :status
