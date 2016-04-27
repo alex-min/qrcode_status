@@ -46,3 +46,4 @@ index.html
 
 # rspec validation reports
 .validation
+*.tmp
