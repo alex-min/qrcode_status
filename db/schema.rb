@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160415090449) do
+ActiveRecord::Schema.define(version: 20160427164833) do
 
   create_table "client_events", force: :cascade do |t|
     t.string   "event_name"
@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 20160415090449) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "address"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.string   "postal_code"
     t.string   "city"
     t.string   "phone"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20160415090449) do
     t.string   "product_state"
     t.string   "unique_id"
     t.integer  "user_id"
-    t.boolean  "processed"
+    t.boolean  "processed",     default: false
   end
 
   add_index "clients", ["user_id"], name: "index_clients_on_user_id"

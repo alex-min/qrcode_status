@@ -2,7 +2,8 @@ class ClientController < ApplicationController
   include Authenticated
 
   def index
-    @clients = Client.all
+    @clients_done = Client.done.latest
+    @clients_in_progress = Client.in_progress.latest
   end
 
   def authorize(params)

@@ -6,6 +6,18 @@ class Client < ActiveRecord::Base
 
   validates :phone, phone: { allow_blank: true }
 
+  def self.done
+    where(processed: true)
+  end
+
+  def self.in_progress
+    where(processed: [nil, false])
+  end
+
+  def self.latest
+    order(created_at: :desc)
+  end
+
   def sanitize_phone!
     self.phone = Phonelib.parse(self.phone).national
   end

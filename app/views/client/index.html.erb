@@ -18,10 +18,10 @@
     </thead>
     <tbody>
       <tr><td colspan="5"><span class="fa fa-tasks fa-2x"></span>&nbsp;Clients en cours :</td></tr>
-      <%= render partial: "client_row", collection: @clients.reverse.select{|c| c.processed != true} %>
+      <%= render partial: "client_row", collection: @clients_in_progress %>
       <tr>
       <td colspan="5"><span class="fa fa-check fa-2x" style="color: green"></span>Clients termines :</td></tr>
-      <%= render partial: "client_row", collection: @clients.reverse.select{|c| c.processed == true} %>
+      <%= render partial: "client_row", collection: @clients_done %>
     </tbody>
   </table>
 </div>
