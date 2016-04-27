@@ -1,0 +1,43 @@
+<% client = client_row %>
+<tr class="client">
+  <td>
+    <%= link_to client_path(client[:unique_id]) do %>
+      <div data-toggle="tooltip" data-placement="bottom" title="Voir la fiche SAV">
+        <i class="fa fa-folder"></i>&nbsp;<%= client.full_name %>
+      </div>
+    <% end %>
+  </td>
+  <td><%= client.product_full_name %></td>
+  <td>
+    <% if client.last_event %>
+      <%= client.last_event.try(:event_name) %><br>
+      Il y a <%= time_ago_in_words(client.last_event.try(:created_at)) %>
+      <% if client.last_event.sms_sent %>
+        <span class="label label-success"><span class="fa fa-bell"></span>&nbsp;SMS Envoyé</span>
+      <% end %>
+    <% else %>
+      <i>Inconnu</i>
+    <% end %>
+  </td>
+  <td><%= client.panne %></td>
+  <td>
+    <% if client[:unique_id] %>
+      <span data-toggle="tooltip" data-placement="bottom" title="Envoyer un message au client">
+        <%= link_to status_admin_path(client[:unique_id]), class: 'btn btn-default' do %>
+            <i class="fa fa-commenting-o" alt="Envoyer un message au client"></i>
+        <% end %>
+      </span>
+      <span data-toggle="tooltip" data-placement="bottom" title="Editer Client">
+        <%= link_to client_edit_path(client[:unique_id]), class: 'btn btn-default' do %>
+          <i class="fa fa-pencil" alt="Editer Client"></i>
+        <% end %>
+      </span>
+      <span data-toggle="tooltip" data-placement="bottom" title="<%= I18n.t('app.client.mark_as_done') %>">
+        <%= link_to client_mark_as_done_path(client[:id]), class: 'btn btn-default' do %>
+          <i class="fa fa-check" alt="<%= I18n.t('app.client.mark_as_done') %>"></i>
+        <% end %>
+      </span>
+      <br>
+    <% end %>
+  </td>
+</tr>
