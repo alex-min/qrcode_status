@@ -3,6 +3,11 @@ fr:
   app:
     messages:
       to_sent_to: 'Message à envoyer pour %{name}'
+    client:
+      edit: 'Editer Client'
+      mark_as_done: 'Marquer le client comme terminé'
+  topbar:
+    return_to_list: 'Retourner a la liste des clients'
   activerecord:
     attributes:
       client:
