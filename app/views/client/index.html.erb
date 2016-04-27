@@ -51,6 +51,11 @@
                   <i class="fa fa-pencil" alt="Editer Client"></i>
                 <% end %>
               </span>
+              <span data-toggle="tooltip" data-placement="bottom" title="<%= I18n.t('app.client.mark_as_done') %>">
+                <%= link_to client_mark_as_done_path(client[:id]), class: 'btn btn-default' do %>
+                  <i class="fa fa-check" alt="<%= I18n.t('app.client.mark_as_done') %>"></i>
+                <% end %>
+              </span>
               <br>
             <% end %>
           </td>
