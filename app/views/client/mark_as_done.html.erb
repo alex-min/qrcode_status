@@ -1,4 +1,17 @@
 <% content_for :topbar do %>
   <%= link_to I18n.t('topbar.return_to_list'), clients_path %>
 <% end %>
-
+<div class="container" style="margin-top: 50px">
+<form class="form">
+  <div class="form-group col-xs-6">
+    <button type="button" class="btn btn-default">
+      <%= I18n.t('app.client.mark_as_done_no_notification') %>
+    </button>
+  </div>
+  <div class="form-group col-xs-6">
+    <button type="button" class="btn btn-primary">
+      <%= I18n.t('app.client.mark_as_done_notification') %>
+    </button>
+  </div>
+</form>
+</div>
