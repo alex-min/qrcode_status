@@ -41,7 +41,7 @@ class ClientController < ApplicationController
       update_params = authorize(params).merge(unique_id: params[:unique_id])
       Client::Updator.update_by_uniqueid(update_params)
     end
-    @client = Client.find_by!(unique_id: params[:unique_id])
+    @client = get_client_by_unique_id
   end
 
   def view
@@ -49,7 +49,7 @@ class ClientController < ApplicationController
   end
 
   def mark_as_done
-    @client = Client.find_by!(id: params[:id])
+    @client = get_client_by_id
     if request.request_method === 'POST'
       notify = params[:send_notification].to_i == 1 ? true : false
       Client::Updator.new(@client).mark_as_done(send_notification: notify)
