@@ -29,6 +29,7 @@ FactoryGirl.define do
 
     after(:build) do |client|
       client.user_id = User.first.id
+      client.company = User.first.company
     end
   end
 end

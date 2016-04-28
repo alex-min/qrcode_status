@@ -2,8 +2,8 @@ class ClientController < ApplicationController
   include Authenticated
 
   def index
-    @clients_done = Client.done.latest
-    @clients_in_progress = Client.in_progress.latest
+    @clients_done = Client.where(company: current_user.company).done.latest
+    @clients_in_progress = Client.where(company: current_user.company).in_progress.latest
   end
 
   def authorize(params)
