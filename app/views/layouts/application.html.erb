@@ -12,7 +12,7 @@
       <%= yield :topbar %>
       <% if current_user.present? %>
         <div style="float:right; color:white">
-          <%= current_user.email %>
+          <%= current_user.company.name %> - <%= current_user.email %>
         </div>
       <% end %>
     </div>
