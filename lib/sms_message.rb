@@ -16,6 +16,18 @@ class SmsMessage
       I18n.t('errors.messages.sms', phone: client.phone)
   end
 
+  def self.send_sms_by_code(client, message_id)
+    return if client.processed
+    ActiveRecord::Base.transaction do
+      event_data = SmsMessage::get_message(message_id: message_id, client: client)
+      event = ClientEvent.new(event_data.merge(client: client))
+      event.send_sms
+      client.client_events.push(event)
+      event.save!
+      client.save!
+    end
+  end
+
   def self.get_message(params = {})
     client = params[:client]
     user_message = UserMessage.where(code: params[:message_id],
