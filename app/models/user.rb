@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  belongs_to :company
   has_many :clients
   has_many :user_messages
   # Include default devise modules. Others available are:

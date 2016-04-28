@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160427164833) do
+ActiveRecord::Schema.define(version: 20160428133038) do
 
   create_table "client_events", force: :cascade do |t|
     t.string   "event_name"
@@ -50,6 +50,12 @@ ActiveRecord::Schema.define(version: 20160427164833) do
 
   add_index "clients", ["user_id"], name: "index_clients_on_user_id"
 
+  create_table "companies", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "user_messages", force: :cascade do |t|
     t.string   "code"
     t.string   "title"
@@ -78,8 +84,10 @@ ActiveRecord::Schema.define(version: 20160427164833) do
     t.string   "twillo_account_sid"
     t.string   "twillo_auth_token"
     t.string   "twillo_root_phone"
+    t.integer  "company_id"
   end
 
+  add_index "users", ["company_id"], name: "index_users_on_company_id"
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
