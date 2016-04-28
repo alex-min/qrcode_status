@@ -17,14 +17,21 @@
               class="btn btn-default"
               name="send_notification"
               value="0">
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-mobile fa-stack-1x"></i>
+          <i class="fa fa-ban fa-stack-2x"></i>
+        </span>
         <%= I18n.t('app.client.mark_as_done_no_notification') %>
       </button>
     </div>
     <div class="form-group col-xs-6">
       <button type="submit"
-              class="btn btn-primary"
+              class="btn btn-default"
               name="send_notification"
               value="1">
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-mobile fa-stack-2x"></i>
+        </span>
         <%= I18n.t('app.client.mark_as_done_notification') %>
       </button>
     </div>
