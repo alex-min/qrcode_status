@@ -16,6 +16,11 @@
         </div>
       <% end %>
     </div>
+  <% if @errors.present? %>
+    <% @errors.each do |error| %>
+      <div class="alert alert-danger notification-error"><%= error %></div>
+    <% end %>
+  <% end %>
   <%= yield %>
   </body>
 </html>

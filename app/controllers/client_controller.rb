@@ -54,5 +54,8 @@ class ClientController < ApplicationController
       notify = params[:send_notification].to_i == 1 ? true : false
       Client::Updator.new(@client).mark_as_done(send_notification: notify)
     end
+  rescue ActiveRecord::RecordInvalid, \
+         Exceptions::SMSMessageFailure => e
+    add_notification_error(e.message)
   end
 end
