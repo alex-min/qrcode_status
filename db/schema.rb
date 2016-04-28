@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160428133038) do
+ActiveRecord::Schema.define(version: 20160428140019) do
 
   create_table "client_events", force: :cascade do |t|
     t.string   "event_name"
@@ -46,8 +46,10 @@ ActiveRecord::Schema.define(version: 20160428133038) do
     t.string   "unique_id"
     t.integer  "user_id"
     t.boolean  "processed",     default: false
+    t.integer  "company_id"
   end
 
+  add_index "clients", ["company_id"], name: "index_clients_on_company_id"
   add_index "clients", ["user_id"], name: "index_clients_on_user_id"
 
   create_table "companies", force: :cascade do |t|
