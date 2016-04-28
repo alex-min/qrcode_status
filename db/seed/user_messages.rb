@@ -49,8 +49,10 @@ ActiveRecord::Base.transaction do
     if UserMessage.where(user: admin_user, code: message[:code]).present?
       puts "[~] UserMessage #{message[:code]} already exists, passing..."
     else
+      # :nocov:
       UserMessage.create!(message)
       puts "[+] Created UserMessage #{message[:code]}."
+      # :nocov:
     end
   end
 end

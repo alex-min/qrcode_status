@@ -45,7 +45,7 @@ class ClientController < ApplicationController
   end
 
   def view
-    @client = Client.find_by!(unique_id: params[:unique_id])
+    @client = get_client_by_unique_id
   end
 
   def mark_as_done
