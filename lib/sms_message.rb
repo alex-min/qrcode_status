@@ -22,6 +22,9 @@ class SmsMessage
       event_data = SmsMessage::get_message(message_id: message_id, client: client)
       event = ClientEvent.new(event_data.merge(client: client))
       event.send_sms
+      if event_data[:last_message]
+        client.processed = true
+      end
       client.client_events.push(event)
       event.save!
       client.save!

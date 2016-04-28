@@ -8,17 +8,9 @@ class StatusAdminController < ApplicationController
   end
 
   private
+
   def create_client(request)
     message_id = params[:client_event][:event_name].to_sym
-    event = SmsMessage::get_message(message_id: message_id, client: @client)
-    e = ClientEvent.new(event)
-    e.client = @client
-    e.send_sms
-    e.save!
-    if e.last_message === true
-      @client.processed = true
-      @client.save!
-    end
+    SmsMessage::send_sms_by_code(@client, message_id)
   end
-
 end
