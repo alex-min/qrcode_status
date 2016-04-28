@@ -38,6 +38,7 @@ feature 'Creating Client' do
     expect(page).to have_selector('.client', count: 1)
     and_message_sent_is_the_one_expected
     expect(ClientEvent.last.sms_sent).to eq(true)
+    expect(Client.last.company.id).to eq(Client.last.user.company.id)
   end
 
   def and_message_sent_is_the_one_expected

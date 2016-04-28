@@ -2,6 +2,7 @@ class Client::Creator
   def self.create(params)
     client = Client.new(params)
     client.sanitize_phone!
+    client.company = client.user.company
     prise_en_charge = SmsMessage::get_message({
       message_id: :prise_en_charge,
       client: client
