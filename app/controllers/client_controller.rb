@@ -50,5 +50,9 @@ class ClientController < ApplicationController
 
   def mark_as_done
     @client = Client.find_by!(id: params[:id])
+    if request.request_method === 'POST'
+      notify = params[:send_notification].to_i == 1 ? true : false
+      Client::Updator.new(@client).mark_as_done(send_notification: notify)
+    end
   end
 end
