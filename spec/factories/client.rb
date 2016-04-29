@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :client do
-    first_name Faker::Name.first_name
-    last_name Faker::Name.last_name.upcase
+    first_name { Faker::Name.first_name }
+    last_name { Faker::Name.last_name.upcase }
     address "#{Faker::Address.street_name} #{Faker::Address.street_address}"
     postal_code Faker::Address.postcode
     city Faker::Address.city
@@ -27,9 +27,7 @@ FactoryGirl.define do
 
     client_events { build_list(:client_event, 1) }
 
-    after(:build) do |client|
-      client.user_id = User.first.id
-      client.company = User.first.company
-    end
+    user { User.first }
+    company { Company.first }
   end
 end
