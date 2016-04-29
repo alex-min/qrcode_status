@@ -9,6 +9,9 @@
   </head>
   <body>
     <div class="action-bar">
+      <%= link_to clients_path do %>
+        <i class="fa fa-tasks"></i>&nbsp;<%= I18n.t('topbar.return_to_list') %>
+      <% end %>&nbsp;
       <%= yield :topbar %>
       <% if current_user.present? %>
         <div style="float:right; color:white">
