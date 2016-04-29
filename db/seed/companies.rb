@@ -13,3 +13,7 @@ if not admin_user.company.present?
 else
   puts "[~] Admin company already exists, passing..."
 end
+if admin_user.company.website.blank?
+  admin_user.company.website = 'https://microdeo.com'
+  admin_user.company.save!
+end

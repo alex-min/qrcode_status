@@ -46,6 +46,7 @@ class ClientController < ApplicationController
 
   def view
     @client = get_client_by_unique_id
+    @company = current_user.company
   end
 
   def mark_as_done
