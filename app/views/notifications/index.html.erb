@@ -1,0 +1,27 @@
+<div class="container">
+  <h1><i class="fa fa-mobile"></i>&nbsp;Notifications</h1>
+  <table class="table table-striped">
+    <thead><tr>
+      <th>Date</th>
+      <th>Type de message</th>
+      <th>Message</th>
+    </tr></thead>
+    <tbody>
+    <% @notifications.each do |notification| %>
+      <tr>
+        <td>Il y a <%= time_ago_in_words(notification.created_at) %></td>
+        <td>
+        <%= notification.event_name %>
+        <% if notification.sms_sent %>
+          <br>
+          <span class="label label-success"><span class="fa fa-bell"></span>&nbsp;
+            <%= I18n.t('app.sms_sent') %>
+          </span>
+        <% end %>
+        </td>
+        <td><%= notification.message %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
