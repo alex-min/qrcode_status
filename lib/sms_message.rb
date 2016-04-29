@@ -21,7 +21,7 @@ class SmsMessage
     ActiveRecord::Base.transaction do
       event_data = SmsMessage::get_message(message_id: message_id, client: client)
       event = ClientEvent.new(event_data.merge(client: client))
-      event.send_sms
+      event.send_sms!
       if event_data[:last_message]
         client.processed = true
       end
