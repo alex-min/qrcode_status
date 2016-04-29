@@ -10,6 +10,7 @@ fr:
       mark_as_done: 'Marquer le client comme terminé'
       mark_as_done_no_notification: 'Marquer le client comme terminé sans envoyer de messages'
       mark_as_done_notification: 'Marquer le client comme terminé et lui envoyer un message'
+      add: 'Ajouter nouveau client'
   topbar:
     return_to_list: 'Retourner a la liste des clients'
   activerecord:

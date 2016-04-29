@@ -1,5 +1,7 @@
 <% content_for :topbar do %>
-  <%= link_to "Ajouter nouveau client", client_new_path %>
+  <%= link_to client_new_path do %>
+    <i class="fa fa-plus"></i>&nbsp;<%= I18n.t('app.client.add') %>
+  <% end %>&nbsp;
   <%= link_to notifications_path do %>
     <i class="fa fa-mobile"></i>&nbsp;<%= I18n.t('app.messages.list') %>
   <% end %>

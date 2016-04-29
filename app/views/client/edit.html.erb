@@ -1,6 +1,8 @@
 <% content_for :topbar do %>
+  <%= link_to client_new_path do %>
+    <i class="fa fa-plus"></i>&nbsp;<%= I18n.t('app.client.add') %>
+  <% end %>&nbsp;
   <%= link_to "Voir la fiche SAV pour #{@client[:last_name]} #{@client[:first_name]}", client_path(@client[:unique_id]) %>
-  <%= link_to "Ajouter nouveau client", client_new_path %>
 <% end %>
 <div class="fiche-sav">
   <br>
