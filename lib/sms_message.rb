@@ -1,14 +1,14 @@
 class SmsMessage
   def self.send_sms(client, message)
-      return false if client.has_landline_phone?
-      user = client.user
-      twillo_client = Twilio::REST::Client.new user.twillo_account_sid, \
-                                               user.twillo_auth_token
-      twillo_client.account.messages.create({
-                                              :from => user.twillo_root_phone,
-                                              :to => client.phone_data.e164,
-                                              :body => message,
-                                            })
+    return false if client.has_landline_phone?
+    twillo_config = Rails.application.config_for :twillo
+    twillo_client = Twilio::REST::Client.new twillo_config['account_sid'], \
+                                             twillo_config['auth_token']
+    twillo_client.account.messages.create({
+                                            :from => twillo_config['root_phone'],
+                                            :to => client.phone_data.e164,
+                                            :body => message,
+                                          })
   rescue Twilio::REST::RequestError => e
     message =  "Failed to send SMS for client #{client.id}: #{e.message}"
     Rails.logger.error message

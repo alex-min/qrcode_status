@@ -47,3 +47,4 @@ index.html
 # rspec validation reports
 .validation
 *.tmp
+config/twillo.yml
