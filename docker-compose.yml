@@ -1,0 +1,13 @@
+web:
+  build: .
+  volumes:
+    - .:/app
+  ports:
+    - "8000:3000"
+  environment:
+    DOCKER_COMPOSE: 1
+    ADMIN_EMAIL: 'contact@microdeo.com'
+    ADMIN_ENCRYPTED_PASSWORD: '$$2a$$10$$BHgFnVYhlasv7cKJGBmzu.ztRzJUFjScSEOT3zu5awt.2d/QzXD5m'
+    # password is 11111111
+    # this env variable obiously does not exist in production
+    ADMIN_PLAINTEXT_PASSWORD: '11111111'
