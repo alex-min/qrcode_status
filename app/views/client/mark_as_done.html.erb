@@ -10,30 +10,36 @@
     </tbody>
   </table>
   <br>
-  <form class="form" method="POST">
-    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-    <div class="form-group col-xs-6">
-      <button type="submit"
-              class="btn btn-default"
-              name="send_notification"
-              value="0">
-        <span class="fa-stack fa-lg">
-          <i class="fa fa-mobile fa-stack-1x"></i>
-          <i class="fa fa-ban fa-stack-2x"></i>
-        </span>
-        <%= I18n.t('app.client.mark_as_done_no_notification') %>
-      </button>
-    </div>
-    <div class="form-group col-xs-6">
-      <button type="submit"
-              class="btn btn-default"
-              name="send_notification"
-              value="1">
-        <span class="fa-stack fa-lg">
-          <i class="fa fa-mobile fa-stack-2x"></i>
-        </span>
-        <%= I18n.t('app.client.mark_as_done_notification') %>
-      </button>
-    </div>
-  </form>
+  <% if @client.processed %>
+    <%= link_to clients_path do %>
+      <h4><i class="fa fa-arrow-left"></i>&nbsp;<%= I18n.t('topbar.return_to_list') %></h4>
+    <% end %>
+  <% else %>
+    <form class="form" method="POST">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <div class="form-group col-xs-6">
+        <button type="submit"
+                class="btn btn-default"
+                name="send_notification"
+                value="0">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-mobile fa-stack-1x"></i>
+            <i class="fa fa-ban fa-stack-2x"></i>
+          </span>
+          <%= I18n.t('app.client.mark_as_done_no_notification') %>
+        </button>
+      </div>
+      <div class="form-group col-xs-6">
+        <button type="submit"
+                class="btn btn-default"
+                name="send_notification"
+                value="1">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-mobile fa-stack-2x"></i>
+          </span>
+          <%= I18n.t('app.client.mark_as_done_notification') %>
+        </button>
+      </div>
+    </form>
+  <% end %>
 </div>
