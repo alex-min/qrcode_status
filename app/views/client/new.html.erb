@@ -1,9 +1,5 @@
-<div class="fiche-sav">
-  <br>
-  <h1 class="pull-left">Ajouter un nouveau client</h1>
-  <div class="clearfix"></div>
-  <br>
-  <br>
+<div class="container">
+  <h1>Ajouter un nouveau client</h1>
   <%= simple_form_for @client, url: client_new_path do |c| %>
     <%= c.input :last_name, label: 'Nom' %>
     <%= c.input :first_name, label: 'Prenom' %>
