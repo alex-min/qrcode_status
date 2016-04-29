@@ -1,8 +1,10 @@
 ---
 fr:
   app:
+    sms_sent: 'SMS envoyé'
     messages:
       to_sent_to: 'Message à envoyer pour %{name}'
+      list: 'Liste des messages envoyés'
     client:
       edit: 'Editer Client'
       mark_as_done: 'Marquer le client comme terminé'
