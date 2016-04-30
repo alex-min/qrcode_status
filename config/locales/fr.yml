@@ -1,10 +1,14 @@
 ---
 fr:
+  user_message:
+    list: 'Liste des types de messages'
+    type: 'Type de message'
+    message: 'Message utilisateur'
   app:
     sms_sent: 'SMS envoyé'
     messages:
       to_sent_to: 'Message à envoyer pour %{name}'
-      list: 'Liste des messages envoyés'
+      list: 'Messages envoyés'
     client:
       edit: 'Editer Client'
       mark_as_done: 'Marquer le client comme terminé'

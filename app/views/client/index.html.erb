@@ -4,6 +4,9 @@
   <% end %>&nbsp;
   <%= link_to notifications_path do %>
     <i class="fa fa-mobile"></i>&nbsp;<%= I18n.t('app.messages.list') %>
+  <% end %>&nbsp;
+  <%= link_to user_messages_path do %>
+    <%= I18n.t('user_message.list') %>
   <% end %>
 <% end %>
 <div class="container">

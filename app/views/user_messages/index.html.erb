@@ -1,0 +1,17 @@
+<div class="container">
+  <h1><%= I18n.t('user_message.list') %></h1>
+  <table class="table">
+    <thead><tr>
+      <th><%= I18n.t('user_message.type') %></th>
+      <th><%= I18n.t('user_message.message') %></th>
+    </tr></thead>
+    <tbody>
+      <% @user_messages.each do |user_message| %>
+        <tr>
+          <td><%= user_message.title %></td>
+          <td><%= user_message.message %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
