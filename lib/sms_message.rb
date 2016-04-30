@@ -33,6 +33,7 @@ class SmsMessage
 
   def self.get_message(params = {})
     client = params[:client]
+    company = client.company
     user_message = UserMessage.where(code: params[:message_id],
                                      user_id: params[:client].user_id).first
     result = ERB.new(user_message.message).result(binding)
