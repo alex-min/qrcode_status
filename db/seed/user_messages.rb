@@ -6,6 +6,7 @@ hello = "Microdeo - Bonjour <%= client.full_name %>.\n"
 horaires = "\nOuvert du Mardi au Samedi, de 9h à 12h et de 14h à 19h, sauf 18h le Samedi."
 end_message = "\n"\
   "MESSAGE AUTOMATIQUE. MERCI DE NE PAS REPONDRE."
+company = admin_user.company
 message_list = [
   {
     code: :repair_done,
@@ -16,7 +17,8 @@ message_list = [
              "vous pouvez venir le chercher à tout moment au magasin."\
              "#{horaires}"\
               "\n#{end_message}",
-    user_id: admin_user.id
+    user_id: admin_user.id,
+    company: company
   },
   {
     code: 'repair_in_progress',
@@ -25,7 +27,8 @@ message_list = [
              "Votre <%= client.product_full_name %> est en cours de réparation, "\
              "nous vous tiendrons informés de l'avancement de la réparation.\n"\
              "#{end_message}",
-    user_id: admin_user.id
+    user_id: admin_user.id,
+    company: company
   },{
     code: 'problem_delay',
     title: 'Problème de réception des pièces',
@@ -34,7 +37,8 @@ message_list = [
              "<%= client.product_full_name %> et la réparation est actuellement retardée.\n"\
              "Vous serez tenu informé de l'évolution de la réparation.\n"\
              "#{end_message}",
-    user_id: admin_user.id
+    user_id: admin_user.id,
+    company: company
   },{
     code: 'prise_en_charge',
     title: 'Prise en charge du produit',
@@ -42,7 +46,8 @@ message_list = [
               "Votre <%= client.product_full_name %> est pris en charge.\n"\
               "Vous serez tenu informé de l'évolution de la réparation.\n"\
               "#{end_message}",
-    user_id: admin_user.id
+    user_id: admin_user.id,
+    company: company
   }]
 ActiveRecord::Base.transaction do
   message_list.each do |message|
