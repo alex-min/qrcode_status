@@ -52,7 +52,9 @@ feature 'Sending message to client' do
     UserMessage.where(code: test_message).first.title
   end
   let(:prise_en_charge_message) do
-    client = create_client
-    ERB.new(UserMessage.where(code: test_message).first.message).result(binding)
+    "Microdeo - Bonjour #{create_client.full_name}.\n"\
+    "Votre smartphone Apple Iphone est en cours de réparation, "\
+    "nous vous tiendrons informés de l'avancement de la réparation.\n\n"\
+    "MESSAGE AUTOMATIQUE. MERCI DE NE PAS REPONDRE."
   end
 end

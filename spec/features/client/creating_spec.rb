@@ -124,6 +124,9 @@ feature 'Creating Client' do
 
   let(:prise_en_charge_message) do
     client = create_client
-    ERB.new(UserMessage.where(code: :prise_en_charge).first.message).result(binding)
+    "Microdeo - Bonjour #{client.full_name}.\n"\
+    "Votre smartphone Apple Iphone est pris en charge.\n"\
+    "Vous serez tenu informé de l'évolution de la réparation.\n\n"\
+    "MESSAGE AUTOMATIQUE. MERCI DE NE PAS REPONDRE."
   end
 end
