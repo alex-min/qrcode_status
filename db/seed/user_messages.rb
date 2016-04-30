@@ -2,7 +2,7 @@ puts "[user_messages]"
 
 admin_user = User.find_by(email: ENV['ADMIN_EMAIL'])
 
-hello = "Microdeo - Bonjour <%= client.full_name %>.\n"
+hello = "<%= company.name %> - Bonjour <%= client.full_name %>.\n"
 horaires = "\nOuvert du Mardi au Samedi, de 9h à 12h et de 14h à 19h, sauf 18h le Samedi."
 end_message = "\n"\
   "MESSAGE AUTOMATIQUE. MERCI DE NE PAS REPONDRE."
