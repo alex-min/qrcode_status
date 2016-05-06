@@ -4,6 +4,7 @@ fr:
     list: 'Liste des types de messages'
     type: 'Type de message'
     message: 'Message utilisateur'
+    add: 'Ajouter un nouveau type de message'
     token:
       company:
         name: "NOM DE L'ENTREPRISE"
