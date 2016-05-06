@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160430164121) do
+ActiveRecord::Schema.define(version: 20160506114041) do
 
   create_table "client_events", force: :cascade do |t|
     t.string   "event_name"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20160430164121) do
     t.integer  "user_id"
     t.boolean  "processed",     default: false
     t.integer  "company_id"
+    t.string   "email"
   end
 
   add_index "clients", ["company_id"], name: "index_clients_on_company_id"

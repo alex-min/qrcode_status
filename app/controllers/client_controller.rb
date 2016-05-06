@@ -18,7 +18,8 @@ class ClientController < ApplicationController
       :product_state,
       :brand,
       :product_name,
-      :panne
+      :panne,
+      :email
     )
   end
 
