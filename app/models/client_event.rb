@@ -1,5 +1,6 @@
 class ClientEvent < ActiveRecord::Base
   belongs_to :client
+  belongs_to :product_type
   has_one :company, :through => :client
 
   def self.from_company(company)
