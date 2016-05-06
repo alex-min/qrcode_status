@@ -1,5 +1,8 @@
 <div class="container">
   <h1><%= I18n.t('user_message.list') %></h1>
+  <% link_to notifications_add_path, class: 'btn btn-default' do %>
+    I18n.t('user_message.add')
+  <% end %>
   <table class="table">
     <thead><tr>
       <th><%= I18n.t('user_message.type') %></th>
