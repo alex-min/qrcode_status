@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160506114041) do
+ActiveRecord::Schema.define(version: 20160506152244) do
 
   create_table "client_events", force: :cascade do |t|
     t.string   "event_name"
@@ -62,6 +62,17 @@ ActiveRecord::Schema.define(version: 20160506114041) do
     t.string   "phone"
     t.text     "address"
   end
+
+  create_table "product_types", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "enabled",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "company_id"
+    t.string   "legacy_slug"
+  end
+
+  add_index "product_types", ["company_id"], name: "index_product_types_on_company_id"
 
   create_table "user_messages", force: :cascade do |t|
     t.string   "code"
