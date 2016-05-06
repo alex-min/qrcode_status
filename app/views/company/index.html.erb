@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Liste des entreprises</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nom de l'Entreprise</th>
+        <th>Adresse</th>
+        <th>Site de l'entreprise</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @companies.each do |company| %>
+        <tr>
+          <td><%= company.name %></td>
+          <td>
+            <pre><%= company.address %></pre>
+          </td>
+          <td>
+            <%= link_to company.website, company.website %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

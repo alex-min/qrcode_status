@@ -12,7 +12,10 @@ Rails.application.routes.draw do
   match 'status-admin/:unique_id' => 'status_admin#index', as: :status_admin, via: [:get, :post]
 
   get '/notifications' => 'notifications#index', as: :notifications
+  get '/notifications/add' => 'notifications_add#index', as: :notifications_add
   get '/user-messages' => 'user_messages#index', as: :user_messages
+
+  get '/company' => 'company#index', as: :company
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
