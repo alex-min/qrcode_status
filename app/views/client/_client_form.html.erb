@@ -1,0 +1,34 @@
+<%= simple_form_for client_form, url: request.path do |c| %>
+  <%= c.input :last_name, label: 'Nom' %>
+  <%= c.input :first_name, label: 'Prenom' %>
+  <%= c.input :email, label: 'Email', as: :email %>
+  <%= c.input :address, label: 'Addresse' %>
+  <%= c.input :postal_code, label: 'Code Postal' %>
+  <%= c.input :city, label: 'Ville' %>
+  <%= c.input :phone, label: 'Telephone' %>
+  <%= c.input :product, label: 'Produit' do %>
+    <%= c.select :product, [
+    ['Tour de PC', 'tour_pc'],
+    ['Smartphone', 'smartphone'],
+    ['PC Portable', 'pc_portable'],
+    ['Tablette', 'Tablette'],
+    ['Autre', 'autre']
+  ] %>
+  <% end %>
+  <%= c.input :product_state, label: 'Etat du produit' do %>
+    <%= c.select :product_state,
+    ['excellent', 'bon', 'moyen', 'mauvais'].map {|t| [t.humanize, t]}
+  %>
+  <% end %>
+  <%= c.input :brand, label: 'Marque' %>
+  <%= c.input :product_name, label: 'Modèle' %>
+  <%= c.input :panne, label: 'Panne', as: :text %>
+
+  <br>
+  <br>
+  <% if client_form.id.present? %>
+    <%= submit_tag 'Editer le client', data: { disable_with: 'Edition en cours...' }, class: 'btn btn-primary btn-lg' %>
+  <% else %>
+    <%= submit_tag 'Ajouter le client', data: { disable_with: 'Ajout en cours...' }, class: 'btn btn-primary btn-lg' %>
+  <% end %>
+<% end %>

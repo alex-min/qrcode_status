@@ -4,37 +4,7 @@
   <% end %>&nbsp;
   <%= link_to "Voir la fiche SAV pour #{@client[:last_name]} #{@client[:first_name]}", client_path(@client[:unique_id]) %>
 <% end %>
-<div class="fiche-sav">
-  <br>
-  <h1 class="pull-left">Editer le client <%= @client[:last_name] %> <%= @client[:first_name] %></h1>
-  <div class="clearfix"></div>
-  <br>
-  <br>
-  <%= simple_form_for @client, url: client_edit_path(@client.try(:unique_id)) do |c| %>
-    <%= c.input :last_name, label: 'Nom' %>
-    <%= c.input :first_name, label: 'Prenom' %>
-    <%= c.input :address, label: 'Addresse' %>
-    <%= c.input :postal_code, label: 'Code Postal' %>
-    <%= c.input :city, label: 'Ville' %>
-    <%= c.input :phone, label: 'Telephone' %>
-    <%= c.input :product, label: 'Produit' do %>
-      <%= c.select :product, [
-      ['Tour PC', 'tour_pc'],
-      ['Smartphonee', 'smartphone'],
-      ['PC Portable', 'pc_portable'],
-      ['Tablette', 'Tablette'],
-      ['Autre', 'autre']
-    ] %>
-    <% end %>
-    <%= c.input :product_state, label: 'Etat du produit' do %>
-      <%= c.select :product_state,
-      ['excellent', 'bon', 'moyen', 'mauvais'].map {|t| [t.humanize, t]}
-    %>
-    <% end %>
-    <%= c.input :brand, label: 'Marque' %>
-    <%= c.input :product_name, label: 'Modèle' %>
-    <%= c.input :panne, label: 'Panne', as: :text %>
-    <br>
-    <%= c.button :submit, "Sauvegarder", class: 'btn btn-primary btn-lg' %>
-  <% end %>
+<div class="container">
+  <h1>Editer le client <%= @client.full_name %></h1>
+  <%= render partial: "client_form", object: @client %>
 </div>
