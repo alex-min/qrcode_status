@@ -20,7 +20,11 @@ class Client < ActiveRecord::Base
   end
 
   def sanitize_phone!
-    self.phone = Phonelib.parse(self.phone).national
+    if phone.present?
+      national_format = Phonelib.parse(self.phone).national
+      self.phone = national_format if national_format.present?
+    end
+    phone
   end
 
   def phone_data
