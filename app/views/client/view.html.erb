@@ -40,27 +40,12 @@
     <div class="produit-panne">
       <h2>Produit en Panne</h2>
       <br>
-      <div class="checkbox-row">
-        <div class="checkbox" <%= @client.product == 'tour_pc' ? 'checked' : '' %>></div>
-        <label>Tour de PC</label>
-      </div>
-      <div class="checkbox-row">
-        <div class="checkbox" <%= @client.product == 'smartphone' ? 'checked' : '' %>></div>
-        <label>Smartphone</label>
-      </div>
-      <div class="checkbox-row">
-        <div class="checkbox" <%= @client.product == 'pc_portable' ? 'checked' : '' %>></div>
-        <label>PC Portable</label>
-      </div>
-      <div class="checkbox-row">
-        <div class="checkbox" <%= @client.product == 'Tablette' ? 'checked' : '' %>></div>
-        <label>Tablette</label>
-      </div>
-      <div class="checkbox-row">
-        <div class="checkbox" <%= @client.product == 'autre' ? 'checked' : '' %>></div>
-        <label>Autre</label>
-      </div>
-      <br>
+      <% ProductType.all.each do |product| %>
+        <div class="checkbox-row">
+          <div class="checkbox" <%= @client.product == product.legacy_slug ? 'checked' : '' %>></div>
+          <label><%= product.name %></label>
+        </div>
+      <% end %>
       <br>
       <div class="panne-bottom">
         <b>Marque:</b> <%= @client.brand.try(:humanize) %><br>
