@@ -25,15 +25,19 @@ class ClientController < ApplicationController
 
   def new
     if request.request_method === 'POST'
-      client = Client::Creator.create(authorize(params).merge(user: current_user))
-      redirect_to client_path(client.unique_id)
+      create_params = authorize(params).merge(user: current_user)
+                                       .merge(company: current_user.company)
+      @client = Client::Creator.create(create_params)
+      redirect_to client_path(@client.unique_id)
     else
-      @client = Client.new
+      @client = Client.new(company: current_user.company)
     end
+    @product_types = ProductType::List.select_options(company: @client.company)
   rescue ActiveRecord::RecordInvalid, \
          Exceptions::SMSMessageFailure => e
     @client = Client.new(authorize(params))
     add_notification_error(e.message)
+    @product_types = ProductType::List.select_options(company: @client.company)
     render :action=>'new'
   end
 
@@ -43,6 +47,7 @@ class ClientController < ApplicationController
       Client::Updator.update_by_uniqueid(update_params)
     end
     @client = get_client_by_unique_id
+    @product_types = ProductType::List.select_options(company: @client.company)
   end
 
   def view

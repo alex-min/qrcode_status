@@ -7,7 +7,7 @@
   <%= c.input :city, label: 'Ville' %>
   <%= c.input :phone, label: 'Telephone' %>
   <%= c.input :product, label: 'Produit' do %>
-    <%= c.select :product, ProductType.all.map {|type| [type.name, type.legacy_slug]} %>
+    <%= c.select :product, @product_types %>
   <% end %>
   <%= c.input :product_state, label: 'Etat du produit' do %>
     <%= c.select :product_state,
