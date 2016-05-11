@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 #ruby '> 2.2'
 
+gem 'thin'
+gem 'pdfkit'
 gem 'phonelib'
 gem 'twilio-ruby'
 gem 'devise'
