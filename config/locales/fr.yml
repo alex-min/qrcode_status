@@ -1,5 +1,9 @@
 ---
 fr:
+  devise:
+    failure:
+      user:
+        unauthenticated: 'Cette page est uniquement accessible aux utilisateurs authentifiés'
   user_message:
     list: 'Liste des types de messages'
     type: 'Type de message'
