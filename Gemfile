@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 #ruby '> 2.2'
 
+gem 'unicorn'
 gem 'thin'
 gem 'pdfkit'
 gem 'phonelib'
@@ -21,6 +22,7 @@ gem 'jquery-rails'
 gem 'simple_form'
 gem 'database_cleaner'
 gem 'excon'
+gem 'prawn-rails'
 
 group :test do
   gem 'brakeman'                  # Always latest
