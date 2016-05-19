@@ -10,7 +10,7 @@
     </tr></thead>
     <tbody>
       <% @user_messages.each do |user_message| %>
-        <tr>
+        <tr class="user-message">
           <td><%= user_message.title %></td>
           <td>
             <%= raw UserMessages::WhitelistTokens.i18n_replace(user_message.message) %>
