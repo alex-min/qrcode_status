@@ -4,6 +4,12 @@ fr:
     list: 'Liste des types de messages'
     type: 'Type de message'
     message: 'Message utilisateur'
+    token:
+      company:
+        name: "NOM DE L'ENTREPRISE"
+      client:
+        full_name: "NOM DU CLIENT"
+        product_full_name: "NOM DU PRODUIT"
   app:
     sms_sent: 'SMS envoyé'
     messages:

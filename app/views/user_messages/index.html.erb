@@ -9,7 +9,9 @@
       <% @user_messages.each do |user_message| %>
         <tr>
           <td><%= user_message.title %></td>
-          <td><%= user_message.message %></td>
+          <td>
+            <%= raw UserMessages::WhitelistTokens.i18n_replace(user_message.message) %>
+          </td>
         </tr>
       <% end %>
     </tbody>
