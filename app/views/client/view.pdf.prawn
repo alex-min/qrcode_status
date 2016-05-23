@@ -1,54 +1,143 @@
 require "open-uri"
 
-def spacing(pdf)
-  pdf.text ' '
+def spacing
+  @pdf.text ' '
 end
 
+def draw_strokes
+  @pdf.stroke_bounds
+end
 
-def company_header(pdf)
-  pdf.bounding_box([0,730], :width => 250) do
-    pdf.indent 10, 0 do
-      pdf.image "#{Rails.root}/public/images/microdeo-logo.png", width: 50
-      pdf.text @company.name
-      pdf.text "Addresse: #{@company.address}"
-      pdf.text "Siret: #{@company.siret}"
+def company_header
+  @pdf.bounding_box([0,750], :width => 250) do
+    @pdf.indent 10, 0 do
+      @pdf.image "#{Rails.root}/public/images/microdeo-logo.png", width: 50
+      @pdf.text @company.name
+      @pdf.text "Addresse: #{@company.address}"
+      @pdf.text "Siret: #{@company.siret}"
     end
     #pdf.stroke_bounds
   end
 end
 
-def client_info_block(pdf)
-  pdf.bounding_box([250,730], :width => 250) do
-    pdf.indent 10, 0 do
-      spacing(pdf)
-      pdf.text '<b>Informations Client</b><br>', size: 13, inline_format: true
-      pdf.text "<b>Nom</b>: #{@client.full_name}", inline_format: true
-      pdf.text "<b>Adresse</b>: #{@client.address} - #{@client.postal_code} #{@client.city}", :inline_format => true
-      pdf.text "<b>Date</b>: #{@client.created_at.to_date}", :inline_format => true
-      pdf.text "<b>Téléphone</b>: #{@client.phone}", :inline_format => true
-      spacing(pdf)
+def client_info_block
+  @pdf.bounding_box([250,750], :width => 250) do
+    @pdf.indent 10, 0 do
+      spacing
+      @pdf.text '<b>Informations Client</b><br>', size: 13, inline_format: true
+      @pdf.text "<b>Nom</b>: #{@client.full_name}", inline_format: true
+      @pdf.text "<b>Adresse</b>: #{@client.address} - #{@client.postal_code} #{@client.city}", :inline_format => true
+      @pdf.text "<b>Date</b>: #{@client.created_at.to_date}", :inline_format => true
+      @pdf.text "<b>Téléphone</b>: #{@client.phone}", :inline_format => true
+      spacing
     end
-    pdf.stroke_bounds
+    draw_strokes
   end
 end
 
-def product_type_block(pdf)
-  pdf.text 'Produits en panne', :size => 13
-  spacing(pdf)
+def product_type_block
+  spacing
+  spacing
+  @pdf.text '<b>Produits en panne</b>', :size => 15, :inline_format => true
+  spacing
   ProductType.all.each do |product|
-    pdf.font "data/fonts/DejaVuSans.ttf" do
+    @pdf.font "data/fonts/DejaVuSans.ttf" do
       checkbox = @client.product == product.legacy_slug ? '☒' : '☐'
-      pdf.text "#{checkbox} #{product.name}"
+      @pdf.text "#{checkbox} #{product.name}"
     end
   end
-  pdf.text "<b>Marque</b>: #{@client.brand}", :inline_format => true
-  pdf.text "<b>Modèle:</b> #{@client.product_name}", :inline_format => true
-  pdf.image open('https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://status.microdeo.com/status/U6nUP4H4JlAnXXNaqdh7pg'), width: 80, align: :right
+  @pdf.text "<b>Marque</b>: #{@client.brand}", :inline_format => true
+  @pdf.text "<b>Modèle:</b> #{@client.product_name}", :inline_format => true
+  spacing
+  @pdf.image open('https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://status.microdeo.com/status/U6nUP4H4JlAnXXNaqdh7pg'), width: 80, align: :right
+  details
+end
+
+def problem_block
+  @pdf.bounding_box([250,620], :width => 250) do
+    @pdf.indent 10, 0 do
+      spacing
+      @pdf.text 'Panne constatée :'
+      @pdf.text @client.panne
+      spacing
+    end
+  end
+end
+
+def product_state
+  @pdf.bounding_box([250,520], :width => 250) do
+    @pdf.indent 10, 0 do
+      spacing
+      @pdf.text 'Etat du materiel:', size: 15
+      ['excellent', 'bon', 'moyen', 'mauvais'].each do |state|
+        checkbox = @client.product_state == state ? '☒' : '☐'
+        @pdf.font 'data/fonts/DejaVuSans.ttf' do
+          @pdf.text "#{checkbox} #{state}", size: 13
+        end
+      end
+      spacing
+    end
+    draw_strokes
+  end
+end
+
+def client_signature
+  @pdf.bounding_box([250,370], width: 250) do
+    @pdf.indent 10, 0 do
+      spacing
+      @pdf.text 'Signature du client:'
+      spacing
+      spacing
+    end
+    draw_strokes
+    spacing
+    @pdf.text 'Vous déclarez avoir pris connaissance des conditions générales.', size: 10
+    @pdf.text 'Nous déclinons toutes responsabilités en cas de perte de données.', size: 10
+  end
+  conditions
+end
+
+def conditions
+  @pdf.bounding_box([0, @pdf.cursor - 10], width: 500) do
+    [
+      'Art 1.2 - Avis de mise à disposition',
+      'Ø Lorsque votre appareil est disponible, vous êtes prévenu par un SMS.',
+      '1.3 - Conditions de dépôt des produits',
+      'Ø Vous devez impérativement déposer le ou les produits accompagnés de tous ses accessoires d’origine.',
+      'Ø Vous déclarez disposer des originaux des logiciels installés sur votre matériel et les avoir acquis licitement.',
+      'Ø Il vous appartient préalablement au dépôt de votre matériel à notre SAV de sauvegarder l\'ensemble des données. MicoDeo ne saurait en aucune façon',
+      'être tenu pour responsable de toute perte ou altération de données qui pourraient survenir.',
+      'Ø Le dépôt nécessite impérativement la signature du bon de dépôt. Aucune prestation ne pourra débuter sans la signature de ce bon.',
+      'Ø L\'acceptation par MicroDeo du matériel et ou l\'absence de mention de la part de MicroDeo sur l\'état de l\'appareil ne saurait lier MicroDeo tant que cette dernière n\'a pas procédé au diagnostic de l\'état de l\'appareil.',
+      '1.4 - Conditions de retrait du matériel',
+      'Ø L\'appareil réparé est restitué uniquement sur présentation du bon de dépôt initial accompagné de la facture originale d\'achat.',
+      'Ø La restitution se fait après complet paiement du prix de la réparation, et restitution de l\'appareil de prêt le cas échéant.',
+      'Ø Tout appareil non-repris dans un délai de trois mois après que le client y ait été invité par appel téléphonique par le SAV sera considéré comme abandonné et le SAV pourra en disposer de plein droit comme bon lui semble, y compris en procédant à sa destruction.',
+      '1.5 - Garantie des réparations et matériels',
+      'Ø La garantie de MicroDeo couvre exclusivement les pièces et la main-d’œuvre à l\'exclusion de tout autre préjudice'
+      ].each do |condition|
+        @pdf.text condition, size: 9
+      end
+  end
+end
+
+def details
+  @pdf.bounding_box([0,@pdf.cursor - 10], width: 250) do
+    @pdf.text 'Montant des devis (Déductible du montant total de la réparation en cas d’acceptation) :
+  Informatique : 39 €  Téléphonie : 19€'
+    spacing
+    @pdf.text 'MicroDeo: Dépannage informatique et téléphonie, vente et réparation de Pc, Pc portable, Smartphones, Assemblage de PC selon vos besoins, Formatage, Nettoyage et Déblocage de smartphone toute marque. ', size: 10
+  end
 end
 
 prawn_document(:page_layout => :portrait, size: 'A4') do |pdf|
-  pdf.text 'FICHE DE PRISE EN CHARGE SAV', :size => 16, :align => :right
-  company_header(pdf)
-  client_info_block(pdf)
-  product_type_block(pdf)
+  @pdf = pdf
+  @pdf.text 'FICHE DE PRISE EN CHARGE SAV', :size => 16, :align => :right
+  company_header
+  client_info_block
+  product_type_block
+  problem_block
+  product_state
+  client_signature
+
 end
