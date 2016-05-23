@@ -1,6 +1,6 @@
 class SmsMessage
   def self.send_sms(client, message)
-    return false if client.has_landline_phone?
+    return false if client.has_landline_phone? or client.phone.blank?
     twillo_config = Rails.application.config_for :twillo
     twillo_client = Twilio::REST::Client.new twillo_config['account_sid'], \
                                              twillo_config['auth_token']
