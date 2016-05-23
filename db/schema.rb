@@ -11,11 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160506155351) do
+ActiveRecord::Schema.define(version: 20160523161553) do
 
   create_table "client_events", force: :cascade do |t|
-    t.string   "event_name"
-    t.text     "comment"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "client_id"
@@ -25,6 +23,8 @@ ActiveRecord::Schema.define(version: 20160506155351) do
     t.boolean  "last_message"
     t.boolean  "show_on_list"
     t.integer  "product_type_id"
+    t.string   "event_name"
+    t.text     "comment"
   end
 
   add_index "client_events", ["client_id"], name: "index_client_events_on_client_id"
