@@ -13,6 +13,10 @@ FactoryGirl.define do
     product_name 'Iphone'
     panne 'Je l\'ai fait tomber par terre et après, j\'ai sauté dessus à pieds joints.'
 
+    trait :without_phone do
+      phone nil
+    end
+
     trait :with_invalid_phone do
       phone '0000'
     end
