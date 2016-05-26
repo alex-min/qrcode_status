@@ -9,14 +9,22 @@
   </head>
   <body>
     <div class="action-bar">
-      <%= link_to clients_path do %>
-        <i class="fa fa-tasks"></i>&nbsp;<%= I18n.t('topbar.return_to_list') %>
-      <% end %>&nbsp;
+      <% if current_user.present? %>
+        <%= link_to clients_path do %>
+          <i class="fa fa-tasks"></i>&nbsp;<%= I18n.t('topbar.return_to_list') %>
+        <% end %>&nbsp;
+      <% end %>
+
       <%= yield :topbar %>
+
       <% if current_user.present? %>
         <div style="float:right; color:white">
           <%= current_user.company.name %> - <%= current_user.email %>
         </div>
+      <% else %>
+        <%= link_to new_user_session_path, class: 'btn btn-primary' do %>
+          <i class="fa fa-user"></i>&nbsp;Se Connecter
+        <% end %>
       <% end %>
     </div>
   <% if @errors.present? %>
