@@ -49,7 +49,8 @@ def product_type_block
   @pdf.text "<b>Marque</b>: #{@client.brand}", :inline_format => true
   @pdf.text "<b>Modèle:</b> #{@client.product_name}", :inline_format => true
   spacing
-  @pdf.image open('https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://status.microdeo.com/status/U6nUP4H4JlAnXXNaqdh7pg'), width: 80, align: :right
+  @pdf.image open('https://api.qrserver.com/v1/create-qr-code/?size=80x80&data='\
+                  "http://status.microdeo.com#{status_path(@client.unique_id)}"), width: 80, align: :right
   details
 end
 
