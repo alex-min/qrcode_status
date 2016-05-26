@@ -19,6 +19,14 @@ class Client < ActiveRecord::Base
     order(created_at: :desc)
   end
 
+  def sanitized_phone
+    if phone.present?
+      national_format = Phonelib.parse(self.phone).national
+      return national_format if national_format.present?
+    end
+    return phone
+  end
+
   def sanitize_phone!
     if phone.present?
       national_format = Phonelib.parse(self.phone).national
