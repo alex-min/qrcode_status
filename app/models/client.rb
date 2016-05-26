@@ -3,6 +3,7 @@ class Client < ActiveRecord::Base
   has_many :client_events
   belongs_to :user
   belongs_to :company
+  belongs_to :product_state
   before_save :style_name
 
   validates :phone, phone: { allow_blank: true }
