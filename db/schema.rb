@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160523161553) do
+ActiveRecord::Schema.define(version: 20160526083312) do
 
   create_table "client_events", force: :cascade do |t|
     t.datetime "created_at",      null: false
@@ -20,11 +20,11 @@ ActiveRecord::Schema.define(version: 20160523161553) do
     t.string   "event_code"
     t.boolean  "sms_sent"
     t.text     "message"
+    t.string   "event_name"
+    t.text     "comment"
     t.boolean  "last_message"
     t.boolean  "show_on_list"
     t.integer  "product_type_id"
-    t.string   "event_name"
-    t.text     "comment"
   end
 
   add_index "client_events", ["client_id"], name: "index_client_events_on_client_id"
@@ -64,6 +64,16 @@ ActiveRecord::Schema.define(version: 20160523161553) do
     t.string   "phone"
     t.text     "address"
   end
+
+  create_table "product_states", force: :cascade do |t|
+    t.string   "name"
+    t.string   "legacy_slug"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "company_id"
+  end
+
+  add_index "product_states", ["company_id"], name: "index_product_states_on_company_id"
 
   create_table "product_types", force: :cascade do |t|
     t.string   "name"
