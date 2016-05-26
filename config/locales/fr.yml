@@ -1,5 +1,6 @@
 ---
 fr:
+  company_name: 'Nom de la boite'
   devise:
     failure:
       user:
