@@ -55,7 +55,7 @@ def product_type_block
 end
 
 def problem_block
-  @pdf.bounding_box([250,620], :width => 250) do
+  @pdf.bounding_box([250,620], width: 250) do
     @pdf.indent 10, 0 do
       spacing
       @pdf.text 'Panne constatée :'
@@ -66,14 +66,14 @@ def problem_block
 end
 
 def product_state
-  @pdf.bounding_box([250,520], :width => 250) do
+  @pdf.bounding_box([250,520], width: 250) do
     @pdf.indent 10, 0 do
       spacing
       @pdf.text 'Etat du materiel:', size: 15
-      ['excellent', 'bon', 'moyen', 'mauvais'].each do |state|
-        checkbox = @client.product_state == state ? '☒' : '☐'
+      ProductState.where(company: @company).each do |state|
+        checkbox = @client.product_state == state.legacy_slug ? '☒' : '☐'
         @pdf.font 'data/fonts/DejaVuSans.ttf' do
-          @pdf.text "#{checkbox} #{state}", size: 13
+          @pdf.text "#{checkbox} #{state.legacy_slug}", size: 13
         end
       end
       spacing
@@ -140,5 +140,4 @@ prawn_document(:page_layout => :portrait, size: 'A4') do |pdf|
   problem_block
   product_state
   client_signature
-
 end
