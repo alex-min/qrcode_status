@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   get '/company' => 'company#index', as: :company
 
+  get '/landing' => 'landing#index', as: :landing
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
