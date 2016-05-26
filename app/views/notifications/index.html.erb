@@ -5,6 +5,7 @@
       <th>Date</th>
       <th>Type de message</th>
       <th>Message</th>
+      <th>Numéro de téléphone</th>
     </tr></thead>
     <tbody>
     <% @notifications.each do |notification| %>
@@ -19,7 +20,12 @@
           </span>
         <% end %>
         </td>
-        <td><pre><%= notification.message %></pre></td>
+        <td><pre style="max-width:350px"><%= notification.message %></pre></td>
+        <td>
+          <% if notification.client.present? %>
+            <%= notification.client.sanitized_phone %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
     </tbody>
