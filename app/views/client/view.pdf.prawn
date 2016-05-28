@@ -71,7 +71,7 @@ def product_state
       spacing
       @pdf.text 'Etat du materiel:', size: 15
       ProductState.where(company: @company).each do |state|
-        checkbox = @client.product_state == state.legacy_slug ? '☒' : '☐'
+        checkbox = @client.product_state_id == state.id ? '☒' : '☐'
         @pdf.font 'data/fonts/DejaVuSans.ttf' do
           @pdf.text "#{checkbox} #{state.legacy_slug}", size: 13
         end
