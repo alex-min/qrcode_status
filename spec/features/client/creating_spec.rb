@@ -130,8 +130,8 @@ feature 'Creating Client' do
     fill_in :client_city, with: client.city
     fill_in :client_phone, with: client.phone
     first(:css, "#client_product option[value='#{client.product}']").select_option
-    first(:css, '#client_product_state'\
-                " option[value='#{client.product_state}']").select_option
+    first(:css, '#client_product_state_id'\
+                " option[value='#{client.product_state.id}']").select_option
     fill_in :client_brand, with: client.brand
     fill_in :client_product_name, with: client.product_name
   end
