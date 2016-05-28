@@ -23,5 +23,17 @@ namespace :dataclean do
       puts "Added company #{user_message.company.name} to #{user_message.title}"
     end
     puts "Modified #{affected} UserMessages objects"
-end
+  end
+  desc "Maps legacy_product_states to real product states"
+  task map_legacy_product_states: :environment do
+    Client.where.not(legacy_product_state: nil)
+          .where(product_state_id: nil)
+          .each do |client|
+            product_state = ProductState.find_by(legacy_slug: client.legacy_product_state)
+            client.product_state = product_state
+            client.save!(validate: false)
+            puts "Client #{client.full_name} updated with product_state #{product_state.name}"
+          end
+  end
+
 end
