@@ -41,8 +41,10 @@ feature 'Creating Client' do
     visit clients_path
     expect(page).to have_selector('.client', count: 1)
     and_message_sent_is_a_welcome_message
+    db_client = Client.last
     expect(ClientEvent.last.sms_sent).to eq(true)
-    expect(Client.last.company.id).to eq(Client.last.user.company.id)
+    expect(db_client.company.id).to eq(db_client.user.company.id)
+    expect(db_client.product_state.name).to eq(client.product_state.name)
   end
 
   def and_message_sent_is_a_welcome_message
