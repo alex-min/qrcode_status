@@ -10,8 +10,8 @@
     <%= c.select :product, @product_types %>
   <% end %>
   <%= c.input :product_state, label: 'Etat du produit' do %>
-    <%= c.select :product_state,
-    ['excellent', 'bon', 'moyen', 'mauvais'].map {|t| [t.humanize, t]}
+    <%= c.select :product_state_id,
+    ProductState.all.map {|t| [t.name, t.id]}
   %>
   <% end %>
   <%= c.input :brand, label: 'Marque' %>
