@@ -8,7 +8,7 @@ FactoryGirl.define do
     phone '06 11 11 11 11'
 
     product :smartphone
-    product_state :excellent
+    product_state { create(:product_state, :excellent) }
     brand 'Apple'
     product_name 'Iphone'
     panne 'Je l\'ai fait tomber par terre et après, j\'ai sauté dessus à pieds joints.'
