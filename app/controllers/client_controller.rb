@@ -2,8 +2,12 @@ class ClientController < ApplicationController
   include Authenticated
 
   def index
-    @clients_done = Client.where(company: current_user.company).done.latest
-    @clients_in_progress = Client.where(company: current_user.company).in_progress.latest
+    @clients_done = Client.where(company: current_user.company)
+                          .done
+                          .latest
+    @clients_in_progress = Client.where(company: current_user.company)
+                                 .in_progress
+                                 .latest
   end
 
   def authorize(params)
@@ -25,6 +29,7 @@ class ClientController < ApplicationController
   end
 
   def new
+    @product_types = ProductType::List.select_options(company: current_user.company)
     if request.request_method === 'POST'
       create_params = authorize(params).merge(user: current_user)
                                        .merge(company: current_user.company)
@@ -33,12 +38,10 @@ class ClientController < ApplicationController
     else
       @client = Client.new(company: current_user.company)
     end
-    @product_types = ProductType::List.select_options(company: @client.company)
   rescue ActiveRecord::RecordInvalid, \
          Exceptions::SMSMessageFailure => e
     @client = Client.new(authorize(params))
     add_notification_error(e.message)
-    @product_types = ProductType::List.select_options(company: @client.company)
     render :action=>'new'
   end
 
