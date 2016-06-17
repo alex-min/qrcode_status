@@ -13,6 +13,8 @@ FactoryGirl.define do
     product_name 'Iphone'
     panne 'Je l\'ai fait tomber par terre et après, j\'ai sauté dessus à pieds joints.'
 
+    unique_id { SecureRandom.urlsafe_base64 }
+
     trait :without_phone do
       phone nil
     end
