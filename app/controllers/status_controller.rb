@@ -3,9 +3,7 @@ class StatusController < ApplicationController
   end
 
   def view
-    unless current_user.blank?
-      redirect_to status_admin_path(params[:unique_id])
-    end
+    redirect_to status_admin_path(params[:unique_id]) unless current_user.blank?
     @client = Client.find_by!(unique_id: params[:unique_id])
   end
 end
