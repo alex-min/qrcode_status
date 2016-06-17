@@ -29,6 +29,7 @@ def client_info_block
       @pdf.text "<b>Adresse</b>: #{@client.address} - #{@client.postal_code} #{@client.city}", :inline_format => true
       @pdf.text "<b>Date</b>: #{@client.created_at.to_date}", :inline_format => true
       @pdf.text "<b>Téléphone</b>: #{@client.phone}", :inline_format => true
+      @pdf.text "<b>Email:</b>: #{@client.email}", :inline_format => true
       spacing
     end
     draw_strokes
