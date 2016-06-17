@@ -1,5 +1,5 @@
 class LandingController < ApplicationController
-  def inded
+  def index
     render layout: 'landing'
   end
 end
