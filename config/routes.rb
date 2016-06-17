@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get '/notifications/add' => 'notifications_add#index', as: :notifications_add
   get '/user-messages' => 'user_messages#index', as: :user_messages
 
-  get '/company' => 'company#index', as: :company
+  get '/companies' => 'companies#index', as: :companies
 
   get '/landing' => 'landing#index', as: :landing
 
