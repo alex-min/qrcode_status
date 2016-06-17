@@ -1,11 +1,13 @@
 <% content_for :topbar do %>
-  <%= link_to "javascript:window.print()" do %>
+  <%= link_to "view.pdf" do %>
     <i class="fa fa-print"></i>&nbsp;Imprimer la fiche
   <% end %>
 <% end %>
 <object width="100%"
-        style="position:absolute; height:100%; top:0; z-index: 999"
+        style="position:absolute; height:100%; top:45px; z-index: 999"
         type="application/pdf"
         data="view.pdf" id="pdf_content">
-  <center><a target="_blank" href="view.pdf">Telecharger la fiche</a></center>
+  <center style="margin-top: 20px;">
+    <a target="_blank" href="view.pdf" class="btn btn-primary btn-lg">Telecharger la fiche</a>
+  </center>
 </object>
