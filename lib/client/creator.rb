@@ -4,6 +4,7 @@ class Client::Creator
     ActiveRecord::Base.transaction do
       client.sanitize_phone!
       client.validate!
+      client.set_unique_id!
       client.company = client.user.company
       prise_en_charge = SmsMessage::get_message({
         message_id: :prise_en_charge,

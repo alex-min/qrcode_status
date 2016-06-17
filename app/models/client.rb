@@ -1,5 +1,4 @@
 class Client < ActiveRecord::Base
-  before_save :set_unique_id
   has_many :client_events
   belongs_to :user
   belongs_to :company
@@ -7,6 +6,7 @@ class Client < ActiveRecord::Base
   before_save :style_name
 
   validates :phone, phone: { allow_blank: true }
+  validates :email, email: true
 
   def self.done
     where(processed: true)
@@ -56,7 +56,7 @@ class Client < ActiveRecord::Base
     end
   end
 
-  def set_unique_id
+  def set_unique_id!
     if self.unique_id.blank?
       self.unique_id = SecureRandom.urlsafe_base64
     end
