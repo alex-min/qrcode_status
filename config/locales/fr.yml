@@ -1,6 +1,8 @@
 ---
 fr:
   simple_form:
+    required:
+      text: 'pelos'
     error_notification:
       user: 'Merci de corriger les erreurs ci-dessous:'
   company_name: 'Nom de la boite'
@@ -43,8 +45,9 @@ fr:
         user:
           attributes:
             email:
-              blank: 'Le couriel est obligatoire'
-              invalid: 'Le couriel est invalide, il doit etre au format bonjour@example.com'
+              blank: 'Le courriel est obligatoire'
+              invalid: 'Le courriel est invalide, il doit etre au format bonjour@example.com'
+              taken: 'Cette adresse est deja utilisee pour un autre compte'
             password:
               blank: 'le mot de passe est obligatoire'
               too_short: 'le mot de passe est trop court'
@@ -294,7 +297,8 @@ fr:
       signed_up_but_unconfirmed: "Un message contenant un lien de confirmation a été envoyé à votre adresse email. Ouvrez ce lien pour activer votre compte."
       update_needs_confirmation: "Votre compte a bien été mis à jour mais nous devons vérifier votre nouvelle adresse email. Merci de vérifier vos emails et de cliquer sur le lien de confirmation pour finaliser la validation de votre nouvelle adresse."
       updated: "Votre compte a été modifié avec succès."
-      sign_up: "Creer le compte"
+      new:
+        sign_up_action: "Creer le compte"
     sessions:
       signed_in: "Connecté."
       signed_out: "Déconnecté."
