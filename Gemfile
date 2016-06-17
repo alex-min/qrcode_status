@@ -23,6 +23,7 @@ gem 'simple_form'
 gem 'database_cleaner'
 gem 'excon'
 gem 'prawn-rails'
+gem 'email_validator'
 
 group :test do
   gem 'brakeman'                  # Always latest

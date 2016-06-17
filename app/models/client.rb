@@ -6,7 +6,7 @@ class Client < ActiveRecord::Base
   before_save :style_name
 
   validates :phone, phone: { allow_blank: true }
-  validates :email, email: true
+  validates :email, email: { allow_blank: true }
 
   def self.done
     where(processed: true)
