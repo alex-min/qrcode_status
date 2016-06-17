@@ -11,7 +11,10 @@
     <tbody>
       <% @companies.each do |company| %>
         <tr>
-          <td><%= company.name %></td>
+          <td><%= company.name %>
+            <br>
+            <%= company.users.count %> Utilisateurs.
+          </td>
           <td>
             <pre><%= company.address %></pre>
           </td>
