@@ -1,5 +1,6 @@
 ---
 fr:
+  default_company_name: 'Mon Entreprise'
   simple_form:
     required:
       text: 'pelos'
@@ -299,6 +300,12 @@ fr:
       updated: "Votre compte a été modifié avec succès."
       new:
         sign_up_action: "Creer le compte"
+      edit:
+        title: 'Editer le compte'
+        leave_blank: 'Laisser le champ vide si vous ne voulez pas changer de mot de passe'
+        need_current_pwd: 'Nous avons besoin de votre mot de passe actuel pour effectuer les modifications'
+        back: 'Retour'
+        update: 'Mettre a jour le compte'
     sessions:
       signed_in: "Connecté."
       signed_out: "Déconnecté."
