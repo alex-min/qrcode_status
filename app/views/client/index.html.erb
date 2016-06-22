@@ -9,6 +9,19 @@
     <%= I18n.t('user_message.list') %>
   <% end %>
 <% end %>
+<% if current_user.company.demo %>
+  <div class="container">
+    <div class="alert alert-info">
+      <h3>Bienvenue !</h3>
+      <p style="font-size: 120%">
+        Bienvenue sur la plateforme, les clients que vous voyez sont des clients de demonstration.<br>
+        Vous pouvez faire tout ce que vous voulez ici sans aucun risque !<br>
+        Si vous voulez enregistrer votre propre entreprise, cliquez sur
+          <a class="btn btn-primary btn-bg">Enregister mon entreprise</a>
+      </p>
+    </div>
+  </div>
+<% end %>
 <div class="container">
   <h1 class="pull-left">Liste des clients</h1>
   <div class="clearfix"></div>
