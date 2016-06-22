@@ -3,7 +3,7 @@ fr:
   default_company_name: 'Mon Entreprise'
   simple_form:
     required:
-      text: 'pelos'
+      text: 'Champ obligatoire'
     error_notification:
       user: 'Merci de corriger les erreurs ci-dessous:'
   company_name: 'Nom de la boite'
@@ -43,6 +43,10 @@ fr:
       messages:
         record_invalid: 'La validation a échoué : %{errors}'
       models:
+        client:
+          attributes:
+            phone:
+              invalid: 'est invalide'
         user:
           attributes:
             email:
