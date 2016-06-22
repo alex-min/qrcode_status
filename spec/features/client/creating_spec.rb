@@ -138,12 +138,12 @@ feature 'Creating Client' do
     fill_in :client_product_name, with: client.product_name
   end
 
-  let(:client) { build(:client) }
-  let(:client_with_unformated_phone) { build(:client, :with_unformated_phone) }
-  let(:client_with_landline) { create(:client, :with_landline) }
-  let(:client_without_phone) { build(:client, :without_phone) }
+  let(:client) { build(:client, product: 'smartphone') }
+  let(:client_with_unformated_phone) { build(:client, :with_unformated_phone, product: 'smartphone') }
+  let(:client_with_landline) { create(:client, :with_landline, product: 'smartphone') }
+  let(:client_without_phone) { build(:client, :without_phone, product: 'smartphone') }
   let(:create_client) { client }
-  let(:client_with_invalid_phone) { build(:client, :with_invalid_phone) }
+  let(:client_with_invalid_phone) { build(:client, :with_invalid_phone, product: 'smartphone') }
 
   def prise_en_charge_message(client)
     "Microdeo - Bonjour #{client.full_name}.\n"\

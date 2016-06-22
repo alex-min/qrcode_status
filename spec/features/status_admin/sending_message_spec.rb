@@ -46,7 +46,7 @@ feature 'Sending message to client' do
   let(:messages) { UserMessage.all }
   let(:close_ticket_message) { UserMessage.where(action: :close_ticket).first }
   let(:test_message) { 'repair_in_progress' }
-  let(:client) { create(:client) }
+  let(:client) { create(:client, product: 'smartphone') }
   let(:create_client) { client }
   let(:prise_en_charge_title) do
     UserMessage.where(code: test_message).first.title
