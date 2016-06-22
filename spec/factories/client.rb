@@ -2,18 +2,20 @@ FactoryGirl.define do
   factory :client do
     first_name { Faker::Name.first_name }
     last_name { Faker::Name.last_name.upcase }
-    address "#{Faker::Address.street_name} #{Faker::Address.street_address}"
-    postal_code Faker::Address.postcode
+    address { "#{Faker::Address.street_name} #{Faker::Address.street_address}" }
+    postal_code { Faker::Address.postcode }
     city Faker::Address.city
     phone '06 11 11 11 11'
 
-    product :smartphone
+    product { ProductType.all.sample.legacy_slug }
     product_state { create(:product_state, :excellent) }
     brand 'Apple'
     product_name 'Iphone'
-    panne 'Je l\'ai fait tomber par terre et après, j\'ai sauté dessus à pieds joints.'
+    panne { UserMessages::BrokenMessages.sample }
 
     unique_id { SecureRandom.urlsafe_base64 }
+
+    email { Faker::Internet.email }
 
     trait :without_phone do
       phone nil
