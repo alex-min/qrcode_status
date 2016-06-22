@@ -1,4 +1,6 @@
 feature 'Listing Clients' do
+  before(:each) { login_with_default_user }
+
   scenario 'Listing Clients' do
     when_i_have_a_list_of_clients
     then_i_should_arrive_on_the_status_page_with_clients

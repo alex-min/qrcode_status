@@ -1,4 +1,6 @@
 feature 'Mark as done' do
+  before(:each) { login_with_default_user }
+
   scenario 'Marking a client as done without notification' do
     when_i_mark_a_client_as_done_without_notification
     then_the_client_is_done_without_notification

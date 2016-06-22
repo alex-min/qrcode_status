@@ -1,4 +1,6 @@
 feature 'Editing Client' do
+   before(:each) { login_with_default_user }
+
    scenario 'Editing an existing client' do
      when_i_edit_an_existing_client
      then_the_client_should_be_edited

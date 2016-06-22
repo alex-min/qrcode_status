@@ -1,6 +1,8 @@
 require 'webmock/rspec'
 
 feature 'Creating Client' do
+  before(:each) { login_with_default_user }
+
   scenario 'Creating a new client' do
     when_i_create_a_new_client_from_the_form
     then_a_new_client_is_created

@@ -1,4 +1,6 @@
 feature 'Status Admin Index' do
+  before(:each) { login_with_default_user }
+
   scenario 'Login' do
     when_i_login_as_an_existing_user
     then_i_should_arrive_on_the_status_page

@@ -1,4 +1,6 @@
 feature 'Sending message to client' do
+  before(:each) { login_with_default_user }
+
   scenario 'Sending update message' do
     when_i_have_an_existing_client
     then_i_can_send_a_message_to_him

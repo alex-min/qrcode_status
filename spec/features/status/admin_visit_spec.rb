@@ -1,4 +1,6 @@
 feature 'Visiting status as a admin' do
+  before(:each) { login_with_default_user }
+
   scenario 'Visiting status' do
     when_i_visit_the_status_of_an_existing_client
     then_i_should_be_redirected

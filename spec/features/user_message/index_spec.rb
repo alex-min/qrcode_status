@@ -1,4 +1,6 @@
 feature 'User message' do
+  before(:each) { login_with_default_user }
+
   scenario 'Visit list' do
     when_i_visit_the_list_of_message
     then_i_should_have_a_list_displayed
