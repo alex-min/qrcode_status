@@ -3,7 +3,7 @@ class StatusAdminController < ApplicationController
 
   def index
     @client = Client.find_by!(unique_id: params[:unique_id])
-    @messages = UserMessage.where(user: current_user)
+    @messages = UserMessage.where(company: current_user.company)
     send_event(request) if request.request_method == 'POST'
   end
 
