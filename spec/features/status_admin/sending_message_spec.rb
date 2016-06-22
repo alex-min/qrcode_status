@@ -17,7 +17,8 @@ feature 'Sending message to client' do
 
   def then_i_can_send_a_message_to_him
     expect(first('h2').text).to eq(I18n.t('app.messages.to_sent_to', name: client.full_name))
-    expect(page).to have_selector('.sms-message-type', count: UserMessage.count)
+    user_message_count = UserMessage.where(company: client.company).count
+    expect(page).to have_selector('.sms-message-type', count: user_message_count)
     messages.each do |message|
       body_text = find("#client_event_event_name_#{message.code}").find(:xpath, '..').text
       expect(body_text).to eq(message.title)
