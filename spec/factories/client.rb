@@ -8,7 +8,7 @@ FactoryGirl.define do
     phone '06 11 11 11 11'
 
     product { ProductType.all.sample.legacy_slug }
-    product_state { create(:product_state, :excellent) }
+    product_state { ProductState.find_by(name: :excellent, company: company) }
     brand 'Apple'
     product_name 'Iphone'
     panne { UserMessages::BrokenMessages.sample }
