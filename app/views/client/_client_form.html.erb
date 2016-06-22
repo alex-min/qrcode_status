@@ -14,15 +14,15 @@
     ProductState.all.map {|t| [t.name, t.id]}
   %>
   <% end %>
-  <%= c.input :brand, label: 'Marque' %>
+  <%= c.input :brand, label: 'Marque', required: true %>
   <%= c.input :product_name, label: 'Modèle' %>
   <%= c.input :panne, label: 'Panne', as: :text %>
 
   <br>
   <br>
   <% if client_form.id.present? %>
-    <%= submit_tag 'Editer le client', data: { disable_with: 'Edition en cours...' }, class: 'btn btn-primary btn-lg' %>
+    <%= c.submit_tag 'Editer le client', data: { disable_with: 'Edition en cours...' }, class: 'btn btn-primary btn-lg' %>
   <% else %>
-    <%= submit_tag 'Ajouter le client', data: { disable_with: 'Ajout en cours...' }, class: 'btn btn-primary btn-lg' %>
+    <%= c.submit_tag 'Ajouter le client', data: { disable_with: 'Ajout en cours...' }, class: 'btn btn-primary btn-lg' %>
   <% end %>
 <% end %>
