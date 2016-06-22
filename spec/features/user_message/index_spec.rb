@@ -11,6 +11,7 @@ feature 'User message' do
   end
 
   def then_i_should_have_a_list_displayed
-    expect(page).to have_selector('.user-message', count: UserMessage.count)
+    user_message_count = UserMessage.where(company: Company.first).count
+    expect(page).to have_selector('.user-message', count: user_message_count)
   end
 end
