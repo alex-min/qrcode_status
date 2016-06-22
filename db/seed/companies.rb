@@ -24,3 +24,13 @@ if company.phone.blank?
   company.address = "27 rue Stanislas\n88100 Saint Dié des Vosges"
   company.save!
 end
+
+default_company_name = I18n.t('default_company_name')
+if not Company.find_by(name: default_company_name)
+  Company.create!(name: default_company_name,
+                  website: 'https://example.org',
+                  siret: '0123456789',
+                  address: '10 Rue des Jardiniers, 88430 Corcieux',
+                  demo: true)
+  puts "[+] #{default_company_name} created"
+end
