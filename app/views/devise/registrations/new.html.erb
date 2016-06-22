@@ -1,3 +1,5 @@
+<% password = SecureRandom.urlsafe_base64 %>
+
 <div class="container">
   <h2><%= t('.sign_up') %></h2>
 
@@ -6,8 +8,8 @@
 
     <div class="form-inputs">
       <%= f.input :email, required: true, autofocus: true %>
-      <%= f.input :password, required: true, hint: ("#{@minimum_password_length} caractères minimum" if @minimum_password_length) %>
-      <%= f.input :password_confirmation, required: true %>
+      <%= f.hidden_field_tag 'user[password]', password %>
+      <%= f.hidden_field_tag 'user[password_confirmation]', password %>
     </div>
 
     <div class="form-actions">
