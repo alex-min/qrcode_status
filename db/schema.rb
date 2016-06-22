@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160526093515) do
+ActiveRecord::Schema.define(version: 20160621131520) do
 
   create_table "client_events", force: :cascade do |t|
     t.datetime "created_at",      null: false
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20160526093515) do
     t.integer  "company_id"
     t.string   "email"
     t.integer  "product_state_id"
+    t.boolean  "demo"
   end
 
   add_index "clients", ["company_id"], name: "index_clients_on_company_id"
@@ -65,6 +66,7 @@ ActiveRecord::Schema.define(version: 20160526093515) do
     t.string   "siret"
     t.string   "phone"
     t.text     "address"
+    t.boolean  "demo"
   end
 
   create_table "product_states", force: :cascade do |t|
