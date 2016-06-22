@@ -11,7 +11,7 @@
   <% end %>
   <%= c.input :product_state, label: 'Etat du produit' do %>
     <%= c.select :product_state_id,
-    ProductState.all.map {|t| [t.name, t.id]}
+    ProductState.where(company: current_user.company).map {|t| [t.name, t.id]}
   %>
   <% end %>
   <%= c.input :brand, label: 'Marque', required: true %>
