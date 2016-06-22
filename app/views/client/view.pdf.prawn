@@ -43,7 +43,11 @@ def product_type_block
   spacing
   ProductType.all.each do |product|
     @pdf.font "data/fonts/DejaVuSans.ttf" do
-      checkbox = @client.product == product.legacy_slug ? '☒' : '☐'
+      checkbox = if @client.product == product.legacy_slug or @client.product === product.name
+                   '☒'
+                 else
+                   '☐'
+                 end
       @pdf.text "#{checkbox} #{product.name}"
     end
   end
