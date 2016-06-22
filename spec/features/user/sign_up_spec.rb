@@ -7,9 +7,7 @@ feature 'Sign Up' do
   private
 
   def when_i_sign_up_as_a_new_client
-    visit new_user_registration_path
-    fill_in :user_email, with: sample_email
-    click_button I18n.t('devise.registrations.new.sign_up_action')
+    signup_as_new_client
   end
 
   def then_i_should_have_demo_data
