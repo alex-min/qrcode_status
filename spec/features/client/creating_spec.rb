@@ -1,5 +1,3 @@
-require 'webmock/rspec'
-
 feature 'Creating Client' do
   before(:each) { login_with_default_user }
 
