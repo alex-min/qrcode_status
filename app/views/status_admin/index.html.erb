@@ -7,27 +7,29 @@
 <% end %>
 <div class="container">
 <h1>Envoyer un message au client</h1>
-  <% if @client.processed %>
-    <h1>Aucune action disponible pour <%= @client.full_name %></h1>
-  <% else %>
-    <%= simple_form_for ClientEvent.new, url: status_admin_path do |c| %>
-      <table class="table status-message-selection">
-        <tr>
-          <th>
-            <h2><%= I18n.t('app.messages.to_sent_to', name: @client.full_name) %></h2>
-          </th>
-        </tr>
-        <% @messages.each do |message| %>
+  <div class="well">
+    <% if @client.processed %>
+      <h2>Aucune action disponible pour <%= @client.full_name %></h2>
+    <% else %>
+      <%= simple_form_for ClientEvent.new, url: status_admin_path do |c| %>
+        <table class="table status-message-selection">
           <tr>
-            <td class="sms-message-type">
-              <%= c.collection_radio_buttons :event_name, [[message.code, message.title]], :first, :last %>
-            </td>
+            <th>
+              <h2><%= I18n.t('app.messages.to_sent_to', name: @client.full_name) %></h2>
+            </th>
           </tr>
-        <% end %>
-      </table>
-      <%= c.button :submit, "Ajouter le message", class: 'btn btn-primary btn-lg' %>
+          <% @messages.each do |message| %>
+            <tr>
+              <td class="sms-message-type">
+                <%= c.collection_radio_buttons :event_name, [[message.code, message.title]], :first, :last %>
+              </td>
+            </tr>
+          <% end %>
+        </table>
+        <%= c.button :submit, "Ajouter le message", class: 'btn btn-primary btn-lg' %>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
 <hr />
 <div class="container">
