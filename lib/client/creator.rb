@@ -6,6 +6,7 @@ class Client::Creator
       client.validate!
       client.set_unique_id!
       client.company = client.user.company
+      client.demo = true if client.company.demo
       prise_en_charge = SmsMessage::get_message({
         message_id: :prise_en_charge,
         client: client
