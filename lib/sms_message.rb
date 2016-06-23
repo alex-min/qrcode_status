@@ -1,6 +1,6 @@
 class SmsMessage
   def self.send_sms(client, message)
-    return false if client.has_landline_phone? or client.phone.blank?
+    return false unless can_receive_sms?(client)
     twillo_config = Rails.application.config_for :twillo
     twillo_client = Twilio::REST::Client.new twillo_config['account_sid'], \
                                              twillo_config['auth_token']
@@ -34,8 +34,8 @@ class SmsMessage
   def self.get_message(params = {})
     client = params[:client]
     company = client.company
-    user_message = UserMessage.where(code: params[:message_id],
-                                     user_id: params[:client].user_id).first
+    user_message = UserMessage.find_by(code: params[:message_id],
+                                       company: params[:client].company)
     result = ERB.new(user_message.message).result(binding)
     {
       event_code: user_message.code,
@@ -43,5 +43,11 @@ class SmsMessage
       last_message: user_message.action == 'close_ticket',
       event_name: user_message.title
     }
+  end
+
+  private
+
+  def self.can_receive_sms?(client)
+    !(client.has_landline_phone? or client.phone.blank? or client.demo)
   end
 end
