@@ -40,9 +40,7 @@
       <td><%= @client.brand %>-<%= @client.product_name %></td>
     </tr>
   </table>
-  <h2>
-    Actuellement: <%= @client.client_events.last.try(:event_name) %>
-  </h2>
+  <h2>Actuellement: <%= @client.client_events.last.try(:event_name) %></h2>
   <div class="history-progress">
     <div class="history-progress-bar">
       <div class="history-bar">
@@ -68,7 +66,8 @@
             <div class="date-ago">Il y a <%= time_ago_in_words(client_event.created_at) %></div>
             <i><%= I18n.l client_event.created_at.to_date, format: :calendar %></i>
           </td>
-        <% end %>
-      </tbody>
-    </table>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
