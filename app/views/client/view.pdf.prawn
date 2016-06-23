@@ -41,7 +41,7 @@ def product_type_block
   spacing
   @pdf.text '<b>Produits en panne</b>', :size => 15, :inline_format => true
   spacing
-  ProductType.all.each do |product|
+  ProductType.where(company: @company).each do |product|
     @pdf.font "data/fonts/DejaVuSans.ttf" do
       checkbox = if @client.product == product.legacy_slug or @client.product === product.name
                    '☒'
