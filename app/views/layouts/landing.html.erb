@@ -31,6 +31,17 @@
                     <li>
                         <a href="#contact">Contact</a>
                     </li>
+                    <li>
+                      <% if current_user.present? %>
+                        <%= link_to clients_path, class: 'btn btn-default btn-lg' do %>
+                          <i class="fa fa-user"></i>&nbsp;<%= current_user.company.name %> - <%= current_user.email %>
+                        <% end %>
+                      <% else %>
+                        <%= link_to new_user_session_path, class: 'btn btn-default btn-lg' do %>
+                          <i class="fa fa-user"></i>&nbsp;Se Connecter
+                        <% end %>
+                      <% end %>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
