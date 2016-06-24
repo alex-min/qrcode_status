@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get '/' => 'client#index', as: :clients
+  get '/app' => 'client#index', as: :clients
 
   get 'client/:unique_id/view' => 'client#view', as: :client
   match 'client/:unique_id/edit' => 'client#edit', as: :client_edit, via: [:get, :post, :patch]
@@ -16,8 +16,9 @@ Rails.application.routes.draw do
   get '/user-messages' => 'user_messages#index', as: :user_messages
 
   get '/companies' => 'companies#index', as: :companies
+  match '/companies/add_new' => 'companies#add_new', as: :companies_add_new, via: [:get, :post]
 
-  get '/landing' => 'landing#index', as: :landing
+  get '/' => 'landing#index', as: :landing
 
   devise_for :users, skip: :registrations
   devise_scope :user do
