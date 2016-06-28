@@ -39,6 +39,8 @@ fr:
         password_confirmation: 'Confirmation du mot de passe'
       client:
         phone: 'Le numéro de téléphone'
+        first_name: 'Prénom'
+        last_name: 'Nom de famille'
     errors:
       messages:
         record_invalid: 'La validation a échoué : %{errors}'
@@ -47,11 +49,15 @@ fr:
           attributes:
             phone:
               invalid: 'est invalide'
+            first_name:
+              blank: 'Le prénom est obligatoire'
+            last_name:
+              blank: 'Le nom de famille est obligatoire'
         user:
           attributes:
             email:
               blank: 'Le courriel est obligatoire'
-              invalid: 'Le courriel est invalide, il doit etre au format bonjour@example.com'
+              invalid: 'Le courriel est invalide, il doit être au format bonjour@example.com'
               taken: 'Cette adresse est deja utilisee pour un autre compte'
             password:
               blank: 'le mot de passe est obligatoire'
