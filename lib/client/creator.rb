@@ -3,7 +3,7 @@ class Client::Creator
     client = Client.new(params)
     ActiveRecord::Base.transaction do
       client.sanitize_phone!
-      client.validate!
+      client.save! unless client.valid?
       client.set_unique_id!
       client.company = client.user.company
       client.demo = true if client.company.demo
