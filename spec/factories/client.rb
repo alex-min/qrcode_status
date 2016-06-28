@@ -4,7 +4,7 @@ FactoryGirl.define do
     last_name { Faker::Name.last_name.upcase }
     address { "#{Faker::Address.street_name} #{Faker::Address.street_address}" }
     postal_code { Faker::Address.postcode }
-    city Faker::Address.city
+    city { Faker::Address.city }
     phone '06 11 11 11 11'
 
     product { ProductType.all.sample.legacy_slug }
