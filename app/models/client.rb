@@ -7,6 +7,8 @@ class Client < ActiveRecord::Base
 
   validates :phone, phone: { allow_blank: true }
   validates :email, email: { allow_blank: true }
+  validates :first_name, presence: true
+  validates :last_name, presence: true
 
   def self.done
     where(processed: true)
