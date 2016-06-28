@@ -1,5 +1,11 @@
 ---
 fr:
+  client:
+    index:
+      welcome_default_account: 'Bienvenue sur la plateforme, les clients que vous voyez sont des clients de demonstration.'
+      can_do_what_you_want: 'Vous pouvez faire tout ce que vous voulez ici sans aucun risque !'
+      please_register_your_company_on: 'Si vous voulez enregistrer votre propre entreprise, cliquez sur'
+
   default_company_name: 'Mon Entreprise'
   simple_form:
     required:
