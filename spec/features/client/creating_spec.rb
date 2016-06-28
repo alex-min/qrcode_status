@@ -59,7 +59,7 @@ feature 'Creating Client' do
   end
 
   def then_i_should_have_an_error_message
-    expect(page).to have_selector('.notification-error', count: 1)
+    expect(page).to have_selector('.help-block', count: 1)
     phone_validation_error_is_present
   end
 
@@ -119,8 +119,8 @@ feature 'Creating Client' do
   end
 
   def phone_validation_error_is_present
-    phone_error_message = I18n.t('activerecord.attributes.client.phone')
-    expect(page.first('.notification-error').text).to include(phone_error_message)
+    phone_error_message = I18n.t('activerecord.errors.models.client.attributes.phone.invalid')
+    expect(first('.help-block').text).to include(phone_error_message)
   end
 
   def visit_and_fill_client_form(client)
