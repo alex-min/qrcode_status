@@ -17,5 +17,5 @@ feature 'Notifications Index' do
 
   private
 
-  let(:create_client_events) { create_list(:client_event, 4) }
+  let(:create_client_events) { create_list(:client, 4) }
 end
