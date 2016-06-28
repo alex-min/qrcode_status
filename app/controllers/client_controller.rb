@@ -38,11 +38,11 @@ class ClientController < ApplicationController
     else
       @client = Client.new(company: current_user.company)
     end
-  rescue ActiveRecord::RecordInvalid, \
-         Exceptions::SMSMessageFailure => e
+  rescue ActiveRecord::RecordInvalid => e
+    @client = e.record
+  rescue Exceptions::SMSMessageFailure => e
     @client = Client.new(authorize(params))
     add_notification_error(e.message)
-    render :action=>'new'
   end
 
   def edit
