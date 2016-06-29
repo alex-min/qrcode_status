@@ -5,7 +5,9 @@ class CompaniesController < ApplicationController
     params.require(:company).permit(
       :name,
       :website,
-      :siret
+      :siret,
+      :phone,
+      :address
     )
   end
 
