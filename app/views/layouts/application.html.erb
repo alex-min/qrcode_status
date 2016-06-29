@@ -19,7 +19,12 @@
 
       <% if current_user.present? %>
         <div style="float:right; color:white">
-          <%= current_user.company.name %> - <%= current_user.email %>
+          <span class="company-name">
+            <%= current_user.company.name %>
+          </span>
+          <span>
+            - <%= current_user.email %>
+          </span>
         </div>
       <% else %>
         <%= link_to new_user_session_path, class: 'btn btn-primary' do %>
