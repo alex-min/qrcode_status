@@ -14,6 +14,11 @@ fr:
   companies:
     assign:
       add: 'Ajouter mon Entreprise'
+      updated: 'Les informations de votre companie ont été mises à jour'
+    company_form:
+      add: 'Ajouter mon Entreprise'
+    edit:
+      edit: 'Editer les informations de %{company_name}'
 
   default_company_name: 'Mon Entreprise'
   simple_form:
