@@ -5,6 +5,9 @@ fr:
       welcome_default_account: 'Bienvenue sur la plateforme, les clients que vous voyez sont des clients de demonstration.'
       can_do_what_you_want: 'Vous pouvez faire tout ce que vous voulez ici sans aucun risque !'
       please_register_your_company_on: 'Si vous voulez enregistrer votre propre entreprise, cliquez sur'
+  companies:
+    assign:
+      add: 'Ajouter mon Entreprise'
 
   default_company_name: 'Mon Entreprise'
   simple_form:
@@ -47,14 +50,22 @@ fr:
         phone: 'Le numéro de téléphone'
         first_name: 'Prénom'
         last_name: 'Nom de famille'
+      company:
+        name: "Nom de l'entreprise"
     errors:
       messages:
         record_invalid: 'La validation a échoué : %{errors}'
       models:
+        company:
+          attributes:
+            name:
+              blank: "Le nom de l'entreprise est obligatoire"
+            siret:
+              blank: 'Le numéro de siret est obligatoire'
         client:
           attributes:
             phone:
-              invalid: 'est invalide'
+              invalid: 'Le numero de téléphone est invalide'
             first_name:
               blank: 'Le prénom est obligatoire'
             last_name:
