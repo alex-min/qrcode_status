@@ -18,14 +18,14 @@
       <%= yield :topbar %>
 
       <% if current_user.present? %>
-        <div style="float:right; color:white">
+        <%= link_to company_edit_path, class:'company-block' do %>
           <span class="company-name">
             <%= current_user.company.name %>
           </span>
           <span>
             - <%= current_user.email %>
           </span>
-        </div>
+        <% end %>
       <% else %>
         <%= link_to new_user_session_path, class: 'btn btn-primary' do %>
           <i class="fa fa-user"></i>&nbsp;Se Connecter
