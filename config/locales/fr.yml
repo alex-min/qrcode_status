@@ -21,6 +21,8 @@ fr:
       text: 'Champ obligatoire'
     error_notification:
       user: 'Merci de corriger les erreurs ci-dessous:'
+      company: 'Merci de corriger les erreurs ci-dessous:'
+      client: 'Merci de corriger les erreurs ci-dessous:'
   company_name: 'Nom de la boite'
   user_message:
     list: 'Liste des types de messages'
@@ -93,6 +95,8 @@ fr:
               blank: 'Le prénom est obligatoire'
             last_name:
               blank: 'Le nom de famille est obligatoire'
+            email:
+              invalid: 'Le courriel est invalide, il doit être au format bonjour@example.com'
         user:
           attributes:
             email:
