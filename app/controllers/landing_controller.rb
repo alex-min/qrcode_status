@@ -1,6 +1,6 @@
 class LandingController < ApplicationController
   def index
-    if current_user.present?
+    if logged_in?
       redirect_to clients_path
     else
       render layout: 'landing'
