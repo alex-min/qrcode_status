@@ -24,9 +24,26 @@ feature 'Assing a company to the user' do
     visit companies_assign_path
     expect(current_path).to eq(companies_assign_path)
     expect(body).to include(I18n.t('companies.assign.add'))
+    fill_company_form(company)
+    click_button I18n.t('companies.assign.add')
   end
 
   def then_a_new_company_should_be_assigned
-
+    expect(current_path).to eq(clients_path)
+    expect(first('.company-name').text).to eq(company.name)
+    expect(page).to have_selector('.client', count: 0)
+    expect(body).to include(I18n.t('client.index.no_clients_to_display'))
   end
+
+  private
+
+  def fill_company_form(company)
+    fill_in :company_name, with: company.name
+    fill_in :company_website, with: company.website
+    fill_in :company_address, with: company.address
+    fill_in :company_siret, with: company.siret
+    fill_in :company_phone, with: company.phone
+  end
+
+  let(:company) { build(:company)}
 end
