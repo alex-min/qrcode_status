@@ -9,8 +9,8 @@
     <%= I18n.t('user_message.list') %>
   <% end %>
 <% end %>
-<% if current_user.company.demo %>
-  <div class="container">
+<div class="container">
+  <% if current_user.company.demo %>
     <div class="alert alert-info">
       <h3>Bienvenue !</h3>
       <p style="font-size: 120%">
@@ -22,11 +22,17 @@
         <%= link_to 'Enregister mon entreprise', companies_assign_path, class: 'btn btn-primary' %>
       </p>
     </div>
-  </div>
-<% end %>
-<div class="container">
+  <% end %>
   <h1 class="pull-left">Liste des clients</h1>
   <div class="clearfix"></div>
+  <% if @clients_in_progress.count == 0 and @clients_done.count == 0 %>
+    <div class="alert alert-info">
+      <h3><%= t('.no_clients_to_display') %></h3><br>
+      <%= link_to client_new_path, class: 'btn btn-primary' do %>
+        <i class="fa fa-plus"></i>&nbsp;<%= I18n.t('app.client.add') %>
+      <% end %>
+    </div>
+  <% end %>
   <table class="table table-striped">
     <thead>
       <tr>
