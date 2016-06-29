@@ -5,6 +5,7 @@ fr:
       welcome_default_account: 'Bienvenue sur la plateforme, les clients que vous voyez sont des clients de demonstration.'
       can_do_what_you_want: 'Vous pouvez faire tout ce que vous voulez ici sans aucun risque !'
       please_register_your_company_on: 'Si vous voulez enregistrer votre propre entreprise, cliquez sur'
+      no_clients_to_display: 'Aucun client enregistré ici pour le moment'
     client_form:
       add: 'Ajouter le client'
       add_pending: 'Ajout en cours...'
@@ -42,7 +43,7 @@ fr:
       mark_as_done: 'Marquer le client comme terminé'
       mark_as_done_no_notification: 'Marquer le client comme terminé sans envoyer de messages'
       mark_as_done_notification: 'Marquer le client comme terminé et lui envoyer un message'
-      add: 'Ajouter nouveau client'
+      add: 'Ajouter un nouveau client'
   topbar:
     return_to_list: 'Retourner a la liste des clients'
   activerecord:
