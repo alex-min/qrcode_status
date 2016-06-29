@@ -66,6 +66,10 @@ fr:
         panne: 'Panne'
       company:
         name: "Nom de l'entreprise"
+        website: 'Site web'
+        address: 'Adresse'
+        phone: 'Numéro de téléphone'
+        siret: 'Siret'
     errors:
       messages:
         record_invalid: 'La validation a échoué : %{errors}'
@@ -78,6 +82,9 @@ fr:
               blank: 'Le numéro de siret est obligatoire'
             phone:
               blank: 'Le numéro de téléphone est obligatoire'
+              invalid: 'Le numéro de téléphone est invalide'
+            address:
+              blank: "L'adresse est obligatoire"
         client:
           attributes:
             phone:
