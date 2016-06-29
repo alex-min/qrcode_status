@@ -76,6 +76,8 @@ fr:
               blank: "Le nom de l'entreprise est obligatoire"
             siret:
               blank: 'Le numéro de siret est obligatoire'
+            phone:
+              blank: 'Le numéro de téléphone est obligatoire'
         client:
           attributes:
             phone:
