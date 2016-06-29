@@ -1,7 +1,7 @@
 <div class="container">
   <h1><%= t('.add') %></h1>
   <div class="well">
-  <%= simple_form_for Company.new, url: request.path do |f| %>
+  <%= simple_form_for @company, url: request.path do |f| %>
     <%= f.input :name, required: true %>
     <%= f.input :website %>
     <%= f.input :siret, required: true %>
