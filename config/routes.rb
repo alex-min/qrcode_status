@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get '/user-messages' => 'user_messages#index', as: :user_messages
 
   get '/companies' => 'companies#index', as: :companies
-  match '/companies/add_new' => 'companies#add_new', as: :companies_add_new, via: [:get, :post]
+  match '/companies/assign' => 'companies#assign', as: :companies_assign, via: [:get, :post]
 
   get '/' => 'landing#index', as: :landing
 

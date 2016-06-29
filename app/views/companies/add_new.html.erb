@@ -1,8 +1,0 @@
-<div class="container">
-  <h1>Ajouter votre entreprise</h1>
-  <div class="well">
-  <%= simple_form_for Company.new, url: request.path do |c| %>
-    <%= c.input :last_name, label: 'Nom de l\'entreprise' %>
-  <% end %>
-  </div>
-</div>

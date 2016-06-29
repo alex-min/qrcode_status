@@ -1,8 +1,8 @@
 class CompaniesController < ApplicationController
   include Authenticated
 
-  def add_new
-
+  def assign
+    redirect_to clients_path unless current_user.company.demo
   end
 
   def index
