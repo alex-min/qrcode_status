@@ -3,4 +3,6 @@ class Company < ActiveRecord::Base
 
   validates :name, presence: true
   validates :siret, presence: true
+  validates :address, presence: true
+  validates :phone, phone: true
 end
