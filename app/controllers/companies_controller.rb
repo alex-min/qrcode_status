@@ -27,6 +27,9 @@ class CompaniesController < ApplicationController
     @company = e.record
   end
 
+  def edit
+  end
+
   def index
     @companies = Company.all
   end
