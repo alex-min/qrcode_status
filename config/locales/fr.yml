@@ -5,6 +5,11 @@ fr:
       welcome_default_account: 'Bienvenue sur la plateforme, les clients que vous voyez sont des clients de demonstration.'
       can_do_what_you_want: 'Vous pouvez faire tout ce que vous voulez ici sans aucun risque !'
       please_register_your_company_on: 'Si vous voulez enregistrer votre propre entreprise, cliquez sur'
+    client_form:
+      add: 'Ajouter le client'
+      add_pending: 'Ajout en cours...'
+      edit: 'Editer le client'
+      edit_pending: 'Edition en cours...'
   companies:
     assign:
       add: 'Ajouter mon Entreprise'
@@ -47,9 +52,17 @@ fr:
         password: 'Mot de passe'
         password_confirmation: 'Confirmation du mot de passe'
       client:
-        phone: 'Le numéro de téléphone'
+        phone: 'Numéro de téléphone'
         first_name: 'Prénom'
         last_name: 'Nom de famille'
+        address: 'Adresse'
+        postal_code: 'Code postal'
+        city: 'Ville'
+        product: 'Produit'
+        product_state: 'Etat du produit'
+        brand: 'Marque'
+        product_name: 'Modèle'
+        panne: 'Panne'
       company:
         name: "Nom de l'entreprise"
     errors:

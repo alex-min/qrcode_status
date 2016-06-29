@@ -5,31 +5,31 @@
     <%= f.input :last_name, required: true, autofocus: true %>
     <%= f.input :first_name %>
     <%= f.input :email, as: :email, type: :email %>
-    <%= f.input :address, label: 'Addresse', as: :text %>
-    <%= f.input :postal_code, label: 'Code Postal' %>
-    <%= f.input :city, label: 'Ville' %>
-    <%= f.input :phone, label: 'Telephone' %>
-    <%= f.input :product, label: 'Produit' do %>
+    <%= f.input :address, as: :text %>
+    <%= f.input :postal_code %>
+    <%= f.input :city %>
+    <%= f.input :phone %>
+    <%= f.input :product do %>
       <%= f.select :product, @product_types %>
     <% end %>
 
-    <%= f.input :product_state, label: 'Etat du produit' do %>
+    <%= f.input :product_state do %>
       <%= f.select :product_state_id,
       ProductState.where(company: current_user.company).map {|t| [t.name, t.id]}
     %>
     <% end %>
-    <%= f.input :brand, label: 'Marque', required: true %>
-    <%= f.input :product_name, label: 'Modèle' %>
-    <%= f.input :panne, label: 'Panne', as: :text %>
+    <%= f.input :brand, required: true %>
+    <%= f.input :product_name %>
+    <%= f.input :panne, as: :text %>
   </div>
 
   <br>
   <br>
   <div class="form-actions">
     <% if client_form.id.present? %>
-      <%= f.submit_tag 'Editer le client', data: { disable_with: 'Edition en cours...' }, class: 'btn btn-primary btn-lg' %>
+      <%= f.submit_tag t('.edit'), data: { disable_with: t('.edit_pending') }, class: 'btn btn-primary btn-lg' %>
     <% else %>
-      <%= f.submit_tag 'Ajouter le client', data: { disable_with: 'Ajout en cours...' }, class: 'btn btn-primary btn-lg' %>
+      <%= f.submit_tag t('.add'), data: { disable_with: t('.add_pending') }, class: 'btn btn-primary btn-lg' %>
     <% end %>
   </div>
 <% end %>
