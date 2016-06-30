@@ -26,8 +26,8 @@ def client_info_block
     @pdf.indent 10, 0 do
       spacing
       @pdf.text '<b>Informations Client</b><br>', size: 13, inline_format: true
-      @pdf.text "<b>Nom</b>: #{@client.full_name}", inline_format: true
-      @pdf.text "<b>Adresse</b>: #{@client.address} - #{@client.postal_code} #{@client.city}", :inline_format => true
+      @pdf.text "<b>#{I18n.t('activerecord.attributes.client.full_name')}</b>: #{@client.full_name}", inline_format: true
+      @pdf.text "<b>#{I18n.t('activerecord.attributes.client.address')}</b>: #{@client.address} - #{@client.postal_code} #{@client.city}", :inline_format => true
       @pdf.text "<b>Date</b>: #{@client.created_at.to_date}", inline_format: true
       @pdf.text "<b>Téléphone</b>: #{@client.phone}", inline_format: true
       @pdf.text "<b>Email:</b>: #{@client.email}", inline_format: true

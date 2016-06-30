@@ -64,6 +64,7 @@ fr:
         phone: 'Numéro de téléphone'
         first_name: 'Prénom'
         last_name: 'Nom de famille'
+        full_name: 'Nom'
         address: 'Adresse'
         postal_code: 'Code postal'
         city: 'Ville'
