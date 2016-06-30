@@ -3,4 +3,9 @@ module Notifications
     @errors ||= []
     @errors.push(message)
   end
+
+  def add_info_message(message)
+    @infos ||= []
+    @infos.push(message)
+  end
 end
