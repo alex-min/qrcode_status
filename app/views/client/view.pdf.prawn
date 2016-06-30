@@ -11,7 +11,7 @@ end
 def company_header
   @pdf.bounding_box([0,750], :width => 250) do
     @pdf.indent 10, 0 do
-      @pdf.image "#{Rails.root}/public/images/microdeo-logo.png", width: 50
+      @pdf.image @company.logo.path, width: 50
       @pdf.text @company.name
       @pdf.text "Addresse: #{@company.address}"
       @pdf.text "Siret: #{@company.siret}"

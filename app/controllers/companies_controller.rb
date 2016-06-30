@@ -7,7 +7,8 @@ class CompaniesController < ApplicationController
       :website,
       :siret,
       :phone,
-      :address
+      :address,
+      :logo
     )
   end
 

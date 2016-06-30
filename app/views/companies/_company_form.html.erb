@@ -1,4 +1,11 @@
-<%= simple_form_for company_form, url: request.path do |f| %>
+<%= simple_form_for company_form, url: request.path, html: { multipart: true } do |f| %>
+  <div>
+    <label class="string required control-label">
+      Logo
+    </label>
+  </div>
+  <%= image_tag company_form.logo.url(:thumb) %>
+  <%= f.file_field :logo %>
   <%= f.input :name, required: true %>
   <%= f.input :website %>
   <%= f.input :siret, required: true %>

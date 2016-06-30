@@ -47,3 +47,5 @@ index.html
 .validation
 *.tmp
 config/twillo.yml
+
+public/system
