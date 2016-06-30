@@ -17,6 +17,7 @@ fr:
       updated: 'Les informations de votre companie ont été mises à jour'
     company_form:
       add: 'Ajouter mon Entreprise'
+      edit: 'Editer les informations de %{company_name}'
     edit:
       edit: 'Editer les informations de %{company_name}'
 
