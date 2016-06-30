@@ -9,13 +9,13 @@ def draw_strokes
 end
 
 def company_header
-  @pdf.bounding_box([0,750], :width => 250) do
+  @pdf.bounding_box([0,750], width: 250) do
     @pdf.indent 10, 0 do
       @pdf.image @company.logo.path, width: 50
       @pdf.text @company.name
-      @pdf.text "Addresse: #{@company.address}"
-      @pdf.text "Siret: #{@company.siret}"
-      @pdf.text "Téléphone: #{@company.siret}"
+      @pdf.text "#{I18n.t('activerecord.attributes.company.address')}: #{@company.address}"
+      @pdf.text "#{I18n.t('activerecord.attributes.company.siret')}: #{@company.siret}"
+      @pdf.text "#{I18n.t('activerecord.attributes.company.phone')}: #{@company.phone}"
     end
     #pdf.stroke_bounds
   end
@@ -28,9 +28,9 @@ def client_info_block
       @pdf.text '<b>Informations Client</b><br>', size: 13, inline_format: true
       @pdf.text "<b>Nom</b>: #{@client.full_name}", inline_format: true
       @pdf.text "<b>Adresse</b>: #{@client.address} - #{@client.postal_code} #{@client.city}", :inline_format => true
-      @pdf.text "<b>Date</b>: #{@client.created_at.to_date}", :inline_format => true
-      @pdf.text "<b>Téléphone</b>: #{@client.phone}", :inline_format => true
-      @pdf.text "<b>Email:</b>: #{@client.email}", :inline_format => true
+      @pdf.text "<b>Date</b>: #{@client.created_at.to_date}", inline_format: true
+      @pdf.text "<b>Téléphone</b>: #{@client.phone}", inline_format: true
+      @pdf.text "<b>Email:</b>: #{@client.email}", inline_format: true
       spacing
     end
     draw_strokes
@@ -62,7 +62,7 @@ end
 def qr_code
   temfile = Tempfile.new('qrcode')
   qrcode = RQRCode::QRCode.new("https://status.microdeo.com#{status_path(@client.unique_id)}", size: 6, level: :h)
-  qrcode.to_img.resize(100, 100).save(temfile.path)
+  qrcode.to_img.resize(85, 85).save(temfile.path)
   @pdf.image open(temfile.path), align: :right
   temfile.unlink
 end
