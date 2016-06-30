@@ -1,0 +1,12 @@
+<%= simple_form_for company_form, url: request.path do |f| %>
+  <%= f.input :name, required: true %>
+  <%= f.input :website %>
+  <%= f.input :siret, required: true %>
+  <%= f.input :phone, required: true %>
+  <%= f.input :address, required: true %>
+  <% if company_form.id %>
+    <%= f.submit value: t('.edit', company_name: company_form.name), class: 'btn btn-primary' %>
+  <% else %>
+    <%= f.submit value: t('.add'), class: 'btn btn-primary' %>
+  <% end %>
+<% end %>
