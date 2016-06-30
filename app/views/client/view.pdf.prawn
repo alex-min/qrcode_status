@@ -15,6 +15,7 @@ def company_header
       @pdf.text @company.name
       @pdf.text "Addresse: #{@company.address}"
       @pdf.text "Siret: #{@company.siret}"
+      @pdf.text "Téléphone: #{@company.phone}"
     end
     #pdf.stroke_bounds
   end
