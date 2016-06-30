@@ -29,6 +29,7 @@ class CompaniesController < ApplicationController
   end
 
   def edit
+    redirect_to companies_assign_path if current_user.company.demo
     @company = current_user.company
     if request.request_method === 'PATCH'
       @company.update_attributes!(authorize(params))
