@@ -25,6 +25,8 @@ gem 'database_cleaner'
 gem 'excon'
 gem 'prawn-rails'
 gem 'email_validator'
+gem "paperclip", "~> 5.0.0.beta1"
+gem 'rqrcode_png'
 
 group :test do
   gem 'brakeman'                  # Always latest
