@@ -15,7 +15,7 @@ def company_header
       @pdf.text @company.name
       @pdf.text "Addresse: #{@company.address}"
       @pdf.text "Siret: #{@company.siret}"
-      @pdf.text "Téléphone: #{@company.phone}"
+      @pdf.text "Téléphone: #{@company.siret}"
     end
     #pdf.stroke_bounds
   end
@@ -52,12 +52,19 @@ def product_type_block
       @pdf.text "#{checkbox} #{product.name}"
     end
   end
-  @pdf.text "<b>Marque</b>: #{@client.brand}", :inline_format => true
-  @pdf.text "<b>Modèle:</b> #{@client.product_name}", :inline_format => true
+  @pdf.text "<b>Marque</b>: #{@client.brand}", inline_format: true
+  @pdf.text "<b>Modèle:</b> #{@client.product_name}", inline_format: true
   spacing
-  @pdf.image open('https://api.qrserver.com/v1/create-qr-code/?size=80x80&data='\
-                  "http://status.microdeo.com#{status_path(@client.unique_id)}"), width: 80, align: :right
+  qr_code
   details
+end
+
+def qr_code
+  temfile = Tempfile.new('qrcode')
+  qrcode = RQRCode::QRCode.new("https://status.microdeo.com#{status_path(@client.unique_id)}", size: 6, level: :h)
+  qrcode.to_img.resize(100, 100).save(temfile.path)
+  @pdf.image open(temfile.path), align: :right
+  temfile.unlink
 end
 
 def problem_block
