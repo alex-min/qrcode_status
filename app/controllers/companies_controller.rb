@@ -28,6 +28,13 @@ class CompaniesController < ApplicationController
   end
 
   def edit
+    @company = current_user.company
+    if request.request_method === 'PATCH'
+      @company.update_attributes!(authorize(params))
+      add_info_message(I18n.t('companies.assign.updated'))
+    end
+  rescue ActiveRecord::RecordInvalid => e
+    @company = e.record
   end
 
   def index

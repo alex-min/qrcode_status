@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   get '/companies' => 'companies#index', as: :companies
   match '/companies/assign' => 'companies#assign', as: :companies_assign, via: [:get, :post]
-  get '/company/edit' => 'companies#edit', as: :company_edit
+  match '/company/edit' => 'companies#edit', as: :company_edit, via: [:get, :patch]
 
   get '/' => 'landing#index', as: :landing
 
