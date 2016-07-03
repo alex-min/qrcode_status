@@ -9,6 +9,27 @@ feature 'Assing a company to the user' do
     then_a_new_company_should_be_assigned
   end
 
+  scenario 'The demo company has a blank avatar' do
+    when_i_have_a_demo_company
+    then_i_have_a_blank_avatar
+  end
+
+  def when_i_have_a_demo_company
+    signup_as_new_client
+  end
+
+  def then_i_have_a_blank_avatar
+    visit first('.company-logo')['src']
+    expect(page.status_code).to eq(200)
+    file = Tempfile.new('test_company_logo')
+    file.write(body.force_encoding("UTF-8"))
+    file.close
+    image = FastImage.new(file.path)
+    expect(image.type).to eq(:png)
+    expect(image.size).to eq([30, 30])
+  end
+
+
   def when_i_try_to_assign_a_company_while_the_user_has_a_company
     login_with_default_user
     visit companies_assign_path
