@@ -14,11 +14,31 @@ feature 'Edit companies' do
     then_the_logo_is_displayed
   end
 
+  scenario 'Required field' do
+    when_i_try_to_add_empty_fields
+    then_i_should_have_a_required_field_error
+  end
+
+  def when_i_try_to_add_empty_fields
+    login_with_default_user
+    visit company_edit_path
+    fill_in :company_name, with: ''
+    fill_in :company_siret, with: ''
+    fill_in :company_website, with: ''
+    fill_in :company_phone, with: ''
+    click_submit_button
+  end
+
+  def then_i_should_have_a_required_field_error
+    expect(page).to have_selector('.help-block', count: 3)
+    expect(current_path).to eq(company_edit_path)
+  end
+
   def when_i_upload_a_logo
     login_with_default_user
     visit company_edit_path
     attach_file :company_logo, fixture_logo
-    click_button I18n.t('companies.company_form.edit', company_name: Company.first.name)
+    click_submit_button
   end
 
   def then_the_logo_is_displayed
@@ -49,7 +69,7 @@ feature 'Edit companies' do
     fill_in :company_siret, with: sample_text
     fill_in :company_website, with: sample_website
     fill_in :company_phone, with: sample_phone
-    click_button I18n.t('companies.company_form.edit', company_name: Company.first.name)
+    click_submit_button
   end
 
   def then_it_gets_edited
@@ -60,6 +80,10 @@ feature 'Edit companies' do
   end
 
   private
+
+  def click_submit_button
+    click_button I18n.t('companies.company_form.edit', company_name: Company.first.name)
+  end
 
   let(:fixture_logo) do
     Rails.root.join('spec/fixtures/files/1x1.jpg')

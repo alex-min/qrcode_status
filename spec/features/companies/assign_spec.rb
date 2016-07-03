@@ -14,6 +14,26 @@ feature 'Assing a company to the user' do
     then_i_have_a_blank_avatar
   end
 
+  scenario 'Required field' do
+    when_i_try_to_add_empty_fields
+    then_i_should_have_a_required_field_error
+  end
+
+  def when_i_try_to_add_empty_fields
+    signup_as_new_client
+    visit companies_assign_path
+    fill_in :company_name, with: ''
+    fill_in :company_siret, with: ''
+    fill_in :company_website, with: ''
+    fill_in :company_phone, with: ''
+    click_submit_button
+  end
+
+  def then_i_should_have_a_required_field_error
+    expect(page).to have_selector('.help-block', count: 4)
+    expect(current_path).to eq(companies_assign_path)
+  end
+
   def when_i_have_a_demo_company
     signup_as_new_client
   end
@@ -46,7 +66,7 @@ feature 'Assing a company to the user' do
     expect(current_path).to eq(companies_assign_path)
     expect(body).to include(I18n.t('companies.assign.add'))
     fill_company_form(company)
-    click_button I18n.t('companies.assign.add')
+    click_submit_button
   end
 
   def then_a_new_company_should_be_assigned
@@ -57,6 +77,10 @@ feature 'Assing a company to the user' do
   end
 
   private
+
+  def click_submit_button
+    click_button I18n.t('companies.assign.add')
+  end
 
   def fill_company_form(company)
     fill_in :company_name, with: company.name
