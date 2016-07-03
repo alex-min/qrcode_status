@@ -19,7 +19,7 @@
 
       <% if current_user.present? %>
         <%= link_to company_edit_path, class:'company-block' do %>
-          <%= image_tag current_user.company.logo.url(:avatar) %>
+          <%= image_tag current_user.company.logo.url(:avatar), class: 'company-logo' %>
           <span class="company-name">
             <%= current_user.company.name %>
           </span>
