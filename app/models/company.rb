@@ -3,7 +3,7 @@ class Company < ActiveRecord::Base
   has_attached_file :logo, styles: { medium: "300x300>",
                                      thumb: "100x100>",
                                      small: "50x50>",
-                                     avatar: "30x30>" }, default_url: "/images/:style/missing-logo.png"
+                                     avatar: "30x30>" }, default_url: "/images/:style/blank.png"
   validates_attachment_content_type :logo, content_type: /\Aimage\/.*\Z/
 
   validates :name, presence: true
