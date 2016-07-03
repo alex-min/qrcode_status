@@ -27,6 +27,7 @@ gem 'prawn-rails'
 gem 'email_validator'
 gem "paperclip", "~> 5.0.0.beta1"
 gem 'rqrcode_png'
+gem 'fastimage'
 
 group :test do
   gem 'brakeman'                  # Always latest
