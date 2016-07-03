@@ -25,12 +25,12 @@ def client_info_block
   @pdf.bounding_box([250,750], :width => 250) do
     @pdf.indent 10, 0 do
       spacing
-      @pdf.text '<b>Informations Client</b><br>', size: 13, inline_format: true
+      @pdf.text "<b>#{I18n.t('client.view.info')}</b><br>", size: 13, inline_format: true
       @pdf.text "<b>#{I18n.t('activerecord.attributes.client.full_name')}</b>: #{@client.full_name}", inline_format: true
       @pdf.text "<b>#{I18n.t('activerecord.attributes.client.address')}</b>: #{@client.address} - #{@client.postal_code} #{@client.city}", :inline_format => true
-      @pdf.text "<b>Date</b>: #{@client.created_at.to_date}", inline_format: true
-      @pdf.text "<b>Téléphone</b>: #{@client.phone}", inline_format: true
-      @pdf.text "<b>Email:</b>: #{@client.email}", inline_format: true
+      @pdf.text "<b>#{I18n.t('client.view.date')}</b>: #{@client.created_at.to_date}", inline_format: true
+      @pdf.text "<b>#{I18n.t('activerecord.attributes.client.phone')}</b>: #{@client.phone}", inline_format: true
+      @pdf.text "<b>#{I18n.t('activerecord.attributes.client.email')}:</b>: #{@client.email}", inline_format: true
       spacing
     end
     draw_strokes
@@ -99,7 +99,7 @@ def client_signature
   @pdf.bounding_box([250,370], width: 250) do
     @pdf.indent 10, 0 do
       spacing
-      @pdf.text 'Signature du client:'
+      @pdf.text I18n.t('client.view.signature')
       spacing
       spacing
     end
@@ -146,7 +146,7 @@ end
 
 prawn_document(:page_layout => :portrait, size: 'A4') do |pdf|
   @pdf = pdf
-  @pdf.text 'FICHE DE PRISE EN CHARGE SAV', :size => 16, :align => :right
+  @pdf.text I18n.t('client.view.sav'), :size => 16, :align => :right
   company_header
   client_info_block
   product_type_block

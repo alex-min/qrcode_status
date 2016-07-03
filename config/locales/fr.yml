@@ -11,6 +11,11 @@ fr:
       add_pending: 'Ajout en cours...'
       edit: 'Editer le client'
       edit_pending: 'Edition en cours...'
+    view:
+      info: 'Informations client'
+      date: 'Date'
+      signature: 'Signature du client'
+      sav: 'FICHE DE PRISE EN CHARGE SAV'
   companies:
     assign:
       add: 'Ajouter mon Entreprise'
@@ -72,6 +77,7 @@ fr:
         brand: 'Marque'
         product_name: 'Modèle'
         panne: 'Panne'
+        email: 'Courriel'
       company:
         name: "Nom de l'entreprise"
         website: 'Site web'
