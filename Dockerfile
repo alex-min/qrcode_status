@@ -12,6 +12,8 @@ RUN dpkg -i /tmp/tidy.deb
 WORKDIR /app
 COPY Gemfile Gemfile.lock unicorn.conf ./
 RUN bundle install --jobs 20 --retry 5
+RUN bundle exec rake db:migrate
+RUN bundle exec rake db:seed
 EXPOSE 3000
 CMD ["unicorn_rails", "-p", "3000", "-c", "unicorn.conf"]
 #CMD ["bundle", "exec", "rails", "s", "-b", "0.0.0.0", "-p", "3000"]
