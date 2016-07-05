@@ -1,5 +1,6 @@
 web:
-  build: .
+  build: ./
+  dockerfile: Dockerfile_dev
   volumes:
     - .:/app
   ports:
@@ -13,3 +14,9 @@ web:
     ADMIN_PLAINTEXT_PASSWORD: '11111111'
     LANG: 'C'
     LC_ALL: 'en_US.UTF-8'
+db:
+  image: postgresql
+  ports:
+    - "13306:3306"
+  environment:
+    MYSQL_ROOT_PASSWORD: root

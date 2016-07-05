@@ -28,13 +28,13 @@ gem 'email_validator'
 gem "paperclip", "~> 5.0.0.beta1"
 gem 'rqrcode_png'
 gem 'fastimage'
+gem 'factory_girl', '4.5.0'
+gem 'faker'
 
 group :test do
   gem 'brakeman'                  # Always latest
   gem 'cane',                     '2.6.2'
   gem 'capybara',                 '2.4.1'
-  gem 'factory_girl',             '4.5.0'
-  gem 'faker'
   gem 'rspec_junit_formatter',    '0.2.0'
   gem 'rspec-its',                '1.0.1'
   gem 'rspec-rails',              '3.2.1'

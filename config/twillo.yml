@@ -1,0 +1,14 @@
+development:
+  account_sid: <%= ENV['TWILLO_ACCOUNT_SID'] %>
+  auth_token:  <%= ENV['TWILLO_AUTH_TOKEN'] %>
+  root_phone:  <%= ENV['TWILLO_ROOT_PHONE'] %>
+
+test:
+  account_sid: <%= ENV['TWILLO_ACCOUNT_SID'] %>
+  auth_token:  <%= ENV['TWILLO_AUTH_TOKEN'] %>
+  root_phone:  <%= ENV['TWILLO_ROOT_PHONE'] %>
+
+production:
+  account_sid: <%= ENV['TWILLO_ACCOUNT_SID'] %>
+  auth_token:  <%= ENV['TWILLO_AUTH_TOKEN'] %>
+  root_phone:  <%= ENV['TWILLO_ROOT_PHONE'] %>

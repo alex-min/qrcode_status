@@ -11,7 +11,7 @@ end
 def company_header
   @pdf.bounding_box([0,750], width: 250) do
     @pdf.indent 10, 0 do
-      @pdf.image @company.logo.path, width: 50
+      @pdf.image @company.logo.path, width: 50 if @company.logo.path
       @pdf.text @company.name
       @pdf.text "#{I18n.t('activerecord.attributes.company.address')}: #{@company.address}"
       @pdf.text "#{I18n.t('activerecord.attributes.company.siret')}: #{@company.siret}"
