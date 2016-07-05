@@ -10,8 +10,8 @@ RUN tar -xvf /tmp/webkit.tar.gz -C /tmp/webkit
 RUN cp -R /tmp/webkit/wkhtmltox/* /
 RUN dpkg -i /tmp/tidy.deb
 WORKDIR /app
-COPY Gemfile Gemfile.lock ./
+COPY Gemfile Gemfile.lock unicorn.conf ./
 RUN bundle install --jobs 20 --retry 5
 EXPOSE 3000
-CMD ["unicorn_rails", "-p", "3000", "-c", "config/unicorn.conf"]
+CMD ["unicorn_rails", "-p", "3000", "-c", "unicorn.conf"]
 #CMD ["bundle", "exec", "rails", "s", "-b", "0.0.0.0", "-p", "3000"]
