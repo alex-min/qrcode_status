@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160630103457) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "client_events", force: :cascade do |t|
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
@@ -20,15 +23,15 @@ ActiveRecord::Schema.define(version: 20160630103457) do
     t.string   "event_code"
     t.boolean  "sms_sent"
     t.text     "message"
-    t.string   "event_name"
-    t.text     "comment"
     t.boolean  "last_message"
     t.boolean  "show_on_list"
     t.integer  "product_type_id"
+    t.string   "event_name"
+    t.text     "comment"
   end
 
-  add_index "client_events", ["client_id"], name: "index_client_events_on_client_id"
-  add_index "client_events", ["product_type_id"], name: "index_client_events_on_product_type_id"
+  add_index "client_events", ["client_id"], name: "index_client_events_on_client_id", using: :btree
+  add_index "client_events", ["product_type_id"], name: "index_client_events_on_product_type_id", using: :btree
 
   create_table "clients", force: :cascade do |t|
     t.string   "first_name"
@@ -54,9 +57,9 @@ ActiveRecord::Schema.define(version: 20160630103457) do
     t.boolean  "demo"
   end
 
-  add_index "clients", ["company_id"], name: "index_clients_on_company_id"
-  add_index "clients", ["product_state_id"], name: "index_clients_on_product_state_id"
-  add_index "clients", ["user_id"], name: "index_clients_on_user_id"
+  add_index "clients", ["company_id"], name: "index_clients_on_company_id", using: :btree
+  add_index "clients", ["product_state_id"], name: "index_clients_on_product_state_id", using: :btree
+  add_index "clients", ["user_id"], name: "index_clients_on_user_id", using: :btree
 
   create_table "companies", force: :cascade do |t|
     t.string   "name",              null: false
@@ -81,7 +84,7 @@ ActiveRecord::Schema.define(version: 20160630103457) do
     t.integer  "company_id"
   end
 
-  add_index "product_states", ["company_id"], name: "index_product_states_on_company_id"
+  add_index "product_states", ["company_id"], name: "index_product_states_on_company_id", using: :btree
 
   create_table "product_types", force: :cascade do |t|
     t.string   "name"
@@ -92,7 +95,7 @@ ActiveRecord::Schema.define(version: 20160630103457) do
     t.string   "legacy_slug"
   end
 
-  add_index "product_types", ["company_id"], name: "index_product_types_on_company_id"
+  add_index "product_types", ["company_id"], name: "index_product_types_on_company_id", using: :btree
 
   create_table "user_messages", force: :cascade do |t|
     t.string   "code"
@@ -105,8 +108,8 @@ ActiveRecord::Schema.define(version: 20160630103457) do
     t.integer  "company_id"
   end
 
-  add_index "user_messages", ["company_id"], name: "index_user_messages_on_company_id"
-  add_index "user_messages", ["user_id"], name: "index_user_messages_on_user_id"
+  add_index "user_messages", ["company_id"], name: "index_user_messages_on_company_id", using: :btree
+  add_index "user_messages", ["user_id"], name: "index_user_messages_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -127,8 +130,18 @@ ActiveRecord::Schema.define(version: 20160630103457) do
     t.integer  "company_id"
   end
 
-  add_index "users", ["company_id"], name: "index_users_on_company_id"
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["company_id"], name: "index_users_on_company_id", using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "client_events", "clients"
+  add_foreign_key "client_events", "product_types"
+  add_foreign_key "clients", "companies"
+  add_foreign_key "clients", "product_states"
+  add_foreign_key "clients", "users"
+  add_foreign_key "product_states", "companies"
+  add_foreign_key "product_types", "companies"
+  add_foreign_key "user_messages", "companies"
+  add_foreign_key "user_messages", "users"
+  add_foreign_key "users", "companies"
 end

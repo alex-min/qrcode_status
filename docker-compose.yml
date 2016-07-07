@@ -3,6 +3,8 @@ web:
   dockerfile: Dockerfile_dev
   volumes:
     - .:/app
+  links:
+    - db
   ports:
     - "8000:3000"
   environment:
@@ -14,9 +16,10 @@ web:
     ADMIN_PLAINTEXT_PASSWORD: '11111111'
     LANG: 'C'
     LC_ALL: 'en_US.UTF-8'
+    TWILLO_ROOT_PHONE: +33000000000
+    TWILLO_ACCOUNT_SID: none
+    TWILLO_AUTH_TOKEN: none
 db:
-  image: postgresql
-  ports:
-    - "13306:3306"
+  image: postgres
   environment:
     MYSQL_ROOT_PASSWORD: root
