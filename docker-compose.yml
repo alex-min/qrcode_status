@@ -1,6 +1,5 @@
 web:
   build: ./
-  dockerfile: Dockerfile_dev
   volumes:
     - .:/app
   links:
