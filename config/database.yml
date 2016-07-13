@@ -6,7 +6,7 @@
 #
 development:
   adapter: postgresql
-  database: status
+  database: status_dev
   pool: 5
   timeout: 5000
   username: postgres
@@ -15,7 +15,7 @@ development:
 
 test:
   adapter: postgresql
-  database: status
+  database: status_test
   pool: 5
   timeout: 5000
   username: postgres

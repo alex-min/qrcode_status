@@ -105,11 +105,11 @@ feature 'Creating Client' do
   private
 
   def except_no_sms_api_call
-    assert_requested :post, %r{https://.*:.*@api.twilio.com/.*/Messages.json}, times: 0
+    assert_requested :post, %r{api.twilio.com}, times: 0
   end
 
   def except_sms_api_call
-    assert_requested :post, %r{https://.*:.*@api.twilio.com/.*/Messages.json}, times: 1
+    assert_requested :post, %r{api.twilio.com}, times: 1
   end
 
   def click_add_button(cassette_name)

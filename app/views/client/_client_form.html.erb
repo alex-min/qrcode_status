@@ -27,9 +27,9 @@
   <br>
   <div class="form-actions">
     <% if client_form.id.present? %>
-      <%= f.submit_tag t('.edit'), data: { disable_with: t('.edit_pending') }, class: 'btn btn-primary btn-lg' %>
+      <%= f.submit_tag t('.edit'), class: 'btn btn-primary btn-lg' %>
     <% else %>
-      <%= f.submit_tag t('.add'), data: { disable_with: t('.add_pending') }, class: 'btn btn-primary btn-lg' %>
+      <%= f.submit_tag t('.add'), class: 'btn btn-primary btn-lg' %>
     <% end %>
   </div>
 <% end %>
