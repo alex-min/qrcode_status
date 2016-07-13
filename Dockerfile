@@ -15,4 +15,4 @@ COPY Gemfile Gemfile.lock unicorn.conf ./
 RUN bundle install --jobs 20 --retry 5
 EXPOSE 80
 ADD . /app
-CMD ["bundle", "exec", "thin", "start", "--debug", "--trace", "-p", "80"]
+CMD ["bundle", "exec", "thin", "start", "-p", "80"]
