@@ -12,14 +12,15 @@
       <h2>Aucune action disponible pour <%= @client.full_name %></h2>
     <% else %>
       <%= simple_form_for ClientEvent.new, url: status_admin_path do |c| %>
-              <h2><%= I18n.t('app.messages.to_sent_to', name: @client.full_name) %></h2>
-            <%= c.collection_radio_buttons :event_name, @messages.map {|m| [m.code, m.title]}, :first, :last, { item_wrapper_tag: false, label: false, item_label_class: 'sms-message-type' } do |b| %>
-                <%= b.radio_button %>
-                <%= b.label %>
-                <br>
-            <% end %>
-
-        <%= c.button :submit, "Ajouter le message", class: 'btn btn-primary btn-lg' %>
+      <h2><%= I18n.t('app.messages.to_sent_to', name: @client.full_name) %></h2>
+      <%= c.collection_radio_buttons :event_name, @messages.map { |m| [m.code, m.title] }, :first, :last, {
+          item_wrapper_tag: false,
+          label: false,
+          item_label_class: 'sms-message-type' } do |b| %>
+          <%= b.radio_button %><%= b.label %>
+          <br>
+      <% end %>
+      <%= c.button :submit, "Ajouter le message", class: 'btn btn-primary btn-lg' %>
       <% end %>
     <% end %>
   </div>
