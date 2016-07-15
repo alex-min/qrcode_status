@@ -16,6 +16,7 @@ feature 'Creating Client with demo account' do
     visit clients_path
     expect(page).to have_selector('.client', count: 21)
     expect(body).to include(I18n.t('client.index.welcome_default_account'))
+    expect(Client.last.demo).to eq(true)
   end
 
   private
