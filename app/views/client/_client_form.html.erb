@@ -1,3 +1,8 @@
+<%
+  product_states = ProductState.where(company: current_user.company).map do |t|
+    [t.name, t.id]
+  end
+%>
 <%= simple_form_for(client_form, as: 'client', url: request.path) do |f| %>
   <%= f.error_notification %>
 
@@ -9,15 +14,10 @@
     <%= f.input :postal_code %>
     <%= f.input :city %>
     <%= f.input :phone %>
-    <%= f.input :product do %>
-      <%= f.select :product, @product_types %>
-    <% end %>
+    <%= f.label :product %>
+    <%= f.select :product, @product_types, {}, multiple: true %>
 
-    <%= f.input :product_state do %>
-      <%= f.select :product_state_id,
-      ProductState.where(company: current_user.company).map {|t| [t.name, t.id]}
-    %>
-    <% end %>
+    <%= f.select :product_state_id, product_states %>
     <%= f.input :brand, required: true %>
     <%= f.input :product_name %>
     <%= f.input :panne, as: :text %>
