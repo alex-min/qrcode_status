@@ -37,7 +37,7 @@
       </span>
       <% unless client.processed %>
 	      <span data-toggle="tooltip" data-placement="bottom" title="<%= I18n.t('app.client.mark_as_done') %>">
-	        <%= link_to client_mark_as_done_path(client[:id]), class: 'btn btn-default' do %>
+	        <%= link_to client_mark_as_done_path(client[:id]), class: 'btn btn-success' do %>
 	          <i class="fa fa-check" alt="<%= I18n.t('app.client.mark_as_done') %>"></i>
 	        <% end %>
 	      </span>
