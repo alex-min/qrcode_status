@@ -33,6 +33,7 @@ gem 'rqrcode_png'
 gem 'fastimage'
 gem 'factory_girl', '4.7.0'
 gem 'faker'
+gem 'select2-rails'
 
 group :test do
   gem 'brakeman'                  # Always latest
