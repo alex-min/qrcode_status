@@ -1,5 +1,7 @@
 class Company < ActiveRecord::Base
   has_many :users
+  has_many :product_states
+
   has_attached_file :logo, styles: { medium: "300x300>",
                                      thumb: "100x100>",
                                      small: "50x50>",
