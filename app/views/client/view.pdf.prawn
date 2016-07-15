@@ -42,16 +42,10 @@ def product_type_block
   spacing
   @pdf.text '<b>Produits en panne</b>', :size => 15, :inline_format => true
   spacing
-  ProductType.where(company: @company).each do |product|
-    @pdf.font "data/fonts/DejaVuSans.ttf" do
-      checkbox = if @client.product == product.legacy_slug or @client.product === product.name
-                   '☒'
-                 else
-                   '☐'
-                 end
-      @pdf.text "#{checkbox} #{product.name}"
-    end
+  @pdf.font "data/fonts/DejaVuSans.ttf" do
+    @pdf.text "☒ #{@client.product}"
   end
+  spacing
   @pdf.text "<b>Marque</b>: #{@client.brand}", inline_format: true
   @pdf.text "<b>Modèle:</b> #{@client.product_name}", inline_format: true
   spacing
