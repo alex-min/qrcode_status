@@ -80,7 +80,7 @@ def product_state
       ProductState.where(company: @company).each do |state|
         checkbox = @client.product_state_id == state.id ? '☒' : '☐'
         @pdf.font 'data/fonts/DejaVuSans.ttf' do
-          @pdf.text "#{checkbox} #{state.legacy_slug}", size: 13
+          @pdf.text "#{checkbox} #{state.name}", size: 13
         end
       end
       spacing
