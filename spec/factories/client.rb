@@ -7,7 +7,7 @@ FactoryGirl.define do
     city { Faker::Address.city }
     phone '06 11 11 11 11'
 
-    product { ProductType.all.sample.legacy_slug }
+    product { ProductType.all.sample.name }
     product_state { ProductState.find_by(name: :excellent, company: company) }
     brand 'Apple'
     product_name 'Iphone'
