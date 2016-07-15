@@ -18,14 +18,12 @@ class ClientController < ApplicationController
       :postal_code,
       :city,
       :phone,
-      :product,
-      :product_state,
+      :product_state_id,
       :brand,
       :product_name,
       :panne,
       :email,
-      :product_state_id
-    )
+    ).merge(product: params[:client][:product])
   end
 
   def new

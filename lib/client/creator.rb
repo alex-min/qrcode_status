@@ -1,5 +1,6 @@
 class Client::Creator
   def self.create(params)
+    params = params.merge(product: map_product_type(params))
     client = Client.new(params)
     ActiveRecord::Base.transaction do
       client.sanitize_phone!
@@ -17,5 +18,13 @@ class Client::Creator
       client.save!
       client
     end
+  end
+
+  private
+
+  def self.map_product_type(params)
+    product_name = params[:product].last
+    product_type = ProductType.find_or_create_by(name: product_name, company: params[:company], enabled: true)
+    product_type.name
   end
 end
