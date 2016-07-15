@@ -32,7 +32,7 @@ feature 'Creating Client with demo account' do
     fill_in :client_postal_code, with: client.postal_code
     fill_in :client_city, with: client.city
     fill_in :client_phone, with: client.phone
-    first(:css, "#client_product option[value='smartphone']").select_option
+    first(:css, "#client_product option[value='Smartphone']").select_option
     first(:css, '#client_product_state_id'\
                 " option[value='#{client.product_state.id}']").select_option
     fill_in :client_brand, with: client.brand
