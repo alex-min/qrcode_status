@@ -109,6 +109,8 @@ fr:
               blank: 'Le nom de famille est obligatoire'
             email:
               invalid: 'Le courriel est invalide, il doit être au format bonjour@example.com'
+            product:
+              blank: "Le nom du produit est obligatoire"
         user:
           attributes:
             email:
