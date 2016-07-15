@@ -12,6 +12,8 @@
  *
  *= require twitter-bootstrap-static/bootstrap
  *= require twitter-bootstrap-static/fontawesome
+ *= require select2
  *= require_tree ./application
  *= require_self
  */
+.select2-container { margin-bottom: 20px; }
