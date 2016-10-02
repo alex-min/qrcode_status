@@ -29,4 +29,12 @@ module DefaultLogin
     fill_in :company_phone, with: company.phone
     click_button I18n.t('companies.assign.add')
   end
+
+  def makes_no_calls_to_the_sms_gateway
+    assert_requested :post, %r{api.twilio.com}, times: 0
+  end
+
+  def makes_one_call_to_the_sms_gateway
+    assert_requested :post, %r{api.twilio.com}, times: 1
+  end
 end

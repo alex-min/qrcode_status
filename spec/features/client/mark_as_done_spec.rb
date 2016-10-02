@@ -1,55 +1,42 @@
-feature 'Mark as done' do
-  before(:each) { login_with_default_user }
-
-  scenario 'Marking a client as done without notification' do
-    when_i_mark_a_client_as_done_without_notification
-    then_the_client_is_done_without_notification
-  end
-
-  scenario 'Marking a client as done with notification' do
-    when_i_mark_a_client_as_done_with_notification
-    then_the_client_is_done_with_notification
-  end
-
-  scenario 'Marking a client as done with failed sms' do
-    when_i_mark_a_client_as_done_with_notification_with_failed_sms
-    then_the_client_should_stay_the_same
-  end
-
-  def when_i_mark_a_client_as_done_without_notification
-    visit client_mark_as_done_path(client.id)
-    click_button I18n.t('app.client.mark_as_done_no_notification')
-  end
-
-  def then_the_client_is_done_without_notification
-    expect(client.client_events.count).to eq(1)
-  end
-
-
-  def when_i_mark_a_client_as_done_with_notification
-    visit client_mark_as_done_path(client.id)
-    VCR.use_cassette(:sms_success, :match_requests_on => [:host, :method]) do
-      click_button I18n.t('app.client.mark_as_done_notification')
+RSpec.feature 'Mark as done' do
+  around(:each) do |example|
+    VCR.use_cassette(gateway_result, :match_requests_on => [:host, :method]) do
+      login_with_default_user
+      visit client_mark_as_done_path(client.id)
+      click_button I18n.t(button_to_click)
+      example.run
     end
   end
-
-  def then_the_client_is_done_with_notification
-    expect(client.client_events.count).to eq(2)
-  end
-
-  def when_i_mark_a_client_as_done_with_notification_with_failed_sms
-    visit client_mark_as_done_path(client.id)
-    VCR.use_cassette(:sms_failure_invalid_phone, :match_requests_on => [:host, :method]) do
-      click_button I18n.t('app.client.mark_as_done_notification')
-    end
-  end
-
-  def then_the_client_should_stay_the_same
-    expect(page).to have_selector('.notification-error', count: 1)
-    expect(Client.last.processed).to eq(false)
-  end
-
-  private
 
   let(:client) { create(:client) }
+  let(:send_notification_button) { 'app.client.mark_as_done_notification' }
+  let(:no_notification_button) { 'app.client.mark_as_done_no_notification' }
+  let(:client_events_count) { client.reload.client_events.count }
+  let(:client_processed?) { client.reload.processed }
+  let(:gateway_result) { :sms_success }
+
+  context 'Marking a client as done without notification' do
+    let(:button_to_click) { no_notification_button }
+    it { makes_no_calls_to_the_sms_gateway }
+    it { expect(client_processed?).to eq(true) }
+    it { expect(client_events_count).to eq(1) }
+  end
+
+  context 'Marking a client as done with notification' do
+    let(:button_to_click) { send_notification_button }
+    it { makes_one_call_to_the_sms_gateway }
+    it { expect(client_processed?).to eq(true) }
+    it { expect(client_events_count).to eq(2) }
+  end
+
+  context 'Marking a client as done with failed sms' do
+    let(:gateway_result) { :sms_failure_invalid_phone }
+    let(:button_to_click) { send_notification_button }
+    it { makes_one_call_to_the_sms_gateway }
+    it 'displays a notification error' do
+      expect(page).to have_selector('.notification-error', count: 1)
+    end
+    it { expect(client_processed?).to eq(false) }
+    it { expect(client_events_count).to eq(1) }
+  end
 end

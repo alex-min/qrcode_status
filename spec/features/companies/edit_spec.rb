@@ -1,95 +1,78 @@
-feature 'Edit companies' do
-  scenario 'Edit default company' do
-    when_i_try_to_edit_the_default_company
-    then_i_get_redirected_to_assign_a_new_one
-  end
-
-  scenario 'Edit company' do
-    when_i_edit_company
-    then_it_gets_edited
-  end
-
-  scenario 'Logo upload' do
-    when_i_upload_a_logo
-    then_the_logo_is_displayed
-  end
-
-  scenario 'Required field' do
-    when_i_try_to_add_empty_fields
-    then_i_should_have_a_required_field_error
-  end
-
-  def when_i_try_to_add_empty_fields
-    login_with_default_user
+RSpec.feature 'Edit companies' do
+  before(:each) do
+    login
     visit company_edit_path
-    fill_in :company_name, with: ''
-    fill_in :company_siret, with: ''
-    fill_in :company_website, with: ''
-    fill_in :company_phone, with: ''
-    click_submit_button
+    fill_company_fields
   end
 
-  def then_i_should_have_a_required_field_error
-    expect(page).to have_selector('.help-block', count: 3)
-    expect(current_path).to eq(company_edit_path)
+  let(:fixture_logo) { Rails.root.join('spec/fixtures/files/1x1.jpg') }
+  let(:sample_name) { Faker::Name.name }
+  let(:sample_siret) { Faker::Name.name }
+  let(:sample_website) { "https://#{Faker::Internet.domain_name}" }
+  let(:sample_phone) { Faker::PhoneNumber.phone_number }
+  let(:click_submit_button) { click_button I18n.t('companies.company_form.edit', company_name: Company.first.name) }
+
+  let(:name) { nil }
+  let(:siret) { nil }
+  let(:website) { nil }
+  let(:phone) { nil }
+
+  let(:fill_company_fields) do
+    fill_in :company_name, with: name
+    fill_in :company_siret, with: siret
+    fill_in :company_website, with: website
+    fill_in :company_phone, with: phone
   end
 
-  def when_i_upload_a_logo
-    login_with_default_user
-    visit company_edit_path
-    attach_file :company_logo, fixture_logo
-    click_submit_button
-  end
-
-  def then_the_logo_is_displayed
+  let(:company_logo) do
     visit first('.company-logo')['src']
-    expect(page.status_code).to eq(200)
     file = Tempfile.new('test_company_logo')
     file.write(body.force_encoding("UTF-8"))
     file.close
     image = FastImage.new(file.path)
-    expect(image.type).to eq(:jpeg)
-    expect(image.size).to eq([1, 1])
     file.unlink
+    image
   end
 
-  def when_i_try_to_edit_the_default_company
-    signup_as_new_client
-    visit company_edit_path
+  context 'Edit default company' do
+    let(:login) { signup_as_new_client }
+    it { expect(current_path).to eq(companies_assign_path) }
   end
 
-  def then_i_get_redirected_to_assign_a_new_one
-    expect(current_path).to eq(companies_assign_path)
+  context 'With an existing user' do
+    let(:login) { login_with_default_user }
+    context 'editing the company' do
+      let(:name) { sample_name }
+      let(:siret) { sample_siret }
+      let(:website) { sample_website }
+      let(:phone) { sample_phone }
+      before { click_submit_button }
+
+      it { expect(find_field(:company_name).value).to eq(sample_name) }
+      it { expect(find_field(:company_siret).value).to eq(sample_siret) }
+      it { expect(find_field(:company_website).value).to eq(sample_website) }
+      it { expect(find_field(:company_phone).value).to eq(sample_phone) }
+    end
+
+    context 'uploadig a logo' do
+       before do
+        attach_file :company_logo, fixture_logo
+        click_submit_button
+       end
+
+       it { expect(company_logo.type).to eq(:jpeg) }
+       it { expect(company_logo.size).to eq([1, 1])}
+    end
+
+    context 'Required field' do
+      let(:name) { '' }
+      let(:siret) { '' }
+      let(:website) { '' }
+      let(:phone) { '' }
+      before { click_submit_button }
+
+      it { expect(page).to have_selector('.help-block', count: 3) }
+      it { expect(current_path).to eq(company_edit_path) }
+    end
   end
-
-  def when_i_edit_company
-    login_with_default_user
-    visit company_edit_path
-    fill_in :company_name, with: sample_text
-    fill_in :company_siret, with: sample_text
-    fill_in :company_website, with: sample_website
-    fill_in :company_phone, with: sample_phone
-    click_submit_button
-  end
-
-  def then_it_gets_edited
-    expect(find_field(:company_name).value).to eq(sample_text)
-    expect(find_field(:company_siret).value).to eq(sample_text)
-    expect(find_field(:company_website).value).to eq(sample_website)
-    expect(find_field(:company_phone).value).to eq(sample_phone)
-  end
-
-  private
-
-  def click_submit_button
-    click_button I18n.t('companies.company_form.edit', company_name: Company.first.name)
-  end
-
-  let(:fixture_logo) do
-    Rails.root.join('spec/fixtures/files/1x1.jpg')
-  end
-
-  let(:sample_text) { Faker::Name.name }
-  let(:sample_website) { "https://#{Faker::Internet.domain_name}" }
-  let(:sample_phone) { Faker::PhoneNumber.phone_number }
 end

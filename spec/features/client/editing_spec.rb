@@ -1,29 +1,30 @@
-feature 'Editing Client' do
-   before(:each) { login_with_default_user }
-
-   scenario 'Editing an existing client' do
-     when_i_edit_an_existing_client
-     then_the_client_should_be_edited
-   end
-
-   def when_i_edit_an_existing_client
+RSpec.feature 'Editing Client' do
+  before(:each) do
+    login_with_default_user
+    create_client
     visit client_edit_path(client.unique_id)
-    expect(client_address_input_value).to eq(client.address)
-    fill_in :client_address, with: new_address
-    submit_button.click
-   end
+  end
 
-   def then_the_client_should_be_edited
-    expect(client_address_input_value).to eq(new_address)
-   end
+  let(:new_address) { 'New address after edition' }
+  let(:submit_button) { first("input[type='submit']") }
+  let(:create_client) { create(:client) }
+  let(:client) { create_client }
 
-   private
+  subject { page.find_by_id(:client_address).value }
 
-   let(:new_address) { 'New address after edition' }
-   let(:submit_button) { first("input[type='submit']") }
-   let(:client) { create(:client) }
+  context 'without editing the client' do
+    it 'should have the same address' do
+      is_expected.to eq(client.address)
+    end
+  end
 
-   def client_address_input_value
-    page.find_by_id(:client_address).value
-   end
+  context 'after editing the client' do
+    before do
+      fill_in :client_address, with: new_address
+      submit_button.click
+    end
+    it 'should have changed the address' do
+      is_expected.to eq(new_address)
+    end
+  end
 end
