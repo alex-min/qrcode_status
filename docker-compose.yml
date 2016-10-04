@@ -12,6 +12,7 @@ web:
     TWILLO_ROOT_PHONE: +33000000000
     TWILLO_ACCOUNT_SID: none
     TWILLO_AUTH_TOKEN: none
+    DEVISE_SECRET_KEY: secret
 db:
   image: postgres
   environment:

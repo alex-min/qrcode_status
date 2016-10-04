@@ -48,3 +48,4 @@ index.html
 *.tmp
 
 public/system
+.env

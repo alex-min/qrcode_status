@@ -1,3 +1,3 @@
 unless ENV['TWILLO_ACCOUNT_SID'] and ENV['TWILLO_AUTH_TOKEN'] and ENV['TWILLO_ROOT_PHONE']
-  raise Exception.new('Env variables TWILLO_ACCOUNT_SID, TWILLO_AUTH_TOKEN and TWILLO_ROOT_PHONE are required')
+  raise ArgumentError.new('Env variables TWILLO_ACCOUNT_SID, TWILLO_AUTH_TOKEN and TWILLO_ROOT_PHONE are required')
 end

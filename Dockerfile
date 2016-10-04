@@ -13,6 +13,6 @@ RUN dpkg -i /tmp/tidy.deb
 WORKDIR /app
 COPY Gemfile Gemfile.lock unicorn.conf ./
 RUN bundle install --jobs 20 --retry 5
-EXPOSE 80
+EXPOSE 5001
 ADD . /app
-CMD ["bundle", "exec", "thin", "start", "-p", "80"]
+CMD ["bundle", "exec", "thin", "start", "-p", "5001"]
