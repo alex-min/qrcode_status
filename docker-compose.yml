@@ -13,6 +13,7 @@ web:
     TWILLO_ACCOUNT_SID: none
     TWILLO_AUTH_TOKEN: none
     DEVISE_SECRET_KEY: secret
+    WEBSITE_HOSTNAME: localhost
 db:
   image: postgres
   environment:

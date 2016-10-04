@@ -1,0 +1,10 @@
+#!/bin/bash
+#!/bin/bash
+if [ -z "$2" ]; then
+    echo "USAGE: $0 [hostname] [application name]";
+    exit 1;
+fi
+set -o xtrace
+DOKKU_HOST="$1"
+APPNAME="$2"
+ssh "dokku@$DOKKU_HOST" config:set "$APPNAME" `cat .env`

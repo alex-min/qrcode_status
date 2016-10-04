@@ -18,6 +18,7 @@
       <%= f.select :product, @product_types, {}, multiple: true %>
     <% end %>
 
+    <%= f.label :product_state %><br>
     <%= f.select :product_state_id, product_states %>
     <%= f.input :brand, required: true %>
     <%= f.input :product_name %>

@@ -55,7 +55,7 @@ end
 
 def qr_code
   temfile = Tempfile.new('qrcode')
-  qrcode = RQRCode::QRCode.new("https://status.microdeo.com#{status_path(@client.unique_id)}", size: 6, level: :h)
+  qrcode = RQRCode::QRCode.new("https://{ENV['WEBSITE_HOSTNAME']}/{status_path(@client.unique_id)}", size: 6, level: :h)
   qrcode.to_img.resize(85, 85).save(temfile.path)
   @pdf.image open(temfile.path), align: :right
   temfile.unlink
