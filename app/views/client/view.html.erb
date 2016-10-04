@@ -8,6 +8,8 @@
         type="application/pdf"
         data="view.pdf" id="pdf_content">
   <center style="margin-top: 20px;">
-    <a target="_blank" href="view.pdf" class="btn btn-primary btn-lg">Telecharger la fiche</a>
+    <a target="_blank" href="view.pdf" class="btn btn-primary btn-lg">
+      <i class="fa fa-cloud-download"></i>&nbsp;Telecharger la fiche</a>
+    <%= link_to "view.pdf", class: "btn btn-primary btn-lg" do %><i class="fa fa-print"></i>&nbsp;Imprimer la fiche<% end %>
   </center>
 </object>
