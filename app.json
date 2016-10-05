@@ -3,7 +3,7 @@
   "description": "Status",
   "scripts": {
     "dokku": {
-      "predeploy": "bundle exec rspec && bundle exec rake db:migrate && bundle exec rake assets:precompile"
+      "predeploy": "bundle exec rake db:migrate && bundle exec rake assets:precompile"
     }
   },
   "env": {

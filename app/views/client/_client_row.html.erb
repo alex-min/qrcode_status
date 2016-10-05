@@ -1,7 +1,7 @@
 <% client = client_row %>
 <tr class="client">
   <td>
-    <%= link_to client_path(client[:unique_id]) do %>
+    <%= link_to client_path(client[:unique_id]), class: 'client-view-link' do %>
       <div data-toggle="tooltip" data-placement="bottom" title="Voir la fiche SAV">
         <i class="fa fa-folder"></i>&nbsp;<%= client.full_name %><br>
         <% if client.processed %>

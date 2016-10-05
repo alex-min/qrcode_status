@@ -5,7 +5,7 @@ web:
   links:
     - db
   ports:
-    - "8000:80"
+    - "9000:5001"
   environment:
     DOCKER_COMPOSE: 1
     ADMIN_EMAIL: 'contact@microdeo.com'

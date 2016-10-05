@@ -61,4 +61,5 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'pry-byebug'
   gem 'pry-rails'
+  gem 'pdf-inspector', :require => "pdf/inspector"
 end
