@@ -15,7 +15,9 @@ fr:
       info: 'Informations client'
       date: 'Date'
       signature: 'Signature du client'
-      sav: 'FICHE DE PRISE EN CHARGE SAV'
+      sav: 'Fiche de prise en charge SAV'
+      broken_products_list: 'Produits en panne :'
+      product_state: 'Etat du materiel:'
   companies:
     assign:
       add: 'Ajouter mon Entreprise'

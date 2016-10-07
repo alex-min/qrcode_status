@@ -59,6 +59,10 @@ class Client < ActiveRecord::Base
     end
   end
 
+  def full_address
+    "#{self.address} - #{self.postal_code} #{self.city}"
+  end
+
   def set_unique_id!
     if self.unique_id.blank?
       self.unique_id = SecureRandom.urlsafe_base64

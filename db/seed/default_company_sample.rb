@@ -11,5 +11,4 @@ else
   puts "[-] At least 20 sample clients are already created"
 end
 
-
 puts ""

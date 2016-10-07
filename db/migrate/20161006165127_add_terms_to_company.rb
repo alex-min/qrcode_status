@@ -1,0 +1,5 @@
+class AddTermsToCompany < ActiveRecord::Migration[5.0]
+  def change
+    add_column :companies, :terms, :text
+  end
+end
