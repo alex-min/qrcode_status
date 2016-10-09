@@ -13,9 +13,9 @@ def company_header
     @pdf.indent 10, 0 do
       @pdf.image @company.logo.path, width: 50 if @company.logo.path
       @pdf.text @company.name
-      @pdf.text "#{I18n.t('activerecord.attributes.company.address')}: #{@company.address}"
-      @pdf.text "#{I18n.t('activerecord.attributes.company.siret')}: #{@company.siret}"
-      @pdf.text "#{I18n.t('activerecord.attributes.company.phone')}: #{@company.phone}"
+      @pdf.text "#{Company.human_attribute_name(:address)}: #{@company.address}"
+      @pdf.text "#{Company.human_attribute_name(:siret)}: #{@company.siret}"
+      @pdf.text "#{Company.human_attribute_name(:phone)}: #{@company.phone}"
     end
   end
 end
@@ -25,11 +25,11 @@ def client_info_block
     @pdf.indent 10, 0 do
       spacing
       @pdf.text "<b>#{I18n.t('client.view.info')}</b><br>", size: 13, inline_format: true
-      show_attribute(I18n.t('activerecord.attributes.client.full_name'), @client.full_name)
-      show_attribute(I18n.t('activerecord.attributes.client.address'), @client.full_address)
+      show_attribute(Client.human_attribute_name(:full_name), @client.full_name)
+      show_attribute(Client.human_attribute_name(:address), @client.full_address)
       show_attribute(I18n.t('client.view.date'), @client.created_at.to_date)
-      show_attribute(I18n.t('activerecord.attributes.client.phone'), @client.phone)
-      show_attribute(I18n.t('activerecord.attributes.client.email'), @client.email)
+      show_attribute(Client.human_attribute_name(:phone), @client.phone)
+      show_attribute(Client.human_attribute_name(:email), @client.email)
       spacing
     end
     draw_strokes
@@ -48,8 +48,8 @@ def product_type_block
     @pdf.text "☒ #{@client.product}"
   end
   spacing
-  show_attribute(I18n.t('activerecord.attributes.client.brand'), @client.brand)
-  show_attribute(I18n.t('activerecord.attributes.client.product_name'), @client.product_name)
+  show_attribute(Client.human_attribute_name(:brand), @client.brand)
+  show_attribute(Client.human_attribute_name(:product_name), @client.product_name)
   spacing
   qr_code
   details

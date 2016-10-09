@@ -35,18 +35,7 @@
         <% end %>
       <% end %>
     </div>
-    <div class="container">
-      <% if @errors.present? %>
-        <% @errors.each do |error| %>
-          <div class="alert alert-danger notification-error"><%= error %></div>
-        <% end %>
-      <% end %>
-      <% if @infos.present? %>
-        <% @infos.each do |info| %>
-          <div class="alert alert-info notification-info"><%= info %></div>
-        <% end %>
-      <% end %>
-    </div>
+    <%= render "shared/flash_messages" %>
     <br>
     <%= yield %>
   </body>

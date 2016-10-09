@@ -1,6 +1,14 @@
+<% content_for :topbar do %>
+  <%= link_to new_user_registration_path, class: 'btn btn-primary' do %>
+    <i class="fa fa-user"></i>
+    &nbsp;Creer un nouveau compte
+  <% end %>
+<% end %>
 <div class="container">
   <h2>Connexion</h2>
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
+
     <div class="form-inputs">
       <%= f.input :email, required: false, autofocus: true %>
       <%= f.input :password, required: false, label: 'Mot de passe' %>
@@ -12,5 +20,9 @@
     <div class="form-actions">
       <%= f.button :submit, 'Connexion', class: 'btn-primary' %>
     </div>
+  <% end %>
+  <hr/>
+  <%= link_to new_user_registration_path, class: 'btn btn-default' do %>
+    <i class="fa fa-user"></i>&nbsp;Creer un nouveau compte
   <% end %>
 </div>

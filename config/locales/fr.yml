@@ -244,7 +244,6 @@ fr:
       not_an_integer: doit être un nombre entier
       odd: doit être impair
       taken: n'est pas disponible
-      sms: Impossible d'envoyer un SMS pour le numéro de téléphone %{phone}
       too_long:
         one: est trop long (pas plus d'un caractère)
         other: est trop long (pas plus de %{count} caractères)
@@ -391,6 +390,7 @@ fr:
       expired: "a expiré, merci d'en faire une nouvelle demande"
       not_found: "n'a pas été trouvé(e)"
       not_locked: "n'était pas verrouillé(e)"
+      sms: Impossible d'envoyer un SMS pour le numéro de téléphone %{phone}
       not_saved:
         one: "1 erreur a empêché ce(tte) %{resource} d'être sauvegardé(e) :"
         other: "%{count} erreurs ont empêché ce(tte) %{resource} d'être sauvegardé(e) :"

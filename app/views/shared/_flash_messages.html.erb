@@ -1,0 +1,13 @@
+<div class="container">
+  <% if flash.present? %>
+    <% flash.each do |name, messages| %>
+      <% [messages].flatten.each do |text| %>
+        <% if name === 'alert' %>
+          <div class="alert alert-danger notification-error"><%= text %></div>
+        <% elsif name === 'notice' %>
+          <div class="alert alert-info notification-info"><%= text %></div>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
