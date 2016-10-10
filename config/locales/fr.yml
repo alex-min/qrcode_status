@@ -359,6 +359,9 @@ fr:
       send_paranoid_instructions: "Si votre e-mail existe dans notre base de données, vous allez recevoir un lien de réinitialisation par e-mail"
       updated: "Votre mot de passe a été édité avec succès, vous êtes maintenant connecté"
       updated_not_active: "Votre mot de passe a été changé avec succès."
+      new:
+        title: 'Changer de mot de passe'
+        send_password_instructions: 'Envoyer un courriel pour changer de mot de passe'
     registrations:
       destroyed: "Votre compte a été supprimé avec succès. Nous espérons vous revoir bientôt."
       signed_up: "Bienvenue, vous êtes connecté."

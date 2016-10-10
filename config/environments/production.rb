@@ -22,7 +22,7 @@ Rails.application.configure do
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
-  config.public_file_server.enabled = true#ENV['RAILS_SERVE_STATIC_FILES'].present?
+  config.public_file_server.enabled = true
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
@@ -78,4 +78,27 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.logger = Logger.new(STDOUT)
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { :host => ENV['WEBSITE_HOSTNAME'] }
+
+  if not ENV['SMTP_HOSTNAME']
+    raise ArgumentError.new('Envs variable SMTP_HOSTNAME and SMTP_USERNAME and SMTP_PASSWORD are mandatory')
+  end
+
+  # config.action_mailer.smtp_settings = {
+  #   api_key: ENV['MAILGUN_API_KEY'],
+  #   domain:  ENV['MAILGUN_DOMAIN']
+  # }
+
+config.action_mailer.smtp_settings = {
+ :address              => ENV['SMTP_HOSTNAME'],
+ :port                 => 587,
+ :user_name            => ENV['SMTP_USERNAME'],
+ :password             => ENV['SMTP_PASSWORD'],
+ :authentication       => "plain",
+  :enable_starttls_auto => true
+}
+
+
 end

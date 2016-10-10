@@ -22,7 +22,5 @@
     </div>
   <% end %>
   <hr/>
-  <%= link_to new_user_registration_path, class: 'btn btn-default' do %>
-    <i class="fa fa-user"></i>&nbsp;Creer un nouveau compte
-  <% end %>
+  <%= render "devise/shared/links" %>
 </div>

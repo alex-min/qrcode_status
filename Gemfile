@@ -43,7 +43,7 @@ group :test do
   gem 'rspec-its',                '1.2.0'
   gem 'rspec-rails',              '3.5.1'
   gem 'rspec',                    '3.5.0'
-  gem 'scss-lint',                '0.38.0'
+  gem 'scss_lint',                '0.38.0'
   gem 'simplecov-rcov',           '0.2.3'
   gem 'simplecov',                '0.12.0'
   gem 'tailor',                   '1.4.1'
