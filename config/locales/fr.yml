@@ -35,7 +35,6 @@ fr:
       user: 'Merci de corriger les erreurs ci-dessous:'
       company: 'Merci de corriger les erreurs ci-dessous:'
       client: 'Merci de corriger les erreurs ci-dessous:'
-  company_name: 'Nom de la boite'
   user_message:
     list: 'Liste des types de messages'
     type: 'Type de message'

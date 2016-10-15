@@ -7,6 +7,9 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
+    <nav class="topbar">
+      <h1><%= Rails.application.config.company_name %></h1>
+    </nav>
     <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
         <div class="container topnav">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -17,7 +20,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand topnav" href="#">Start Bootstrap</a>
+                <a class="navbar-brand topnav" href="#"><%= Rails.application.config.company_name %></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -37,7 +40,7 @@
                           <i class="fa fa-user"></i>&nbsp;<%= current_user.company.name %> - <%= current_user.email %>
                         <% end %>
                       <% else %>
-                        <%= link_to new_user_session_path, class: 'btn btn-default btn-lg' do %>
+                        <%= link_to new_user_session_path, class: 'btn btn-default' do %>
                           <i class="fa fa-user"></i>&nbsp;Se Connecter
                         <% end %>
                       <% end %>
@@ -56,7 +59,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="intro-message">
-                        <h1><%= I18n.t('company_name') %></h1>
+                        <h1><%= Rails.application.config.company_name %></h1>
                         <h3>Une nouvelle facon de communiquer avec vos clients !</h3>
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
@@ -86,7 +89,7 @@
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
                     <h2 class="section-heading">Notifiez vos client de vos reparations !</h2>
-                    <p class="lead">A special thanks to <a target="_blank" href="http://join.deathtothestockphoto.com/">Death to the Stock Photo</a> for providing the photographs that you see in this template. Visit their website to become a member.</p>
+                    <p class="lead">Do magna fugiat nisi mollit minim qui minim culpa amet ut magna proident laboris ipsum. Commodo nulla ea irure exercitation cillum non excepteur nisi fugiat commodo nulla. Dolor do deserunt exercitation ex.</p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
                     <img class="img-responsive" src="img/ipad.png" alt="">

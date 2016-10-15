@@ -1,5 +1,6 @@
 /*
- *= require twitter-bootstrap-static/bootstrap
+ *= require ./bootstrap.min.css
  *= require_tree ./landing
  *= require_self
  */
+
