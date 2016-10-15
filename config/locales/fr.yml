@@ -66,6 +66,7 @@ fr:
         email: 'Courriel'
         password: 'Mot de passe'
         password_confirmation: 'Confirmation du mot de passe'
+        reset_password_token: 'Jeton de réinitialisation de mot de passe'
       client:
         phone: 'Numéro de téléphone'
         first_name: 'Prénom'
@@ -124,6 +125,9 @@ fr:
               too_short: 'le mot de passe est trop court'
             password_confirmation:
               confirmation: "le mot de passe de confirmation ne correspond pas"
+            reset_password_token:
+              blank: 'non présent'
+              invalid: 'invalide'
   date:
     abbr_day_names:
     - dim
@@ -362,6 +366,12 @@ fr:
       new:
         title: 'Changer de mot de passe'
         send_password_instructions: 'Envoyer un courriel pour changer de mot de passe'
+      edit:
+        title: 'Changer le mot de passe'
+        new_password: 'Nouveau mot de passe'
+        new_password_confirm: 'Confirmer le nouveau mot de passe'
+        minimum_password_length: 'La longueur du mot de passe doit être de %{length} caractères minimum.'
+        change_password: "Changer le mot de passe"
     registrations:
       destroyed: "Votre compte a été supprimé avec succès. Nous espérons vous revoir bientôt."
       signed_up: "Bienvenue, vous êtes connecté."
