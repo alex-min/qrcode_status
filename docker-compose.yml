@@ -8,12 +8,6 @@ web:
     - "9000:5001"
   environment:
     DOCKER_COMPOSE: 1
-    ADMIN_EMAIL: 'contact@microdeo.com'
-    TWILLO_ROOT_PHONE: +33000000000
-    TWILLO_ACCOUNT_SID: none
-    TWILLO_AUTH_TOKEN: none
-    DEVISE_SECRET_KEY: secret
-    WEBSITE_HOSTNAME: localhost
 db:
   image: postgres
   environment:

@@ -48,5 +48,5 @@ index.html
 *.tmp
 
 public/system
-.env
+.env-production
 .vscode
