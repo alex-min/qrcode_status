@@ -5,36 +5,12 @@
     <script>Raven.config('https://a9b4c8eb322f4277bd5665035795f128@sentry.theparrotbay.eu/2').install()</script>
     <meta name=viewport content="width=device-width,initial-scale=1">
     <title>Status</title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': true %>
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div class="action-bar">
-      <% if current_user.present? %>
-        <%= link_to clients_path do %>
-          <i class="fa fa-tasks"></i>&nbsp;<%= I18n.t('topbar.return_to_list') %>
-        <% end %>&nbsp;
-      <% end %>
-
-      <%= yield :topbar %>
-
-      <% if current_user.present? %>
-        <%= link_to company_edit_path, class:'company-block' do %>
-          <%= image_tag current_user.company.logo.url(:avatar), class: 'company-logo' %>
-          <span class="company-name">
-            <%= current_user.company.name %>
-          </span>
-          <span>
-            - <%= current_user.email %>
-          </span>
-        <% end %>
-      <% else %>
-        <%= link_to new_user_session_path, class: 'btn btn-primary' do %>
-          <i class="fa fa-user"></i>&nbsp;Se Connecter
-        <% end %>
-      <% end %>
-    </div>
+    <%= render "shared/action_bar" %>
     <%= render "shared/flash_messages" %>
     <br>
     <%= yield %>

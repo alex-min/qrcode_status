@@ -4,4 +4,9 @@
 nav .btn {
   background: #357ebd;
   border-color: #2c3e50;
+  &:hover {
+    background-color: #3189d5 !important;
+    color: white !important;
+    border-color: #161f29 !important;
+  }
 }

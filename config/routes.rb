@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get '/app' => 'client#index', as: :app_root_path
   get '/app' => 'client#index', as: :clients
 
   get 'client/:unique_id/view' => 'client#view', as: :client
