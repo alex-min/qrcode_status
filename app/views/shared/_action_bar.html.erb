@@ -1,0 +1,31 @@
+<div class="action-bar">
+  <%= link_to clients_path, class: 'app-link' do %>
+    <%= Rails.application.config.company_name %>
+  <% end %>
+
+  <% if current_user.present? %>
+    <%= link_to clients_path, class: 'topbar-link' do %>
+      <i class="fa fa-tasks"></i>&nbsp;<%= I18n.t('topbar.return_to_list') %>
+    <% end %>&nbsp;
+  <% end %>
+
+  <div class="topbar-content">
+    <%= yield :topbar %>
+  </div>
+
+  <% if current_user.present? %>
+    <%= link_to company_edit_path, class:'company-block topbar-link' do %>
+      <%= image_tag current_user.company.logo.url(:avatar), class: 'company-logo' %>
+      <span class="company-name">
+        <%= current_user.company.name %>
+      </span>
+      <span>
+        - <%= current_user.email %>
+      </span>
+    <% end %>
+  <% else %>
+    <%= link_to new_user_session_path, class: 'btn btn-primary' do %>
+      <i class="fa fa-user"></i>&nbsp;Se Connecter
+    <% end %>
+  <% end %>
+</div>
