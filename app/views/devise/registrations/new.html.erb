@@ -8,8 +8,8 @@
 
     <div class="form-inputs">
       <%= f.input :email, required: true, autofocus: true %>
-      <%= f.hidden_field_tag 'user[password]', password %>
-      <%= f.hidden_field_tag 'user[password_confirmation]', password %>
+      <%= f.input :password %>
+      <%= f.input :password_confirmation %>
     </div>
 
     <div class="form-actions">

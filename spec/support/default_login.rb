@@ -11,6 +11,8 @@ module DefaultLogin
   def signup_as_new_client
     visit new_user_registration_path
     fill_in :user_email, with: Faker::Internet.email
+    fill_in :user_password, with: '11111111'
+    fill_in :user_password_confirmation, with: '11111111'
     click_button I18n.t('devise.registrations.new.sign_up_action')
   end
 
