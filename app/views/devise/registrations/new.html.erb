@@ -7,9 +7,9 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
-      <%= f.input :email, required: true, autofocus: true %>
-      <%= f.input :password %>
-      <%= f.input :password_confirmation %>
+      <%= f.input :email, required: true, autofocus: true, placeholder: 'courriel@monadresse.fr' %>
+      <%= f.input :password, required: true, placeholder: User.human_attribute_name(:password) %>
+      <%= f.input :password_confirmation, required: true, placeholder: User.human_attribute_name(:password_confirmation) %>
     </div>
 
     <div class="form-actions">
