@@ -15,7 +15,7 @@ class CompaniesController < ApplicationController
   def assign
     redirect_to clients_path unless current_user.company.demo
     if request.request_method === 'POST'
-      Company::Creator.assign(current_user, authorize(params))
+      Company::Creator.new(user: current_user, company_data: authorize(params)).assign
       redirect_to clients_path
     else
       @company = Company.new
