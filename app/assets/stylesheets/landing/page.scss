@@ -65,3 +65,20 @@ nav .btn {
     }
   }
 }
+
+.icon-block .fa {
+  font-size: 100px;
+  &.qrcode-icon {
+    color: #8a5858;
+  }
+  &.mobile-icon {
+    color: #dca5a5;
+  }
+  &.time-icon {
+    color: #49926e;
+  }
+}
+
+.icon-list {
+  text-align: center;
+}
