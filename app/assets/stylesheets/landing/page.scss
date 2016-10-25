@@ -82,3 +82,23 @@ nav .btn {
 .icon-list {
   text-align: center;
 }
+
+.sign-up-big-button {
+  text-align: center;
+  margin-top: 50px;
+  .btn {
+    font-size: 30px;
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    max-width: 100%;
+    &.btn-default {
+      border: 0;
+      background-color: #357ebd;
+      &:hover {
+        background-color: #3189d5;
+      }
+    }
+  }
+}
