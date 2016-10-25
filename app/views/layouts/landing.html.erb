@@ -40,8 +40,8 @@
                           <i class="fa fa-user"></i>&nbsp;<%= current_user.company.name %> - <%= current_user.email %>
                         <% end %>
                       <% else %>
-                        <%= link_to new_user_session_path, class: 'btn btn-default' do %>
-                          <i class="fa fa-user"></i>&nbsp;Se Connecter
+                        <%= link_to new_user_registration_path, class: 'btn btn-default' do %>
+                          <i class="fa fa-user"></i>&nbsp;Inscription
                         <% end %>
                       <% end %>
                     </li>
