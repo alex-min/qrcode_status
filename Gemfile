@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.5'
+ruby '2.3.1'
 
 gem 'normalize-rails'
 gem 'railties', '5.0.0'
