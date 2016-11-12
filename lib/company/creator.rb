@@ -1,16 +1,16 @@
 class Company::Creator
   def initialize(user:,
-                 company_data:)
+                 company:)
     @user = user
     @company_data = company_data
   end
 
   def assign
     ActiveRecord::Base.transaction do
-      company = Company.create!(@company_data.merge(users: [@user]))
-      company.product_states.create!(product_states_list.map { |name| { name: name } })
+      @company = Company.create!(@company_data.merge(users: [@user]))
+      @company.product_states.create!(product_states_list.map { |name| { name: name } })
       create_base_message
-      company
+      @company
     end
   end
 
