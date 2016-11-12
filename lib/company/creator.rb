@@ -32,9 +32,8 @@ class Company::Creator
       action: :close_ticket,
       message: "#{hello}"\
                "Votre <%= client.product_full_name %> est maintenant réparé, "\
-               "vous pouvez venir le chercher à tout moment au magasin."\
-               "#{horaires}"\
-                "\n#{end_message}",
+               "vous pouvez venir le chercher à tout moment au magasin.\n"\
+               "#{end_message}",
       user: @user,
       company: @company
     }
