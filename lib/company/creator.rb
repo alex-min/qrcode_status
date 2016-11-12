@@ -1,6 +1,6 @@
 class Company::Creator
   def initialize(user:,
-                 company:)
+                 company_data:)
     @user = user
     @company_data = company_data
   end
