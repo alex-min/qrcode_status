@@ -14,6 +14,7 @@ feature 'Listing Clients' do
   def then_i_should_arrive_on_the_status_page_with_clients
     expect(body).to include('Liste des clients')
     expect(page).to have_selector('.client', count: 5)
+    expect(page).to have_selector('.client-phone', count: 5)
   end
 
   let(:clients) { create_list(:client, 5) }

@@ -10,7 +10,12 @@
       </div>
     <% end %>
   </td>
-  <td><%= client.product_full_name %></td>
+  <td class="client-phone"><%= client.phone %>
+  </td>
+  <td>
+    <%= client.product_full_name %><br>
+  </td>
+  <td><%= client.panne %></td>
   <td>
     <% if client.last_event %>
       <%= client.last_event.event_name %><br>
@@ -22,7 +27,6 @@
       <i>Inconnu</i>
     <% end %>
   </td>
-  <td><%= client.panne %></td>
   <td>
     <% if client[:unique_id] %>
       <span data-toggle="tooltip" data-placement="bottom" title="Envoyer un message au client">
