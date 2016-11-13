@@ -10,11 +10,11 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require ./bootstrap.min.css
+ *= require ./bootstrap/theme.scss
  *= require twitter-bootstrap-static/fontawesome
  *= require select2
  *= require_tree ./application
+ *= require ./landing.scss
  *= require_self
  */
 .select2-container { margin-bottom: 20px; }
-.btn { padding: 7px; margin-bottom: 2px; }
